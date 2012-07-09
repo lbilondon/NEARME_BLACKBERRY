@@ -16,10 +16,19 @@ define([
 
 // $.mobile.changePage( url , { transition: effect}, reverse, changeHash );
 
+		function _initialize () {
+			var $container = $('#container');
+			$container.append('hello world LOLZ');
+		}
+
 		return {
-			initialize: function () {	
-				var $container = $('#container');
-				console.log('TEST THIS');
+			initialize: function () {
+
+				if (document.deviceready) {
+					document.addEventListener("deviceready", _initialize, true);
+				} else {
+					_initialize();
+				}
 			}
 		};
 	}

@@ -15,3 +15,5 @@ Architecture:
 - jQuery Mobile 1.1.0: For mobile UI and Helpers.
 
 The general structure is separated MVC AMD modules with a HTML / CSS UI, this is a good starting point https://github.com/addyosmani/backbone-mobile-search
+
+Important documentation for getting up and running: http://docs.phonegap.com/en/1.9.0/guide_getting-started_blackberry_index.md.html#Getting%20Started%20with%20Blackberry

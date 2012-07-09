@@ -26,12 +26,13 @@
         xmlns:rim="http://www.blackberry.com/ns/widgets"
 	version="1.0.0.0">
 
-  <name>NEARME_BLACKBERRY</name>
+  <name>NearMe</name>
 
   <description>
       NearMe is a mobile guide that makes it fast and simple to find out what's around you. Whether you are searching out hotspots, exploring for hidden gems or needing the essentials, NearMe can find it, tell you about it and get you to it.
   </description>
 
+  <author>NearMe Global Limited</author>
   <license href="http://www.getnearme.com/">
   </license>
 
