@@ -1,0 +1,1 @@
+<div id="test">Template Stub</div>
