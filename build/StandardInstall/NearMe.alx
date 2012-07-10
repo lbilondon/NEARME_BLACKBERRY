@@ -1,0 +1,12 @@
+<loader version="1.0" >
+<application id="NearMe">
+<name>NearMe</name>
+<description>NearMe is a mobile guide that makes it fast and simple to find out what's around you. Whether you are searching out hotspots, exploring for hidden gems or needing the essentials, NearMe can find it, tell you about it and get you to it.</description>
+<version>1.0.0.0</version>
+<vendor>NearMe Global Limited</vendor>
+<fileset Java="1.45">
+<directory></directory>
+<files>NearMe.cod</files>
+</fileset>
+</application>
+</loader>

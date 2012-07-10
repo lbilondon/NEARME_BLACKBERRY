@@ -1,0 +1,93 @@
+RIM-COD-SHA1-9: 51 a0 50 27 e5 20 84 1e 47 ef 66 15 7c eb 88 92 21 90 19 0f
+RIM-COD-SHA1-8: 12 83 20 14 8b ce 8b c8 42 1a 58 7f 22 8e d0 3b 15 39 70 2f
+RIM-COD-SHA1-7: 22 12 79 56 bb 04 5a 53 60 25 97 12 a8 53 3b 82 60 56 b1 c4
+RIM-COD-SHA1-6: 8b d2 1f d6 e0 47 13 6d 1c 66 11 a7 f3 fd 1b b7 7f f7 93 aa
+RIM-COD-SHA1-5: f5 c2 f6 45 5b b4 1b 53 98 f2 a0 62 2e 5b 40 5c 48 55 a5 a5
+RIM-COD-SHA1-4: e9 97 9f d8 f4 46 b2 c9 93 f4 87 b3 36 3b 1a 6f 0d 51 60 2c
+RIM-COD-SHA1-3: 45 84 c8 53 2b d9 c7 36 87 fb 03 bc d8 45 32 7e 79 20 99 96
+RIM-COD-Size-24: 63704
+RIM-COD-SHA1-2: 77 c3 0f 6e 11 64 f1 a3 83 17 e4 27 2c d1 33 aa e5 e4 3d c6
+RIM-COD-Size-23: 57088
+RIM-COD-SHA1-1: 1a 19 d5 b1 ee 9f 64 64 47 f9 34 e8 23 9f 9b 72 b3 ea a9 c3
+RIM-COD-Size-22: 24716
+RIM-COD-Size-21: 56484
+RIM-COD-Size-20: 56928
+RIM-COD-URL-19: NearMe-19.cod
+RIM-COD-URL-18: NearMe-18.cod
+RIM-COD-URL-17: NearMe-17.cod
+RIM-COD-URL-16: NearMe-16.cod
+RIM-COD-URL-15: NearMe-15.cod
+RIM-COD-URL-14: NearMe-14.cod
+RIM-COD-URL-13: NearMe-13.cod
+RIM-COD-URL-12: NearMe-12.cod
+RIM-COD-Size: 70968
+RIM-MIDlet-Icon-2-1: ____HOVER_ICON_assets/img/icon.png,focused
+RIM-COD-URL-11: NearMe-11.cod
+RIM-MIDlet-Icon-Count-2: 1
+RIM-COD-URL-10: NearMe-10.cod
+RIM-MIDlet-Icon-Count-1: 1
+MIDlet-Vendor: NearMe Global Limited
+RIM-MIDlet-Icon-1-1: assets/img/____HOVER_ICON_icon.png,focused
+Manifest-Version: 1.0
+RIM-MIDlet-Flags-1: 0
+RIM-COD-Size-19: 61416
+RIM-COD-Size-18: 59292
+RIM-COD-Size-17: 50440
+RIM-COD-Size-16: 50440
+RIM-COD-Size-15: 53732
+RIM-COD-Size-14: 50440
+RIM-COD-Size-13: 51388
+RIM-COD-Size-12: 50488
+RIM-COD-Size-11: 55276
+RIM-COD-Size-10: 50392
+MIDlet-Version: 1.0.0.0
+MicroEdition-Profile: MIDP-2.0
+RIM-COD-SHA1-24: ee e1 97 e4 7f 48 d2 fb bb 7c 42 8d 70 d7 31 0c 5b a7 e6 c2
+RIM-COD-SHA1-23: 7b dc a1 e5 0b ca c5 68 9a 81 e7 d9 8e 98 72 05 f2 68 cb 14
+RIM-COD-SHA1-22: 6e 9d 67 ce 1f cc 41 7a 04 a9 b9 0d bc 4e 04 bb c5 31 a7 ed
+RIM-COD-SHA1-21: 9c 36 c3 0b 4d f0 7a 7c 3f fe 0d 2d ac 38 a9 08 08 bc d5 35
+RIM-COD-SHA1-20: 4a ab d6 36 12 da 97 a7 72 25 2a 7f ac 2c 39 76 f6 5e 6c 45
+RIM-COD-URL: NearMe.cod
+RIM-COD-Creation-Time: 1341939649
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Jar-URL: NearMe.jar
+RIM-COD-SHA1-19: 69 17 6b 85 f1 4d a8 9a f8 8f ee 0f 3a 63 53 73 93 7c 7a 21
+RIM-COD-SHA1-18: 46 1d b5 1e 8c a4 dd 11 9f 8f df d9 ff 5f e8 5e 05 fb a4 2f
+RIM-COD-SHA1-17: d4 bc 11 4e 8a 31 24 12 cc 04 c1 e6 d3 7c 8f 86 c0 22 ca e3
+RIM-COD-SHA1-16: 7c 30 9c 49 e1 c5 be 72 29 2a b2 f1 dd 97 91 ba 0c a7 67 42
+RIM-COD-SHA1-15: f4 10 d7 87 31 12 cf 6a b5 8d 81 90 f6 58 a7 33 c6 be 95 1f
+RIM-COD-SHA1-14: 6d ce f9 14 8f 62 f7 4c 11 3d 04 30 f1 09 dd 95 73 dc 05 3c
+RIM-COD-SHA1-13: b7 a4 f9 15 18 f9 c0 c2 81 85 be 99 b8 26 1a 8c 6f 7f 0d 6a
+RIM-COD-SHA1-12: 38 71 d1 78 ad bb 79 53 04 26 68 c4 6d c1 0e 04 e2 9b 49 36
+RIM-COD-Size-9: 62680
+RIM-COD-SHA1-11: 3a 5a de 59 42 02 f6 23 56 51 e8 d6 38 8b b3 1a d4 3c cb f6
+RIM-COD-Size-8: 63676
+RIM-COD-SHA1-10: 92 0a 38 e1 65 d6 dd 26 fc b6 a4 74 b1 01 c9 ed 5c 0c 9a fd
+RIM-COD-Size-7: 67828
+MIDlet-Description: NearMe is a mobile guide that makes it fast and simple to find out what's around you. Whether you are searching out hotspots, exploring for hidden gems or needing the essentials, NearMe can find it, tell you about it and get you to it.
+RIM-COD-Size-6: 64600
+RIM-COD-Size-5: 64556
+RIM-COD-Size-4: 60712
+RIM-COD-Size-3: 67144
+RIM-COD-Size-2: 70924
+RIM-COD-Size-1: 67168
+MIDlet-1: NearMe,assets/img/icon.png,rim:foreground;WIDGET;
+MIDlet-Name: NearMe
+RIM-COD-SHA1: b7 f6 aa 37 2d cc 8d fa d1 6b 28 62 73 ff d5 43 cb c3 e3 92
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bb_web_jse_api,net_rim_xml_org,net_rim_bb_browser_field2_api,net_rim_os,net_rim_bbapi_push,net_rim_bbapi_messagelist,net_rim_pdap,net_rim_bbapi_phone,net_rim_bbapi_mailv2,net_rim_networkapi,net_rim_bb_browser_field_api,net_rim_xml,net_rim_bbapi_browser,net_rim_bbapi_invoke,net_rim_locationapi
+MIDlet-Jar-Size: 1437879
+RIM-COD-URL-9: NearMe-9.cod
+RIM-COD-URL-8: NearMe-8.cod
+RIM-COD-URL-7: NearMe-7.cod
+RIM-COD-URL-6: NearMe-6.cod
+RIM-COD-URL-5: NearMe-5.cod
+RIM-COD-URL-4: NearMe-4.cod
+RIM-COD-URL-3: NearMe-3.cod
+RIM-COD-URL-2: NearMe-2.cod
+RIM-COD-URL-1: NearMe-1.cod
+RIM-COD-Module-Name: NearMe
+RIM-COD-URL-24: NearMe-24.cod
+RIM-COD-URL-23: NearMe-23.cod
+RIM-COD-URL-22: NearMe-22.cod
+RIM-COD-URL-21: NearMe-21.cod
+RIM-COD-URL-20: NearMe-20.cod

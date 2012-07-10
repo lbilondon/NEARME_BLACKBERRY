@@ -1,0 +1,22 @@
+<div class="branding" data-role="header">
+	<a href="#settings" data-role="button">settings</a>
+		<h1 class="ui-title" aria-level="1" role="heading">near<span>me</span></h1>
+	<a href="#location" data-role="button">location</a>
+</div>
+<div data-role="content">
+	<ul data-role="listview">
+		<li><a href="/brands/all">All Brands</a></li>
+		
+		<% _.each(brands, function(brand) { %>
+			<li><a href="<%= brand.url %>"><%= brand.name %></a></li>
+		<% }); %>
+
+		<li data-role="list-divider"></li>
+
+		<li><a href="#allcategories">All Categories</a></li>
+		
+		<% _.each(categories, function(category) { %>
+			<li><a href="<%= category.url %>"><%= category.name %></a></li>
+		<% }); %>
+	</ul>
+</div>

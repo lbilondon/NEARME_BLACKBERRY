@@ -1,0 +1,12 @@
+<div id="branding" data-role="header">
+  <h1 class="ui-title" aria-level="1" role="heading">near<span>me</span></h1>
+</div>
+<div data-role="content">
+  <ul data-role="listview">
+  
+    <% _.each(categories, function(category) { %>
+      <li><a href="<%= category.url %>"><%= category.name %></a></li>
+    <% }); %>
+  
+  </ul>
+</div>
