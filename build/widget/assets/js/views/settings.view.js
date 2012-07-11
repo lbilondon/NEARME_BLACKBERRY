@@ -7,7 +7,7 @@ define([
 		'text!templates/settings.tmpl.html'
 	],
 	function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsTmplString) {
-		"use strict";
+		// "use strict";
 
 		return Backbone.View.extend({
 			template : _.template(SettingsTmplString),
@@ -17,10 +17,21 @@ define([
 			},
 			
 			render : function() {
+				if (this.options.persistent) {
+					this.$el.addClass('persistent-page');
+				}
+
 				this.$el.attr({ 'data-role': 'page' });
 				this.$el.append(this.template());
 				
 				return this;
+			},
+
+			isPersistent: function () {
+				if (this.options.persistent !== undefined) {
+					return this.options.persistent;
+				}
+				return false;
 			}
 		});
 	}

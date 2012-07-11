@@ -5,7 +5,7 @@
  * Developed by LBi London, July 2012
  **/
 (function() {
-	"use strict";
+	// "use strict";
 	
 	var libsPath = '../../libs/js/'; //libsPath relative to 'basePath'
 	

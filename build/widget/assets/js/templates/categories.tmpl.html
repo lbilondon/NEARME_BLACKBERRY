@@ -5,7 +5,7 @@
   <ul data-role="listview">
   
     <% _.each(categories, function(category) { %>
-      <li><a href="<%= category.url %>"><%= category.name %></a></li>
+      <li><a href="#venues/<%= category.id %>"><%= category.name %></a></li>
     <% }); %>
   
   </ul>

@@ -6,7 +6,7 @@ define([
 		'backbone'
 	],
 	function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib) {
-		"use strict";
+		// "use strict";
 
 		return Backbone.View.extend({
 			template : _.template(/*loaded template*/),
@@ -16,9 +16,20 @@ define([
 			},
 			
 			render : function() {
+				if (this.options.persistent) {
+					this.$el.addClass('persistent-page');
+				}
+
 				this.$el.append(this.template(/*model/collection*/));
 				
 				return this;
+			},
+
+			isPersistent: function () {
+				if (this.options.persistent !== undefined) {
+					return this.options.persistent;
+				}
+				return false;
 			}
 		});
 	}

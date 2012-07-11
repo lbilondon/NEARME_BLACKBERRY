@@ -7,42 +7,42 @@ define([
 		'text!templates/home.tmpl.html'
 	],
 	function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HomeTmplString) {
-		"use strict";
+		// "use strict";
 
 		var brands = [
 					{
-						url: '#pizza_hut',
+						id: 'pizza_hut',
 						name: 'Pizza Hut'
 					}, {
-						url: '#tesco',
+						id: 'tesco',
 						name: 'Tesco'
 					}
 				];
 
 		var categories = [
 					{
-						url: '#banks_atms',
+						id: 'banks_atms',
 						name: 'Banks & ATMs'
 					}, {
-						url: '#coffee_shops',
+						id: 'coffee_shops',
 						name: 'Coffee Shops'
 					}, {
-						url: '#hotels',
+						id: 'hotels',
 						name: 'Hotels'
 					}, {
-						url: '#petrol_stations',
+						id: 'petrol_stations',
 						name: 'Petrol Stations'
 					}, {
-						url: '#pubs_bars',
+						id: 'pubs_bars',
 						name: 'Pubs & Bars'
 					}, {
-						url: '#restaurants',
+						id: 'restaurants',
 						name: 'Restaurants'
 					}, {
-						url: '#supermarkets',
+						id: 'supermarkets',
 						name: 'Supermarkets'
 					}, {
-						url: '#taxis',
+						id: 'taxis',
 						name: 'Taxis'
 					}
 				];
@@ -55,7 +55,10 @@ define([
 			},
 			
 			render : function() {
-				this.$el.attr({ 'data-role': 'page' });
+				if (this.options.persistent) {
+					this.$el.addClass('persistent-page');
+				}
+
 				this.$el.append(this.template({ brands: brands, categories: categories }));
 				
 				this.$el.find("a[href^='#']").bind('tap', function (e) {
@@ -63,6 +66,13 @@ define([
 				});
 
 				return this;
+			},
+
+			isPersistent: function () {
+				if (this.options.persistent !== undefined) {
+					return this.options.persistent;
+				}
+				return false;
 			}
 		});
 	}
