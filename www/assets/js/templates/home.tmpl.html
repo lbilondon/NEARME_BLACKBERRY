@@ -1,22 +1,21 @@
-<div class="branding" data-role="header">
-	<a href="#settings" data-role="button">settings</a>
-		<h1 class="ui-title" aria-level="1" role="heading">near<span>me</span></h1>
-	<a href="#location" data-role="button">location</a>
-</div>
 <div data-role="content">
-	<ul data-role="listview">
-		<li><a href="#brands/all">All Brands</a></li>
+	<ul class="listView" data-role="listview">
+		<% if (brands !== null) { %>
+		<li><a href="/brands/all">All Brands</a></li>
 		
-		<% _.each(brands, function(brand) { %>
-			<li><a href="#venues/<%= brand.id %>"><%= brand.name %></a></li>
+		<% brands.each(function(brand) { %>
+			<li><a href="/venues/<%= brand.get('id') %>"><%= brand.get('title') %></a></li>
 		<% }); %>
 
 		<li data-role="list-divider"></li>
+		<% } %>
 
-		<li><a href="#categories/all">All Categories</a></li>
+		<% if (categories !== null) { %>
+		<li><a href="/categories/all">All Categories</a></li>
 		
-		<% _.each(categories, function(category) { %>
-			<li><a href="#vanyes/<%= category.id %>"><%= category.name %></a></li>
+		<% categories.each(function(category) { %>
+			<li><a href="/venues/<%= category.get('id') %>"><%= category.get('title') %></a></li>
 		<% }); %>
+		<% } %>
 	</ul>
 </div>

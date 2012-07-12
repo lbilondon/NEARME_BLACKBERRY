@@ -1,16 +1,15 @@
+/*global _, Backbone*/
 define([
-		'underscore',
-		'backbone'
-	],
-	function(_, Backbone) {
-		// "use strict";
+	'underscore',
+	'backbone'
+],
+function(UnderscoreLib, BackboneLib) {
+	// "use strict";
 
-		
-		return Backbone.Model.extend({
-			idAttribute: 'modelId',
-			initialize : function() {
-				
-			}
-		});
-	}
-);
+	return Backbone.Model.extend({
+		idAttribute: 'modelId',
+		initialize : function() {
+			
+		}
+	});
+});

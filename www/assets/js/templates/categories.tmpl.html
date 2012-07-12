@@ -1,12 +1,14 @@
 <div id="branding" data-role="header">
   <h1 class="ui-title" aria-level="1" role="heading">near<span>me</span></h1>
 </div>
-<div data-role="content">
-  <ul data-role="listview">
-  
+<div id="content" data-role="content">
+	<% if (categories.length > 0) { %>
+	<ul data-role="listview">
     <% _.each(categories, function(category) { %>
-      <li><a href="#venues/<%= category.id %>"><%= category.name %></a></li>
+      <li><a href="/venues/<%= category.id %>"><%= category.title %></a></li>
     <% }); %>
-  
   </ul>
+  <% } else { %>
+    <h2>No Categories Listed</h2>
+  <% } %>
 </div>

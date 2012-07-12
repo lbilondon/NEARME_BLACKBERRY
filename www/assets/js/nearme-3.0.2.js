@@ -6,7 +6,6 @@
  **/
 (function() {
 	// "use strict";
-	
 	var libsPath = '../../libs/js/'; //libsPath relative to 'basePath'
 	
 	require.config({
@@ -23,6 +22,8 @@
 			'application'
 		],
 		function(App) {
+			window.NEARMEAPP = window.NEARMEAPP || {};
+
 			App.initialize();
 		}
 	);

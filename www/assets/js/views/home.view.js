@@ -1,79 +1,83 @@
 /*global $, Backbone, _*/
 define([
-		'jquery',
-		'jqueryMobile',
-		'underscore',
-		'backbone',
-		'text!templates/home.tmpl.html'
-	],
-	function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HomeTmplString) {
-		// "use strict";
+	'jquery',
+	'jqueryMobile',
+	'underscore',
+	'backbone',
+	'collections/categories.collection',
+	'text!templates/home.tmpl.html',
+	'text!templates/header.tmpl.html'
+],
+function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplString, HeaderTemplateString) {
+	// "use strict";
 
-		var brands = [
-					{
-						id: 'pizza_hut',
-						name: 'Pizza Hut'
-					}, {
-						id: 'tesco',
-						name: 'Tesco'
-					}
-				];
+	return Backbone.View.extend({
+		headerTemplate: _.template(HeaderTemplateString),
+		listTemplate : _.template(HomeTmplString),
+		
+		initialize : function() {
+			_.bindAll(this, 'render','bindEvents','unbindEvents','pageshow');
+			this.render();
+		},
+		
+		render : function() {
+			this.bindEvents();
+			this.$el.append(this.headerTemplate());
+			// this.pageshow();
+			return this;
+		},
 
-		var categories = [
-					{
-						id: 'banks_atms',
-						name: 'Banks & ATMs'
-					}, {
-						id: 'coffee_shops',
-						name: 'Coffee Shops'
-					}, {
-						id: 'hotels',
-						name: 'Hotels'
-					}, {
-						id: 'petrol_stations',
-						name: 'Petrol Stations'
-					}, {
-						id: 'pubs_bars',
-						name: 'Pubs & Bars'
-					}, {
-						id: 'restaurants',
-						name: 'Restaurants'
-					}, {
-						id: 'supermarkets',
-						name: 'Supermarkets'
-					}, {
-						id: 'taxis',
-						name: 'Taxis'
-					}
-				];
+		bindEvents: function () {
+			this.$el.on('pageshow', this.pageshow);
 
-		return Backbone.View.extend({
-			template : _.template(HomeTmplString),
-			
-			initialize : function() {
-				this.render();
-			},
-			
-			render : function() {
-				if (this.options.persistent) {
-					this.$el.addClass('persistent-page');
+		},
+
+		unbindEvents: function () {
+			this.$el.off('pageshow', this.pageshow);
+		},
+
+		pageshow: function () {
+			var brands = new CategoriesCollection([
+				{
+					id: 'pizza_hut',
+					title: 'Pizza Hut'
+				}, {
+					id: 'tesco',
+					title: 'Tesco'
 				}
+			]);
 
-				this.$el.append(this.template({ brands: brands, categories: categories }));
-				
-				this.$el.find("a[href^='#']").bind('tap', function (e) {
-					window.APP_ROUTER.navigate($(this).attr('href'), {trigger: true});
-				});
-
-				return this;
-			},
-
-			isPersistent: function () {
-				if (this.options.persistent !== undefined) {
-					return this.options.persistent;
+			var categories = new CategoriesCollection([
+				{
+					id: 'banks_atms',
+					title: 'Banks & ATMs'
+				}, {
+					id: 'coffee_shops',
+					title: 'Coffee Shops'
+				}, {
+					id: 'hotels',
+					title: 'Hotels'
+				}, {
+					id: 'petrol_stations',
+					title: 'Petrol Stations'
+				}, {
+					id: 'pubs_bars',
+					title: 'Pubs & Bars'
+				}, {
+					id: 'restaurants',
+					title: 'Restaurants'
+				}, {
+					id: 'supermarkets',
+					title: 'Supermarkets'
+				}, {
+					id: 'taxis',
+					title: 'Taxis'
 				}
-				return false;
-			}
-		});
-	}
-);
+			]);
+
+			this.$el.append(this.listTemplate({ brands: brands, categories: categories }));
+			this.$el.trigger('create');
+			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
+		}
+	});
+});
