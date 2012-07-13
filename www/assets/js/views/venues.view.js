@@ -4,37 +4,74 @@ define([
 	'jqueryMobile',
 	'underscore',
 	'backbone',
+	'collections/venues.collection',
+	'text!templates/header.tmpl.html',
 	'text!templates/venues.tmpl.html',
 	'text!dataStub/venues.json.js'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesTmplStr, VenuesDataStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenuesTmplStr, VenuesDataStr) {
 	// "use strict";
 
-	var venues = $.parseJSON(VenuesDataStr);
+	var venuesStub = $.parseJSON(VenuesDataStr);
 
 	return Backbone.View.extend({
-		template : _.template(VenuesTmplStr),
+		headerTemplate: _.template(HeaderTmplStr),
+		listTemplate : _.template(VenuesTmplStr),
 		
-		initialize : function() {
+		initialize: function() {
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
 			this.render();
 		},
 		
-		render : function() {
-			
+		render: function() {
 			this.$el.attr({
 				'data-role': 'page',
 				'data-add-back-btn': 'true'
 			});
+			
+			this.$el.append(this.headerTemplate());
+			this.bindEvents();
+			return this;
+		},
 
+		bindEvents: function () {
+			this.$el.on('pagebeforeshow', this.pagebeforeshow);
+			this.$el.on('pagebeforehide', this.pagebeforehide);
+			this.$el.on('pageshow', this.pageshow);
+			this.$el.on('pagehide', this.pagehide);
+		},
+
+		unbindEvents: function () {
+			this.$el.off('pagebeforeshow', this.pagebeforeshow);
+			this.$el.off('pagebeforehide', this.pagebeforehide);
+			this.$el.off('pageshow', this.pageshow);
+			this.$el.off('pagehide', this.pagehide);
+		},
+
+		pagebeforeshow: function () {
+			//triggered on page
+		},
+
+		pagebeforehide: function () {
+			//triggered on page
+		},
+
+		pageshow: function () {
 			var tmp = [];
 			if (this.options.category_id !== undefined) {
-				if (venues[this.options.category_id] !== undefined) {
-					tmp = venues[this.options.category_id];
+				if (venuesStub[this.options.category_id] !== undefined) {
+					tmp = venuesStub[this.options.category_id];
 				}
 			}
 
-			this.$el.append(this.template({ venues: tmp }));
-			return this;
+			var venues = new VenuesCollection(tmp);
+			this.$el.append(this.listTemplate({ venues: venues }));
+			this.$el.trigger('create');
+			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
+		},
+
+		pagehide: function () {
+			//triggered on page
 		}
 	});
 });

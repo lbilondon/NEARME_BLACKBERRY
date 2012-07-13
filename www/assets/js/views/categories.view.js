@@ -4,36 +4,34 @@ define([
 	'jqueryMobile',
 	'underscore',
 	'backbone',
+	'collections/categories.collection',
 	'text!templates/categories.tmpl.html',
+	'text!templates/header.tmpl.html',
 	'text!dataStub/categories.json.js'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesTmplString, CategoriesDataStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollection, CategoriesTmplString, HeaderTmplString, CategoriesDataStr) {
 		// "use strict";
 
-	var categories = $.parseJSON(CategoriesDataStr);
+	var categoriesStub = $.parseJSON(CategoriesDataStr);
 
 	return Backbone.View.extend({
-		template : _.template(CategoriesTmplString),
+		headerTemplate: _.template(HeaderTmplString),
+		listTemplate : _.template(CategoriesTmplString),
 		
 		initialize: function () {
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+
 			this.render();
 		},
 		
 		render: function () {
-
 			this.$el.attr({
 				'data-role': 'page',
 				'data-add-back-btn': 'true'
 			});
-
-			var cat = [];
-			if (this.options.category_id !== undefined) {
-				if (categories[this.options.category_id] !== undefined) {
-					cat = categories[this.options.category_id];
-				}
-			}
-			this.$el.append(this.template({ categories: cat }));
 			
+			this.$el.append(this.headerTemplate());
+			this.bindEvents();
 			return this;
 		},
 
@@ -60,7 +58,18 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesTmplStri
 		},
 
 		pageshow: function () {
-			//triggered on page
+			
+			var tmp = [];
+			if (this.options.category_id !== undefined) {
+				if (categoriesStub[this.options.category_id] !== undefined) {
+					tmp = categoriesStub[this.options.category_id];
+				}
+			}
+
+			var categories = new CategoriesCollection(tmp);
+			this.$el.append(this.listTemplate({ categories: categories }));
+			this.$el.trigger('create');
+			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
 		},
 
 		pagehide: function () {
