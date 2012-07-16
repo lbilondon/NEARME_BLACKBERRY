@@ -5,11 +5,22 @@ define([
 	'models/category.model'
 ],
 function(UnderscoreLib, BackboneLib, CategoryModel) {
-	// "use strict";
+
+	var useStub = true;
+
 	return Backbone.Collection.extend({
 		model: CategoryModel,
-		initialize : function() {
-
+		url: function () {
+			if (useStub) {
+				return '/assets/js/dataStub/categories.json.js';
+			}
+		},
+		fetchFromId: function (id, options) {
+			if (id === 'brands') {
+				this.url = '/assets/js/dataStub/brands.json.js';
+			}
+			
+			return this.fetch(options);
 		}
 	});
 });

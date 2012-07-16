@@ -7,28 +7,22 @@ define([
 	'collections/venues.collection',
 	'text!templates/header.tmpl.html',
 	'text!templates/venues.tmpl.html',
-	'text!dataStub/venues.json.js'
+	'text!templates/error.tmpl.html'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenuesTmplStr, VenuesDataStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenuesTmplStr, ErrorTmplStr) {
 	// "use strict";
-
-	var venuesStub = $.parseJSON(VenuesDataStr);
 
 	return Backbone.View.extend({
 		headerTemplate: _.template(HeaderTmplStr),
 		listTemplate : _.template(VenuesTmplStr),
+		errorTemplate: _.template(ErrorTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide');
 			this.render();
 		},
 		
 		render: function() {
-			this.$el.attr({
-				'data-role': 'page',
-				'data-add-back-btn': 'true'
-			});
-			
 			this.$el.append(this.headerTemplate());
 			this.bindEvents();
 			return this;
@@ -57,17 +51,26 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 		},
 
 		pageshow: function () {
-			var tmp = [];
-			if (this.options.category_id !== undefined) {
-				if (venuesStub[this.options.category_id] !== undefined) {
-					tmp = venuesStub[this.options.category_id];
-				}
+			var venues = new VenuesCollection();
+			if (this.options.category_id !== null) {
+				venues.fetchFromId(this.options.category_id, {
+					success: this.dataFetchSuccess,
+					error: this.dataFetchError
+				});
 			}
+		},
 
-			var venues = new VenuesCollection(tmp);
-			this.$el.append(this.listTemplate({ venues: venues }));
+		dataFetchSuccess: function (collection, response) {
+			collection.remove(collection.at(0));
+			collection.add(response.root);
+
+			this.$el.append(this.listTemplate({ venues: collection }));
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
+		},
+
+		dataFetchError: function () {
+			this.$el.append(this.errorTemplate());
 		},
 
 		pagehide: function () {

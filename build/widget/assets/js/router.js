@@ -15,32 +15,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
     var homeView = null,
         settingsView = null;
 
-    function _bindEvents (page) {
-
-        page.$el.on('pageshow', function (e) {
-            $(e.currentTarget).find('[data-rel="back"]').bind('tap', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                if (window.history.length > 0) {
-                    window.history.back();
-                }
-            });
-        });
-
-        page.$el.find("a[href^='#'], a[href^='/']").bind('tap', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            var href = $(this).attr('href').toString();
-            if (href.charAt(0) === '/') {
-                href = '#' + href.substr(1, href.length);
-            }
-        
-            //HACK TO STOP BACKBONE NAVIGATE SWITCHING TO PUSH STATE
-            href = href.replace('/', '__');
-            window.APP_ROUTER.navigate( href, { trigger: true, replace: false });
-        });
-    }
 
     function _handleHardwareButton () {
         if (window.blackberry) {
@@ -49,9 +23,11 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                     if (window.history.length > 0) {
                         window.history.back();
                         return false;
-                    } else if (blackberry.app) {
-                        blackberry.app.exit();
                     }
+                    // ToDo: Figure out why this doesn't work.
+                    // else if (blackberry.app) {
+                    //     blackberry.app.exit();
+                    // }
                 }
             );
         }
@@ -143,10 +119,62 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                     $(event.currentTarget).find("a[href^='#'], a[href^='/']").off('tap');
                     $(event.currentTarget).remove();
                 });
-                _bindEvents(page);
+                this.bindEvents(page);
                 
                 $.mobile.changePage(page.$el, { changeHash: true, transition: 'none' });
             }
+        },
+
+        bindEvents: function (page) {
+            this.bindBackEvent(page);
+            this.bindInternalLinkTapEvent(page);
+        },
+
+        unbindEvents: function (page) {
+            this.unbindBackEvent(page);
+            this.unbindInternalLinkTapEvent(page);
+        },
+
+        refreshEventBindings: function (page) {
+            this.unbindEvents(page);
+            this.bindEvents(page);
+        },
+
+        bindBackEvent: function (page) {
+            page.$el.on('pageshow', function (e) {
+                $(e.currentTarget).find('[data-rel="back"]').on('tap', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if (window.history.length > 0) {
+                        window.history.back();
+                    }
+                });
+            });
+        },
+
+        unbindBackEvent: function (page) {
+            page.$el.find('[data-rel="back"]').off('tap');
+        },
+
+        bindInternalLinkTapEvent: function (page) {
+            var that = this;
+            page.$el.find("a[href^='#'], a[href^='/']").on('tap', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var href = $(this).attr('href').toString();
+                if (href.charAt(0) === '/') {
+                    href = '#' + href.substr(1, href.length);
+                }
+            
+                //HACK TO STOP BACKBONE NAVIGATE SWITCHING TO PUSH STATE
+                href = href.replace('/', '__');
+                that.navigate( href, { trigger: true, replace: false });
+            });
+        },
+
+        unbindInternalLinkTapEvent: function (page) {
+            page.$el.find("a[href^='#'], a[href^='/']").off('tap');
         }
     });
   }

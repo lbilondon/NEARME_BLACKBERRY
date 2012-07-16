@@ -5,9 +5,22 @@ define([
 	'models/venue.model'
 ],
 function(UnderscoreLib, BackboneLib, VenueModel) {
-	// "use strict";
+
+	var useStub = true;
+
 	return Backbone.Collection.extend({
 		model: VenueModel,
-		initialize : function() { }
+		url: function () {
+			if (useStub) {
+				return '/assets/js/dataStub/venues.json.js';
+			}
+		},
+		fetchFromId: function (id, options) {
+			if (id !== undefined) {
+				this.url = '/assets/js/dataStub/venues.' + id.toString() + '.json.js';
+			}
+
+			return this.fetch(options);
+		}
 	});
 });

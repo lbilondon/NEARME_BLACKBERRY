@@ -4,12 +4,39 @@ define([
 	'jqueryMobile',
 	'underscore',
 	'backbone',
-	'text!templates/home.tmpl.html'
+	'collections/categories.collection',
+	'text!templates/home.tmpl.html',
+	'text!templates/header.tmpl.html'
 ],
-function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HomeTmplString) {
+function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplStr, HeaderTemplateStr) {
 	// "use strict";
 
-	var brands = [
+	return Backbone.View.extend({
+		headerTemplate: _.template(HeaderTemplateStr),
+		listTemplate : _.template(HomeTmplStr),
+		
+		initialize : function() {
+			_.bindAll(this, 'render','bindEvents','unbindEvents','pageshow');
+			this.render();
+		},
+		
+		render : function() {
+			this.$el.append(this.headerTemplate());
+			this.bindEvents();
+			return this;
+		},
+
+		bindEvents: function () {
+			this.$el.on('pageshow', this.pageshow);
+
+		},
+
+		unbindEvents: function () {
+			this.$el.off('pageshow', this.pageshow);
+		},
+
+		pageshow: function () {
+			var brands = new CategoriesCollection([
 				{
 					id: 'pizza_hut',
 					title: 'Pizza Hut'
@@ -17,9 +44,9 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HomeTmplString) {
 					id: 'tesco',
 					title: 'Tesco'
 				}
-			];
+			]);
 
-	var categories = [
+			var categories = new CategoriesCollection([
 				{
 					id: 'banks_atms',
 					title: 'Banks & ATMs'
@@ -45,18 +72,11 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HomeTmplString) {
 					id: 'taxis',
 					title: 'Taxis'
 				}
-			];
+			]);
 
-	return Backbone.View.extend({
-		template : _.template(HomeTmplString),
-		
-		initialize : function() {
-			this.render();
-		},
-		
-		render : function() {
-			this.$el.append(this.template({ brands: brands, categories: categories }));
-			return this;
+			this.$el.append(this.listTemplate({ brands: brands, categories: categories }));
+			this.$el.trigger('create');
+			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
 		}
 	});
 });

@@ -5,11 +5,12 @@ define([
     'underscore',
     'backbone',
     'router',
+    'models/config.model',
 	'views/home.view',
 	'views/settings.view',
 	'views/categories.view'
 ],
-function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, HomeView, SettingsView, CategoriesView) {
+function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, HomeView, SettingsView, CategoriesView) {
 	// "use strict";
 
 	function _initialize () {
@@ -19,8 +20,13 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, HomeView,
 			$.mobile.hashListeningEnabled = false;
 			$.mobile.pushStateEnabled = false;
 
-			window.APP_ROUTER = new AppRouter();
+			window.NEARMEAPP.ROUTER = new AppRouter();
 			Backbone.history.start();
+
+			window.NEARMEAPP.EVENTS = {};
+			_.extend(window.NEARMEAPP.EVENTS, Backbone.Events);
+
+			window.NEARMEAPP.CONFIGMODEL = new ConfigModel();
 		});
 	}
 

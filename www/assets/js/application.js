@@ -6,11 +6,12 @@ define([
     'backbone',
     'router',
     'models/config.model',
+    'models/settings.model',
 	'views/home.view',
 	'views/settings.view',
 	'views/categories.view'
 ],
-function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, HomeView, SettingsView, CategoriesView) {
+function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, SettingsModel, HomeView, SettingsView, CategoriesView) {
 	// "use strict";
 
 	function _initialize () {
@@ -27,6 +28,7 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 			_.extend(window.NEARMEAPP.EVENTS, Backbone.Events);
 
 			window.NEARMEAPP.CONFIGMODEL = new ConfigModel();
+			window.NEARMEAPP.SETTINGSMODEL = new SettingsModel();
 		});
 	}
 

@@ -7,29 +7,23 @@ define([
 	'collections/categories.collection',
 	'text!templates/categories.tmpl.html',
 	'text!templates/header.tmpl.html',
-	'text!dataStub/categories.json.js'
+	'text!templates/error.tmpl.html'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollection, CategoriesTmplString, HeaderTmplString, CategoriesDataStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollection, CategoriesTmplStr, HeaderTmplStr, ErrorTmplStr) {
 		// "use strict";
 
-	var categoriesStub = $.parseJSON(CategoriesDataStr);
-
 	return Backbone.View.extend({
-		headerTemplate: _.template(HeaderTmplString),
-		listTemplate : _.template(CategoriesTmplString),
+		headerTemplate: _.template(HeaderTmplStr),
+		listTemplate : _.template(CategoriesTmplStr),
+		errorTemplate: _.template(ErrorTmplStr),
 		
 		initialize: function () {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide');
 
 			this.render();
 		},
 		
 		render: function () {
-			this.$el.attr({
-				'data-role': 'page',
-				'data-add-back-btn': 'true'
-			});
-			
 			this.$el.append(this.headerTemplate());
 			this.bindEvents();
 			return this;
@@ -58,18 +52,27 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 		},
 
 		pageshow: function () {
-			
-			var tmp = [];
-			if (this.options.category_id !== undefined) {
-				if (categoriesStub[this.options.category_id] !== undefined) {
-					tmp = categoriesStub[this.options.category_id];
-				}
+			var categories = new CategoriesCollection();
+			if (this.options.category_id !== null) {
+				categories.fetchFromId(this.options.category_id, {
+					success: this.dataFetchSuccess,
+					error: this.dataFetchError
+				});
 			}
+		},
 
-			var categories = new CategoriesCollection(tmp);
-			this.$el.append(this.listTemplate({ categories: categories }));
+		dataFetchSuccess: function (collection, response) {
+			
+			collection.remove(collection.at(0));
+			collection.add(response.root);
+			this.$el.append(this.listTemplate({ categories:  collection }));
+
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
+		},
+
+		dataFetchError: function () {
+			this.$el.append(this.errorTemplate());
 		},
 
 		pagehide: function () {

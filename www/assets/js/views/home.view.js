@@ -8,12 +8,12 @@ define([
 	'text!templates/home.tmpl.html',
 	'text!templates/header.tmpl.html'
 ],
-function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplString, HeaderTemplateString) {
+function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplStr, HeaderTemplateStr) {
 	// "use strict";
 
 	return Backbone.View.extend({
-		headerTemplate: _.template(HeaderTemplateString),
-		listTemplate : _.template(HomeTmplString),
+		headerTemplate: _.template(HeaderTemplateStr),
+		listTemplate : _.template(HomeTmplStr),
 		
 		initialize : function() {
 			_.bindAll(this, 'render','bindEvents','unbindEvents','pageshow');
@@ -21,15 +21,13 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 		},
 		
 		render : function() {
-			this.bindEvents();
 			this.$el.append(this.headerTemplate());
-			// this.pageshow();
+			this.bindEvents();
 			return this;
 		},
 
 		bindEvents: function () {
 			this.$el.on('pageshow', this.pageshow);
-
 		},
 
 		unbindEvents: function () {

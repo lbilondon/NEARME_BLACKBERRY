@@ -22,6 +22,8 @@
 			'application'
 		],
 		function(App) {
+			window.NEARMEAPP = window.NEARMEAPP || {};
+
 			App.initialize();
 		}
 	);
