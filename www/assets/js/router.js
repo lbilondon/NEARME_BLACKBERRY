@@ -7,9 +7,10 @@ define([
     'views/home.view',
     'views/settings.view',
     'views/categories.view',
-    'views/venues.view'
+    'views/venues.view',
+    'views/venueDetails.view'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, CategoriesView, VenuesView) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, CategoriesView, VenuesView, VenueDetailsView) {
     // "use strict";
 
     var homeView = null,
@@ -95,11 +96,18 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                     category_id: cat_id
                 });
                 this.changePage(venuesView);
+                //cache venues
             }
         },
 
         venueDetails: function ( venue_id ) {
-
+            if (venue_id !== undefined) {
+                var venueDetailsView = new VenueDetailsView({
+                    id: 'venueDetails',
+                    venue_id: venue_id
+                });
+                this.changePage(venueDetailsView);
+            }
         },
 
         home: function () {

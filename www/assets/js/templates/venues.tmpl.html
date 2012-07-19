@@ -3,12 +3,18 @@
   <ul data-role="listview">
   
     <% venues.each(function(venue) { %>
-      <li>
-      		<h3 class="ui-li-heading"><a href="/venueDetails/<%= venue.get('id') %>"><%= venue.get('tradeName') %></a></h3>
-      		<% if (venue.get('location').fullAddress !== '') { %>
-      		<p class="ui-li-desc"><%= venue.get('location').fullAddress %></p>
-      		<% } %>
-      </li>
+      <% if (venue.get('tradingName') !== null) { %>
+        <li>
+          <a href="/venueDetails/<%= venue.get('id') %>">
+            <% if (venue.get('thumbUrl') !== null) { %><img src="<%= venue.get('thumbUrl') %>" class="ui-li-thumb"><% } %>
+          		<h3 class="ui-li-heading"><%= venue.get('tradingName') %></h3>
+          		<% if (venue.get('location').fullAddress !== '') { %>
+          		<p class="ui-li-desc"><%= venue.get('location').fullAddress %></p>
+              <p class="ui-li-desc"><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
+        		<% } %>
+            </a>
+        </li>
+      <% } %>
     <% }); %>
   
   </ul>

@@ -17,10 +17,15 @@ function(UnderscoreLib, BackboneLib, CategoryModel) {
 		},
 		fetchFromId: function (id, options) {
 			if (id === 'brands') {
-				this.url = '/assets/js/dataStub/brands.json.js';
+				this.url = '/assets/js/dataStub/cat_listing_0.json';
 			}
-			
 			return this.fetch(options);
+		},
+
+		parse: function (response) {
+			if (response.response !== undefined) {
+				return response.response.categories;
+			}
 		}
 	});
 });

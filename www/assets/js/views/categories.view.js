@@ -65,7 +65,13 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 			
 			collection.remove(collection.at(0));
 			collection.add(response.root);
-			this.$el.append(this.listTemplate({ categories:  collection }));
+
+			var pageTitle = 'Categories';
+			if (this.options.category_id === 'brands') {
+				pageTitle = 'Brands';
+			}
+			var location = 'Brick Lane';
+			this.$el.append(this.listTemplate({ categories:  collection, pageTitle: pageTitle, location: location }));
 
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);

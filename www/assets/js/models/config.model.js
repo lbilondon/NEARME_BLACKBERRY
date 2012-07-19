@@ -8,7 +8,7 @@ function(UnderscoreLib, BackboneLib) {
 
 	return Backbone.Model.extend({
 		defaults: {
-			"key": null, //api key
+			"key": '2fbfd81005dd426188ddcf7a56a5e4c4', //api key
 			"duid": null, //device open udid
 			"uid": "0000-0000-000000000000", //config request response sets this
 			"v": "2.0.3", //app version

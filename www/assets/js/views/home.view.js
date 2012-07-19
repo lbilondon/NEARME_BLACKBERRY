@@ -37,10 +37,10 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 		pageshow: function () {
 			var brands = new CategoriesCollection([
 				{
-					id: 'pizza_hut',
+					id: '313',
 					title: 'Pizza Hut'
 				}, {
-					id: 'tesco',
+					id: '304',
 					title: 'Tesco'
 				}
 			]);

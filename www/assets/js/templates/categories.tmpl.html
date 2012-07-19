@@ -1,8 +1,17 @@
 <div id="content" data-role="content">
+  <div id="sectionBanner" data-role="header">
+    <h1><%= pageTitle %></h1>
+    <p><%= location %></p>
+  </div>
 	<% if (categories.length > 0) { %>
 	<ul data-role="listview">
     <% categories.each(function(category) { %>
-      <li><a href="/venues/<%= category.get('id') %>"><%= category.get('title') %></a></li>
+	    <% if (category.get('title') !== null) { %>
+	      <li><a href="/venues/<%= category.get('id') %>">
+          <% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-thumb" /><% } %>
+          <%= category.get('title') %></a>
+        </li>
+	    <% } %>
     <% }); %>
   </ul>
   <% } else { %>
