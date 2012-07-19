@@ -4,91 +4,50 @@ define([
 	'backbone'
 ],
 function(UnderscoreLib, BackboneLib) {
-	// "use strict";
-
-	//var dataStructure = {
-	//			"id": "63860",
-	//			"service": "NearMe",
-	//			"tradeName": "Comerica Bank",
-	//			"thumbUrl": "http://www.comerica.com/thumb.png",
-	//			"photoUrl": "http://www.comerica.com/photo.png",
-	//			"distance": 925,
-	//			"rating": 5,
-	//			"ratingsCount": 16,
-	//			"offersCount": 0,
-	//			"checkinsCount": 0,
-	//			"openNow": -1,
-	//			"isVerified": true,
-	//			"isSponsored": false,
-	//			"isUserGenerated": false,
-	//			"location": {
-	//				"fullAddress": "10020 North De Anza Blvd., Cupertino, ...",
-	//				"address1": "10020 North De Anza Blvd.",
-	//				"address2": null,
-	//				"address3": null,
-	//				"city": "Cupertino",
-	//				"county": "Santa Clara",
-	//				"region": "CA",
-	//				"country": "United States",
-	//				"postalCode": "95014",
-	//				"latitude": 37.323455,
-	//				"longitude": -122.032138
-	//			},
-	//			"contact": {
-	//				"phone": "4087250534",
-	//				"fax": "4087250535",
-	//				"mobile": null,
-	//				"email": "info@comerica.com",
-	//				"websiteUrl": "http://www.comerica.com/",
-	//				"blogUrl": "http://www.comerica.com/blog/",
-	//				"facebook": null,
-	//				"twitter": null,
-	//				"foursquare": null
-	//			},
-	//			"detailsUrl": null
-	//		};
+	"use strict";
 
 	return Backbone.Model.extend({
 		defaults: {
 			"id": null,
-			"service": null,
-			"tradeName": null,
-			"thumbUrl": null,
-			"photoUrl": null,
 			"distance": null,
-			"rating": 0,
-			"ratingsCount": 0,
-			"offersCount": 0,
-			"checkinsCount": 0,
-			"openNow": -1,
-			"isVerified": false,
+			"service": null,
+			"detailsUrl": null,
+			"advKey": null,
+			"contact": {
+				"blogUrl": null,
+				"email": null,
+				"facebook": null,
+				"fax": null,
+				"foursquare": null,
+				"mobile": null,
+				"phone": null,
+				"twitter": null,
+				"websiteUrl": null
+			},
+			"displayName": null,
+			"photoUrl": null,
+			"thumbUrl": null,
 			"isSponsored": false,
 			"isUserGenerated": false,
+			"isVerified": false,
 			"location": {
 				"fullAddress": null,
 				"address1": null,
 				"address2": null,
 				"address3": null,
 				"city": null,
+				"countryCode": null,
 				"county": null,
-				"postalCode": null,
 				"latitude": null,
-				"longitude": null
+				"longitude": null,
+				"postalCode": null,
+				"region": null
 			},
-			"contact": {
-				"phone": null,
-				"fax": null,
-				"mobile": null,
-				"email": null,
-				"websiteUrl": null,
-				"blogUrl": null,
-				"facebook": null,
-				"twitter": null,
-				"foursquare": null
-			},
-			"detailsUrl": null
+			"offersCount": 0,
+			"openNow": -1,
+			"ratingsCount": 0,
+			"tradingName": null
 		},
-		idAttribute: 'modelId',
 		initialize : function() {
 			
 		}

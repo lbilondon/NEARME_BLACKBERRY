@@ -1,93 +1,153 @@
-RIM-COD-SHA1-9: 82 9d 8b 10 c7 f5 31 1a 29 ce d8 e9 0d d1 ef 20 fb 45 46 1c
-RIM-COD-SHA1-8: 32 7d 29 58 45 d9 ee 88 66 6d b0 fe 3e bf 94 f1 4b 3b aa 72
-RIM-COD-SHA1-7: ba 6f 8a 9b c3 91 13 3d 77 2a 4f 19 80 f8 a8 bb 18 37 dc e8
-RIM-COD-SHA1-6: fc 8c af f9 23 94 59 ad bd 44 5b 16 b4 25 a8 a2 0f 34 dd 2f
-RIM-COD-SHA1-5: e3 3a 2a 51 79 83 56 06 29 4e 47 0a 6e 59 ff 4a 4f da 77 72
-RIM-COD-SHA1-4: 8e e1 f2 8f 7a 6a 48 da 9e 47 6c ac 33 e0 0e d6 de 65 fa d9
-RIM-COD-SHA1-3: 1f 99 30 1a bd 52 02 99 9b 74 28 06 01 dd ee d3 8a f0 cf ba
-RIM-COD-Size-24: 63668
-RIM-COD-SHA1-2: 9a bc 49 cf d4 3c da ea 52 a8 a0 9d 93 31 24 e4 09 3e 17 27
-RIM-COD-Size-23: 57280
-RIM-COD-SHA1-1: 76 9c 45 c3 b3 65 8d 96 96 61 13 bf da 9c a8 40 d2 4d d0 c7
-RIM-COD-Size-22: 56484
-RIM-COD-Size-21: 56928
-RIM-COD-Size-20: 43128
-RIM-COD-URL-19: NearMe-19.cod
-RIM-COD-URL-18: NearMe-18.cod
-RIM-COD-URL-17: NearMe-17.cod
-RIM-COD-URL-16: NearMe-16.cod
-RIM-COD-URL-15: NearMe-15.cod
-RIM-COD-URL-14: NearMe-14.cod
-RIM-COD-URL-13: NearMe-13.cod
-RIM-COD-URL-12: NearMe-12.cod
-RIM-COD-Size: 70936
-RIM-MIDlet-Icon-2-1: ____HOVER_ICON_assets/img/icon.png,focused
-RIM-COD-URL-11: NearMe-11.cod
-RIM-MIDlet-Icon-Count-2: 1
-RIM-COD-URL-10: NearMe-10.cod
-RIM-MIDlet-Icon-Count-1: 1
-MIDlet-Vendor: NearMe Global Limited
-RIM-MIDlet-Icon-1-1: assets/img/____HOVER_ICON_icon.png,focused
 Manifest-Version: 1.0
-RIM-MIDlet-Flags-1: 0
-RIM-COD-Size-19: 61416
-RIM-COD-Size-18: 59004
-RIM-COD-Size-17: 50440
-RIM-COD-Size-16: 50440
-RIM-COD-Size-15: 53732
-RIM-COD-Size-14: 50440
-RIM-COD-Size-13: 51388
-RIM-COD-Size-12: 50488
-RIM-COD-Size-11: 55276
-RIM-COD-Size-10: 50392
-MIDlet-Version: 1.0.0.0
-MicroEdition-Profile: MIDP-2.0
-RIM-COD-SHA1-24: 83 b9 40 b6 82 9a 7e ae 7b f0 65 af 64 69 c3 3e 3f ff 20 ac
-RIM-COD-SHA1-23: 82 47 fe 52 33 99 68 a9 9a a5 e0 c8 35 b2 d0 3c e0 a1 62 ab
-RIM-COD-SHA1-22: 4c 6e 8d c0 6e 53 ac 1d 22 5a 8b 5a d5 8d da ed 23 4f 6c 28
-RIM-COD-SHA1-21: 63 c7 39 e2 ba 8a 75 11 cd a8 92 39 b3 39 4b da bf 9d 7b eb
-RIM-COD-SHA1-20: ae 03 ef cb 24 f0 34 b0 41 75 b5 2d 70 2c df eb 87 96 5e b4
-RIM-COD-URL: NearMe.cod
-RIM-COD-Creation-Time: 1342436069
+MIDlet-Jar-Size: 1827952
+RIM-MIDlet-Icon-2-1: ____HOVER_ICON_assets/img/icon.png,focused
 MicroEdition-Configuration: CLDC-1.1
-MIDlet-Jar-URL: NearMe.jar
-RIM-COD-SHA1-19: 52 d9 96 45 c7 59 b1 68 ae b9 27 f2 ca c9 4f 5b 45 27 cf 2d
-RIM-COD-SHA1-18: 7f 6c 73 8d 64 4d 39 36 74 08 c1 5d 56 0f d5 df ce d8 d4 e1
-RIM-COD-SHA1-17: 5d d6 a8 65 0e 70 0d fb 46 00 ed 56 dc 1f 9f 99 c8 ff 58 35
-RIM-COD-SHA1-16: cd 86 33 20 50 9f 73 32 b9 1a cb 3f 25 2a a9 40 40 1c ff 7d
-RIM-COD-SHA1-15: 05 6e a9 39 3e 5b 77 99 1d e5 90 83 c8 8c e2 1e c1 e5 b5 de
-RIM-COD-SHA1-14: 76 50 05 38 b5 b0 a5 9d ea ef a6 50 b7 d8 ce d4 07 da 87 fd
-RIM-COD-SHA1-13: b6 80 f1 33 10 87 63 58 c6 d2 9f b8 bb 5d f7 7c d6 33 19 c9
-RIM-COD-SHA1-12: 8f 95 03 96 ed 57 28 7c 5b a6 f5 e2 cb 59 d5 38 2c 2d a3 43
-RIM-COD-Size-9: 62680
-RIM-COD-SHA1-11: 74 ee 70 45 a2 14 a9 8e 0a 31 1e a4 a2 31 dc 7f 61 90 92 d2
-RIM-COD-Size-8: 63676
-RIM-COD-SHA1-10: 14 1d 71 6c 93 5d 7e 57 0d 11 11 ba 5f 40 4f 3c 2f cd fe f6
-RIM-COD-Size-7: 67828
-MIDlet-Description: NearMe is a mobile guide that makes it fast and simple to find out what's around you. Whether you are searching out hotspots, exploring for hidden gems or needing the essentials, NearMe can find it, tell you about it and get you to it.
-RIM-COD-Size-6: 64608
-RIM-COD-Size-5: 64472
-RIM-COD-Size-4: 60692
-RIM-COD-Size-3: 66916
-RIM-COD-Size-2: 70924
-RIM-COD-Size-1: 67164
-MIDlet-1: NearMe,assets/img/icon.png,rim:foreground;WIDGET;
+MIDlet-Version: 1.0.0.0
+RIM-COD-Size: 71444
+RIM-MIDlet-Flags-1: 0
 MIDlet-Name: NearMe
-RIM-COD-SHA1: 4d 36 53 7a b6 19 b9 d0 53 e6 ec 14 56 c2 c2 3d 11 b0 9e df
-RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bb_web_jse_api,net_rim_xml_org,net_rim_bb_browser_field2_api,net_rim_os,net_rim_bbapi_push,net_rim_bbapi_messagelist,net_rim_pdap,net_rim_bbapi_phone,net_rim_bbapi_mailv2,net_rim_networkapi,net_rim_bb_browser_field_api,net_rim_xml,net_rim_bbapi_browser,net_rim_bbapi_invoke,net_rim_locationapi
-MIDlet-Jar-Size: 1449866
+RIM-MIDlet-Icon-Count-2: 1
+RIM-MIDlet-Icon-Count-1: 1
 RIM-COD-URL-9: NearMe-9.cod
 RIM-COD-URL-8: NearMe-8.cod
 RIM-COD-URL-7: NearMe-7.cod
 RIM-COD-URL-6: NearMe-6.cod
+MicroEdition-Profile: MIDP-2.0
 RIM-COD-URL-5: NearMe-5.cod
 RIM-COD-URL-4: NearMe-4.cod
 RIM-COD-URL-3: NearMe-3.cod
+RIM-COD-URL-44: NearMe-44.cod
 RIM-COD-URL-2: NearMe-2.cod
+RIM-COD-URL-43: NearMe-43.cod
 RIM-COD-URL-1: NearMe-1.cod
-RIM-COD-Module-Name: NearMe
+RIM-COD-URL-42: NearMe-42.cod
+RIM-COD-URL-41: NearMe-41.cod
+RIM-COD-Size-9: 51312
+RIM-COD-URL-40: NearMe-40.cod
+RIM-COD-Size-8: 64692
+RIM-COD-Size-7: 65848
+RIM-COD-Size-6: 67232
+RIM-COD-Size-5: 63328
+RIM-COD-Size-4: 61716
+RIM-COD-Size-3: 66808
+RIM-COD-Size-2: 70764
+RIM-COD-Size-1: 67144
+RIM-COD-Size-44: 65060
+RIM-COD-URL-39: NearMe-39.cod
+RIM-COD-Size-43: 54648
+RIM-COD-URL-38: NearMe-38.cod
+RIM-COD-Size-42: 57320
+RIM-COD-URL-37: NearMe-37.cod
+RIM-COD-URL-36: NearMe-36.cod
+RIM-COD-Size-41: 48916
+RIM-COD-URL-35: NearMe-35.cod
+RIM-COD-Size-40: 50732
+RIM-COD-URL-34: NearMe-34.cod
+RIM-COD-URL-33: NearMe-33.cod
+RIM-COD-URL-32: NearMe-32.cod
+RIM-COD-URL-31: NearMe-31.cod
+RIM-COD-URL-30: NearMe-30.cod
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bb_web_jse_api,net_rim_xml_org,net_rim_bb_browser_field2_api,net_rim_os,net_rim_bbapi_push,net_rim_bbapi_messagelist,net_rim_pdap,net_rim_bbapi_phone,net_rim_bbapi_mailv2,net_rim_networkapi,net_rim_bb_browser_field_api,net_rim_xml,net_rim_bbapi_browser,net_rim_bbapi_invoke,net_rim_locationapi
+MIDlet-Vendor: NearMe Global Limited
+RIM-COD-Size-39: 35060
+RIM-COD-Size-38: 50680
+RIM-COD-Size-37: 50680
+RIM-COD-Size-36: 54956
+RIM-COD-Size-35: 50680
+RIM-COD-URL-29: NearMe-29.cod
+RIM-COD-Size-34: 51628
+RIM-COD-URL-28: NearMe-28.cod
+RIM-COD-Size-33: 50728
+RIM-COD-URL-27: NearMe-27.cod
+RIM-COD-Size-32: 55516
+RIM-COD-URL-26: NearMe-26.cod
+RIM-COD-Size-31: 50632
+RIM-COD-URL-25: NearMe-25.cod
+RIM-COD-Size-30: 57296
 RIM-COD-URL-24: NearMe-24.cod
 RIM-COD-URL-23: NearMe-23.cod
 RIM-COD-URL-22: NearMe-22.cod
 RIM-COD-URL-21: NearMe-21.cod
 RIM-COD-URL-20: NearMe-20.cod
+RIM-COD-URL: NearMe.cod
+MIDlet-Description: NearMe is a mobile guide that makes it fast and simple to find out what's around you. Whether you are searching out hotspots, exploring for hidden gems or needing the essentials, NearMe can find it, tell you about it and get you to it.
+RIM-COD-Module-Name: NearMe
+RIM-COD-Size-29: 50632
+RIM-COD-Size-28: 50628
+RIM-MIDlet-Icon-1-1: assets/img/____HOVER_ICON_icon.png,focused
+RIM-COD-Size-27: 50628
+RIM-COD-Size-26: 55024
+RIM-COD-Size-25: 61656
+RIM-COD-URL-19: NearMe-19.cod
+RIM-COD-Size-24: 58628
+RIM-COD-URL-18: NearMe-18.cod
+RIM-COD-Size-23: 56992
+RIM-COD-URL-17: NearMe-17.cod
+RIM-COD-Size-22: 56724
+RIM-COD-URL-16: NearMe-16.cod
+RIM-COD-Size-21: 57168
+RIM-COD-URL-15: NearMe-15.cod
+RIM-COD-Size-20: 55160
+RIM-COD-URL-14: NearMe-14.cod
+RIM-COD-URL-13: NearMe-13.cod
+RIM-COD-URL-12: NearMe-12.cod
+RIM-COD-URL-11: NearMe-11.cod
+RIM-COD-URL-10: NearMe-10.cod
+RIM-COD-Size-19: 52624
+RIM-COD-Size-18: 54988
+RIM-COD-Size-17: 46372
+RIM-COD-Size-16: 51396
+RIM-COD-Size-15: 53972
+RIM-COD-Size-14: 46412
+RIM-COD-Size-13: 55976
+RIM-COD-Size-12: 43376
+RIM-COD-Size-11: 57092
+RIM-COD-Size-10: 52412
+MIDlet-1: NearMe,assets/img/icon.png,rim:foreground;WIDGET;
+RIM-COD-SHA1: d4 5c 4b 9e c3 02 bb 77 92 55 e7 d2 34 21 63 9a ad e9 63 88
+RIM-COD-SHA1-44: 8e 27 e7 72 7a 6f 4e cc 50 33 dd f7 88 91 4c 1d fd 66 17 05
+RIM-COD-SHA1-43: 47 e1 f8 b1 0f 00 90 2a 24 b0 b7 ad 06 11 d2 03 f9 96 32 3b
+RIM-COD-SHA1-42: 01 15 4d e9 5a 82 95 40 af 8a f1 e5 0f 88 1f 84 01 0f 89 e3
+RIM-COD-SHA1-41: fc ea cc 7f e5 ac 5b 96 b4 ce f5 40 6e 93 ed 48 b8 25 2d f1
+RIM-COD-SHA1-40: d1 70 95 5d b8 5f cd 9f b2 d7 d1 21 74 1a c8 2f 5b aa 08 f7
+RIM-COD-SHA1-39: 44 b8 7f 08 0c de 70 db 97 72 62 3c bb 23 a8 d0 a0 31 38 bd
+RIM-COD-SHA1-38: e0 af 6d a4 d2 e0 09 41 b8 8d 45 e3 5c 4b 60 c1 18 f7 ba 05
+RIM-COD-SHA1-37: a1 5f 66 46 23 ec 58 d5 64 29 5d 85 c0 c5 a8 91 23 62 80 38
+RIM-COD-SHA1-36: 1b d1 be 62 a6 75 67 b8 ed a2 32 a5 fc 07 5c 59 8e a8 54 63
+MIDlet-Jar-URL: NearMe.jar
+RIM-COD-SHA1-35: b2 ee ad 64 f1 ae 9a 0f 45 a4 b9 9a fa b6 54 56 3f 2e 39 bb
+RIM-COD-SHA1-34: 8d 27 37 75 25 d6 87 25 67 c2 fd e2 a6 e0 5b 70 a3 6c 07 41
+RIM-COD-SHA1-33: 2a aa 46 b8 fa 70 df 5c 9e 88 34 56 16 a5 2b ee 58 bd 66 e1
+RIM-COD-SHA1-32: 09 69 d4 32 45 c4 cb c1 9e 61 f4 4e 1d 0f 9c 16 3b 46 46 c1
+RIM-COD-SHA1-31: 53 39 36 70 8d 56 de 3e 8c 96 b1 21 f5 31 c4 5b 56 01 b7 86
+RIM-COD-SHA1-30: f0 a3 54 af e3 8d 6b db 8b 48 fb 8b 2f 38 63 85 0e 3b 2c 7f
+RIM-COD-SHA1-9: 81 c2 d0 a9 1e 19 34 cd b0 f9 d2 0c c3 e8 4a d3 ae 86 3e 83
+RIM-COD-SHA1-8: eb bc e6 ce a4 c9 61 0d b6 fd d6 11 5c 76 39 57 34 b1 5c 38
+RIM-COD-SHA1-7: ca 30 8d ad ea 5c e2 4e a4 88 db 03 e7 2c 4c f5 7e e7 15 23
+RIM-COD-SHA1-6: c5 7a 68 7d cb 48 51 21 94 1b ff 21 6e 50 a8 fe 45 d6 5a 0c
+RIM-COD-SHA1-5: 89 85 78 66 e6 67 de aa ed 90 0f cd 15 dc aa 3b 04 86 3f b4
+RIM-COD-SHA1-4: e1 83 29 6b 1e d1 3b 4f 4f 87 ca a5 de 71 a8 51 c5 51 90 95
+RIM-COD-SHA1-3: d8 36 e8 b8 d2 80 d7 6f 14 19 43 fb 7e 10 b8 3f ae f0 7c 02
+RIM-COD-SHA1-2: ae 94 9a 03 ae 74 e6 ae 0a b0 d7 cc 28 8e 3b e0 92 8d e1 42
+RIM-COD-SHA1-1: b7 3f 00 23 91 86 0b 0f 9d 34 2b ea 60 80 6f 44 62 34 d0 9a
+RIM-COD-SHA1-29: d2 12 77 a5 3a 21 6e 56 43 0d c0 38 b5 53 8d 02 4d 02 4b 20
+RIM-COD-SHA1-28: d7 d6 66 a8 ad 44 d2 01 41 5b a2 85 5c 33 8e d7 29 14 27 11
+RIM-COD-SHA1-27: 23 17 1b 25 93 c2 fd f4 11 b1 ba 4e 2e e5 7b 88 17 96 b2 c0
+RIM-COD-SHA1-26: 23 1b 89 a1 3e 45 c0 c2 3e f8 7c 16 ff ff cd 06 d6 3b e2 b0
+RIM-COD-SHA1-25: 2f 1b 7e 77 da 2d d2 7f 28 54 e9 24 ec 6b c3 a8 19 04 84 2d
+RIM-COD-SHA1-24: 2c f2 03 dd c3 43 c6 16 99 f0 13 1b a2 7c 07 8d c6 ae 81 e9
+RIM-COD-SHA1-23: e9 40 a5 d0 cc 06 14 58 b2 26 0d 8c 3a 0e a5 f6 67 03 ae b1
+RIM-COD-SHA1-22: dc 2a 03 db ec 98 7b 57 1f 7e 0e c2 03 74 2d 15 71 27 29 05
+RIM-COD-SHA1-21: 49 9d 98 ac 91 a6 72 d9 ea 9b d4 ea ba 5b 29 b4 ad 97 09 fb
+RIM-COD-SHA1-20: 08 ec ec b0 65 52 fa 61 48 9c 0c 1a b6 55 47 be e5 1e 67 0a
+RIM-COD-Creation-Time: 1342696652
+RIM-COD-SHA1-19: 41 65 c5 ea 26 be b6 a5 7f 25 cc 4c 75 86 ba 7c 3e b7 9d b0
+RIM-COD-SHA1-18: d1 04 49 32 ee 6b 1c b8 07 6c 52 26 3f b6 80 52 57 22 02 f8
+RIM-COD-SHA1-17: ee d7 74 f3 3f 2a c1 fa ae df 93 96 29 87 3a 9a 21 90 72 4d
+RIM-COD-SHA1-16: 30 ac ab c4 f6 44 8c 3b ff f0 03 31 7d 4b 70 7b ca 69 70 f3
+RIM-COD-SHA1-15: 28 77 1e da ad da 9c 49 ad f1 a2 f2 0c e2 4b 03 9b 07 53 56
+RIM-COD-SHA1-14: 1b d4 7e 19 47 f3 c1 12 2c 47 a0 bd a3 60 7b fa 45 39 1d e7
+RIM-COD-SHA1-13: 07 75 1e e4 a1 b0 8b 79 95 e1 0d 18 e8 3f 5f ce 12 fe 25 39
+RIM-COD-SHA1-12: 1d f1 b8 38 e0 c0 01 d1 c9 13 b9 8f d2 f7 96 c3 3a 55 a9 2d
+RIM-COD-SHA1-11: ac 03 3d 7b 84 2a ee dc 24 a4 e0 51 9e 12 d1 e7 40 36 f3 00
+RIM-COD-SHA1-10: 98 63 00 91 ad 65 85 b6 22 85 ab be f5 55 8f ee 54 e6 20 54

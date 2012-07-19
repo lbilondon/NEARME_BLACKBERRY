@@ -17,10 +17,15 @@ function(UnderscoreLib, BackboneLib, VenueModel) {
 		},
 		fetchFromId: function (id, options) {
 			if (id !== undefined) {
-				this.url = '/assets/js/dataStub/venues.' + id.toString() + '.json.js';
+				this.url = '/assets/js/dataStub/venue_search.' + id.toString() + '.json';
 			}
 
 			return this.fetch(options);
+		},
+		parse: function (response) {
+			if (response.response !== undefined) {
+				return response.response.venues;
+			}
 		}
 	});
 });

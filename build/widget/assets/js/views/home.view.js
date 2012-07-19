@@ -28,7 +28,6 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 
 		bindEvents: function () {
 			this.$el.on('pageshow', this.pageshow);
-
 		},
 
 		unbindEvents: function () {
@@ -38,10 +37,10 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 		pageshow: function () {
 			var brands = new CategoriesCollection([
 				{
-					id: 'pizza_hut',
+					id: '313',
 					title: 'Pizza Hut'
 				}, {
-					id: 'tesco',
+					id: '304',
 					title: 'Tesco'
 				}
 			]);

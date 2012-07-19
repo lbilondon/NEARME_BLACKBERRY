@@ -1,0 +1,15 @@
+<div id="content" data-role="content">
+	<% if (venue.get('tradingName') != undefined) { %>
+      <h1><%= venue.get('tradingName') %></h1>
+      <p><%= venue.get('location').fullAddress %></p>
+      <p><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
+      <% if (venue.get('contact').phone !== null) { %><p><%= venue.get('contact').phone %></p><% } %>
+      <% if (venue.get('contact').websiteUrl !== null) { %>
+        <p><a href="<%= venue.get('contact').websiteUrl %>" target="_none"><%= venue.get('contact').websiteUrl %></a></p>
+      <% } %>
+      <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" ><% } %>
+
+  <% } else { %>
+    <h2>No Venue Listed</h2>
+  <% } %>
+</div>

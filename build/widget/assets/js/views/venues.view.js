@@ -51,7 +51,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 		},
 
 		pageshow: function () {
-
 			var venues = new VenuesCollection();
 			if (this.options.category_id !== null) {
 				venues.fetchFromId(this.options.category_id, {
@@ -65,6 +64,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 			collection.remove(collection.at(0));
 			collection.add(response.root);
 
+			window.NEARMEAPP.currentVenuesCollection = collection;
 			this.$el.append(this.listTemplate({ venues: collection }));
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);

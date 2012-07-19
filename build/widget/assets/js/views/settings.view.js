@@ -4,10 +4,11 @@ define([
 	'jqueryMobile',
 	'underscore',
 	'backbone',
+	'models/settings.model',
 	'text!templates/header.tmpl.html',
 	'text!templates/settings.tmpl.html'
 ],
-function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HeaderTmplStr, SettingsTmplStr) {
+function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, HeaderTmplStr, SettingsTmplStr) {
 	// "use strict";
 
 	return Backbone.View.extend({
@@ -19,12 +20,27 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, HeaderTmplStr, Settin
 		},
 		
 		render : function() {
+			window.NEARMEAPP.SETTINGSMODEL = window.NEARMEAPP.SETTINGSMODEL || new SettingsModel();
+
 			this.$el.append(this.headerTemplate());
-			this.$el.append(this.listTemplate());
+			this.$el.append(this.listTemplate({ settings: window.NEARMEAPP.SETTINGSMODEL }));
+			
+			this.bindEvents();
 			return this;
 		},
 
+		save: function (e) {
+			var name = $(e.currentTarget).attr('name');
+			var val = $(e.currentTarget).val();
+			var data = {};
+			data[name] = (val === 'true') ? true : false;
+
+			window.NEARMEAPP.SETTINGSMODEL.set(data);
+		},
+
 		bindEvents: function () {
+			this.$el.find('input').bind('change', this.save);
+
 			this.$el.on('pagebeforeshow', this.pagebeforeshow);
 			this.$el.on('pagebeforehide', this.pagebeforehide);
 			this.$el.on('pageshow', this.pageshow);
