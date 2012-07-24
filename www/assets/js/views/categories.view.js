@@ -7,9 +7,10 @@ define([
 	'collections/categories.collection',
 	'text!templates/categories.tmpl.html',
 	'text!templates/header.tmpl.html',
-	'text!templates/error.tmpl.html'
+	'text!templates/error.tmpl.html',
+	'views/locationBar.view'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollection, CategoriesTmplStr, HeaderTmplStr, ErrorTmplStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollection, CategoriesTmplStr, HeaderTmplStr, ErrorTmplStr, LocationBarView) {
 		// "use strict";
 
 	return Backbone.View.extend({
@@ -25,6 +26,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 		
 		render: function () {
 			this.$el.append(this.headerTemplate());
+
 			this.bindEvents();
 			return this;
 		},
@@ -70,8 +72,11 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 			if (this.options.category_id === 'brands') {
 				pageTitle = 'Brands';
 			}
-			var location = 'Brick Lane';
-			this.$el.append(this.listTemplate({ categories:  collection, pageTitle: pageTitle, location: location }));
+			
+			this.$el.append(this.listTemplate({ categories:  collection, pageTitle: pageTitle }));
+			
+			locationView = new LocationBarView();
+			this.$el.find('#location').html(locationView.$el);
 
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);

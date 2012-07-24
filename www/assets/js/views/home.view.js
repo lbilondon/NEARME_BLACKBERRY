@@ -6,9 +6,10 @@ define([
 	'backbone',
 	'collections/categories.collection',
 	'text!templates/home.tmpl.html',
-	'text!templates/header.tmpl.html'
+	'text!templates/header.tmpl.html',
+	'views/locationBar.view'
 ],
-function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplStr, HeaderTemplateStr) {
+function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection, HomeTmplStr, HeaderTemplateStr, LocationBarView) {
 	// "use strict";
 
 	return Backbone.View.extend({
@@ -22,6 +23,10 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 		
 		render : function() {
 			this.$el.append(this.headerTemplate());
+
+			locationView = new LocationBarView();
+			this.$el.append(locationView.$el);
+
 			this.bindEvents();
 			return this;
 		},

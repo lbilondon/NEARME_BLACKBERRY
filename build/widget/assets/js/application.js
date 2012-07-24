@@ -7,12 +7,13 @@ define([
     'router',
     'models/config.model',
     'models/settings.model',
+    'models/location.model',
     'views/util.viewhelper',
 	'views/home.view',
 	'views/settings.view',
 	'views/categories.view'
 ],
-function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, SettingsModel, utilViewHelper, HomeView, SettingsView, CategoriesView) {
+function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, SettingsModel, LocationModel, utilViewHelper, HomeView, SettingsView, CategoriesView) {
 	// "use strict";
 
 	function _initialize () {
@@ -22,14 +23,15 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 			$.mobile.hashListeningEnabled = false;
 			$.mobile.pushStateEnabled = false;
 
-			window.NEARMEAPP.ROUTER = new AppRouter();
-			Backbone.history.start();
-
 			window.NEARMEAPP.EVENTS = {};
 			_.extend(window.NEARMEAPP.EVENTS, Backbone.Events);
 
+			window.NEARMEAPP.ROUTER = new AppRouter();
+			Backbone.history.start();
+
 			window.NEARMEAPP.CONFIGMODEL = new ConfigModel();
 			window.NEARMEAPP.SETTINGSMODEL = new SettingsModel();
+			window.NEARMEAPP.LOCATIONMODEL = new LocationModel();
 			window.NEARMEAPP.UTILVIEWHELPER = utilViewHelper;
 
 			window.NEARMEAPP.currentCategoriesCollection = null;

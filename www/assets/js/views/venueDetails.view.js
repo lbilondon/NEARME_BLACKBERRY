@@ -12,13 +12,15 @@ define([
 function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenueDetailsTmplStr, ErrorTmplStr) {
 	// "use strict";
 
+	var STATIC_MAPS_API_KEY = 'AIzaSyDuO6PPp1EVUZ1ppzY3_oECowXwdyGqU-I';
+
 	return Backbone.View.extend({
 		headerTemplate: _.template(HeaderTmplStr),
 		contentTemplate : _.template(VenueDetailsTmplStr),
 		errorTemplate: _.template(ErrorTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide');
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide', 'renderMap');
 			this.render();
 		},
 		
@@ -56,6 +58,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 				if (this.model !== undefined) {
 					this.$el.append(this.contentTemplate({ venue: this.model }));
 					this.$el.trigger('create');
+
+					this.renderMap();
 				}
 			}
 		},
@@ -70,6 +74,63 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 
 		pagehide: function () {
 			//triggered on page
+		},
+
+		renderMap: function () {
+
+			var loc = this.model.get('location');
+			if (loc.latitude !== null && loc.longitude !== null) {
+				var url = 'http://maps.googleapis.com/maps/api/staticmap?';
+					url += 'key=' + STATIC_MAPS_API_KEY;
+					url += '&sensor=false';
+					url += '&maptype=roadmap';
+					url += '&size=250x400';
+					url += '&zoom=14';
+					url += '&markers=' + loc.latitude + ',' + loc.longitude;
+
+				var venueId = this.options.venue_id,
+					thisLoc = null;
+				window.NEARMEAPP.currentVenuesCollection.each(function (item, key) {
+					if (key !== venueId) {
+						thisLoc = item.get('location');
+						if (thisLoc.latitude !== null && thisLoc.longitude !== null) {
+							url += '&markers=size:small%7C' + thisLoc.latitude + ',' + thisLoc.longitude;
+						}
+					}
+				});
+
+				var lat = window.NEARMEAPP.LOCATIONMODEL.get('latitude');
+				var lng = window.NEARMEAPP.LOCATIONMODEL.get('longitude');
+				if (lat !== null && lng !== null) {
+					url += '&markers=color:green%7C' + lat + ',' + lng;
+				}
+
+				var thisMap = $('<img src="' + url + ' " />');
+
+				thisMap.on('tap click', function () {
+					if (blackberry.invoke !== undefined) {
+						//TODO: Debug this
+						var args = blackberry.invoke.MapsArgument(loc.latitude, loc.longitude);
+						blackberry.invoke.invoke(blackberry.invoke.APP_MAPS, args);
+					}
+				});
+
+				this.$el.append(thisMap);
+			}
+
+
+			/*
+			http://maps.googleapis.com/maps/api/staticmap?
+
+			center=Brooklyn+Bridge,New+York,NY
+			&zoom=13
+			&size=600x300
+			&maptype=roadmap
+			&markers=color:blue%7Clabel:S%7C40.702147,-74.015794
+			&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+			&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284
+			&sensor=false
+			*/
 		}
 	});
 });

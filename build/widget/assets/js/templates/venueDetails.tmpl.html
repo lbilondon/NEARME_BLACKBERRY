@@ -7,7 +7,7 @@
       <% if (venue.get('contact').websiteUrl !== null) { %>
         <p><a href="<%= venue.get('contact').websiteUrl %>" target="_none"><%= venue.get('contact').websiteUrl %></a></p>
       <% } %>
-      <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" ><% } %>
+      <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" width="100%" ><% } %>
 
   <% } else { %>
     <h2>No Venue Listed</h2>

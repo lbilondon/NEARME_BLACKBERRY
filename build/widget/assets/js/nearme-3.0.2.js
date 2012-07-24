@@ -13,7 +13,8 @@
 			underscore : libsPath + 'underscore-1.3.3.min',
 			backbone : libsPath + 'backbone-0.9.2.min',
 			jquery : libsPath + 'jquery-1.7.2.min',
-			jqueryMobile : libsPath + 'jquery.mobile-1.1.0.min'
+			jqueryMobile : libsPath + 'jquery.mobile-1.1.0.min',
+			googleMaps: libsPath + 'maps.google'
 		},
 		baseUrl : 'assets/js'
 	});

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-MIDlet-Jar-Size: 1827952
+MIDlet-Jar-Size: 1833243
 RIM-MIDlet-Icon-2-1: ____HOVER_ICON_assets/img/icon.png,focused
 MicroEdition-Configuration: CLDC-1.1
 MIDlet-Version: 1.0.0.0
-RIM-COD-Size: 71444
+RIM-COD-Size: 71460
 RIM-MIDlet-Flags-1: 0
 MIDlet-Name: NearMe
 RIM-MIDlet-Icon-Count-2: 1
@@ -22,26 +22,26 @@ RIM-COD-URL-43: NearMe-43.cod
 RIM-COD-URL-1: NearMe-1.cod
 RIM-COD-URL-42: NearMe-42.cod
 RIM-COD-URL-41: NearMe-41.cod
-RIM-COD-Size-9: 51312
+RIM-COD-Size-9: 59792
 RIM-COD-URL-40: NearMe-40.cod
-RIM-COD-Size-8: 64692
-RIM-COD-Size-7: 65848
-RIM-COD-Size-6: 67232
-RIM-COD-Size-5: 63328
-RIM-COD-Size-4: 61716
-RIM-COD-Size-3: 66808
-RIM-COD-Size-2: 70764
-RIM-COD-Size-1: 67144
-RIM-COD-Size-44: 65060
+RIM-COD-Size-8: 65880
+RIM-COD-Size-7: 68900
+RIM-COD-Size-6: 64900
+RIM-COD-Size-5: 68296
+RIM-COD-Size-4: 57744
+RIM-COD-Size-3: 62820
+RIM-COD-Size-2: 70856
+RIM-COD-Size-1: 67148
+RIM-COD-Size-44: 65064
 RIM-COD-URL-39: NearMe-39.cod
-RIM-COD-Size-43: 54648
+RIM-COD-Size-43: 57832
 RIM-COD-URL-38: NearMe-38.cod
-RIM-COD-Size-42: 57320
+RIM-COD-Size-42: 57524
 RIM-COD-URL-37: NearMe-37.cod
 RIM-COD-URL-36: NearMe-36.cod
-RIM-COD-Size-41: 48916
+RIM-COD-Size-41: 49464
 RIM-COD-URL-35: NearMe-35.cod
-RIM-COD-Size-40: 50732
+RIM-COD-Size-40: 53412
 RIM-COD-URL-34: NearMe-34.cod
 RIM-COD-URL-33: NearMe-33.cod
 RIM-COD-URL-32: NearMe-32.cod
@@ -52,8 +52,8 @@ MIDlet-Vendor: NearMe Global Limited
 RIM-COD-Size-39: 35060
 RIM-COD-Size-38: 50680
 RIM-COD-Size-37: 50680
-RIM-COD-Size-36: 54956
-RIM-COD-Size-35: 50680
+RIM-COD-Size-36: 50680
+RIM-COD-Size-35: 48356
 RIM-COD-URL-29: NearMe-29.cod
 RIM-COD-Size-34: 51628
 RIM-COD-URL-28: NearMe-28.cod
@@ -77,77 +77,77 @@ RIM-COD-Size-28: 50628
 RIM-MIDlet-Icon-1-1: assets/img/____HOVER_ICON_icon.png,focused
 RIM-COD-Size-27: 50628
 RIM-COD-Size-26: 55024
-RIM-COD-Size-25: 61656
+RIM-COD-Size-25: 58628
 RIM-COD-URL-19: NearMe-19.cod
-RIM-COD-Size-24: 58628
+RIM-COD-Size-24: 61656
 RIM-COD-URL-18: NearMe-18.cod
-RIM-COD-Size-23: 56992
+RIM-COD-Size-23: 57212
 RIM-COD-URL-17: NearMe-17.cod
 RIM-COD-Size-22: 56724
 RIM-COD-URL-16: NearMe-16.cod
 RIM-COD-Size-21: 57168
 RIM-COD-URL-15: NearMe-15.cod
-RIM-COD-Size-20: 55160
+RIM-COD-Size-20: 55260
 RIM-COD-URL-14: NearMe-14.cod
 RIM-COD-URL-13: NearMe-13.cod
 RIM-COD-URL-12: NearMe-12.cod
 RIM-COD-URL-11: NearMe-11.cod
 RIM-COD-URL-10: NearMe-10.cod
-RIM-COD-Size-19: 52624
-RIM-COD-Size-18: 54988
-RIM-COD-Size-17: 46372
-RIM-COD-Size-16: 51396
+RIM-COD-Size-19: 54028
+RIM-COD-Size-18: 54780
+RIM-COD-Size-17: 41760
+RIM-COD-Size-16: 55308
 RIM-COD-Size-15: 53972
-RIM-COD-Size-14: 46412
-RIM-COD-Size-13: 55976
-RIM-COD-Size-12: 43376
-RIM-COD-Size-11: 57092
-RIM-COD-Size-10: 52412
+RIM-COD-Size-14: 53840
+RIM-COD-Size-13: 48904
+RIM-COD-Size-12: 50092
+RIM-COD-Size-11: 43644
+RIM-COD-Size-10: 56640
 MIDlet-1: NearMe,assets/img/icon.png,rim:foreground;WIDGET;
-RIM-COD-SHA1: d4 5c 4b 9e c3 02 bb 77 92 55 e7 d2 34 21 63 9a ad e9 63 88
-RIM-COD-SHA1-44: 8e 27 e7 72 7a 6f 4e cc 50 33 dd f7 88 91 4c 1d fd 66 17 05
-RIM-COD-SHA1-43: 47 e1 f8 b1 0f 00 90 2a 24 b0 b7 ad 06 11 d2 03 f9 96 32 3b
-RIM-COD-SHA1-42: 01 15 4d e9 5a 82 95 40 af 8a f1 e5 0f 88 1f 84 01 0f 89 e3
-RIM-COD-SHA1-41: fc ea cc 7f e5 ac 5b 96 b4 ce f5 40 6e 93 ed 48 b8 25 2d f1
-RIM-COD-SHA1-40: d1 70 95 5d b8 5f cd 9f b2 d7 d1 21 74 1a c8 2f 5b aa 08 f7
-RIM-COD-SHA1-39: 44 b8 7f 08 0c de 70 db 97 72 62 3c bb 23 a8 d0 a0 31 38 bd
-RIM-COD-SHA1-38: e0 af 6d a4 d2 e0 09 41 b8 8d 45 e3 5c 4b 60 c1 18 f7 ba 05
-RIM-COD-SHA1-37: a1 5f 66 46 23 ec 58 d5 64 29 5d 85 c0 c5 a8 91 23 62 80 38
-RIM-COD-SHA1-36: 1b d1 be 62 a6 75 67 b8 ed a2 32 a5 fc 07 5c 59 8e a8 54 63
+RIM-COD-SHA1: 37 45 70 e1 7f 09 aa 92 84 92 3b 22 f2 47 a9 b8 48 cc 77 ad
+RIM-COD-SHA1-44: 13 db bd 41 2b 07 f9 44 df 60 08 62 02 d4 e1 53 f2 9c 0c d6
+RIM-COD-SHA1-43: c4 88 94 f1 a0 ee d5 56 c7 83 0d 79 af e5 3d e7 e1 18 ea c2
+RIM-COD-SHA1-42: 7c 20 3c cb a1 82 68 78 34 99 d7 57 55 e9 5d 51 2a 0d 1b 25
+RIM-COD-SHA1-41: d0 3f 74 9f 0a 06 12 ce 96 dc a9 24 88 af 49 82 c9 0b d7 b8
+RIM-COD-SHA1-40: f5 5b 50 32 1a 7f ff 06 38 0d fc 46 77 09 9c bf 29 81 fa bb
+RIM-COD-SHA1-39: 7f d9 12 dd ba 3d e6 2c 0d 34 7c 21 9e 8a 96 59 a4 15 c4 73
+RIM-COD-SHA1-38: 4d 70 c2 73 1d 2c 33 1c ca b1 8d c4 37 e1 94 9c d5 d8 ec ef
+RIM-COD-SHA1-37: e3 12 da 2c 44 a3 51 15 eb 52 1e 22 11 1c 4a 68 ce 31 f5 4e
+RIM-COD-SHA1-36: 27 b2 8a 71 18 94 12 a6 6b e6 9b e9 c1 fe 61 2b 3b 9a 5a 56
 MIDlet-Jar-URL: NearMe.jar
-RIM-COD-SHA1-35: b2 ee ad 64 f1 ae 9a 0f 45 a4 b9 9a fa b6 54 56 3f 2e 39 bb
-RIM-COD-SHA1-34: 8d 27 37 75 25 d6 87 25 67 c2 fd e2 a6 e0 5b 70 a3 6c 07 41
-RIM-COD-SHA1-33: 2a aa 46 b8 fa 70 df 5c 9e 88 34 56 16 a5 2b ee 58 bd 66 e1
-RIM-COD-SHA1-32: 09 69 d4 32 45 c4 cb c1 9e 61 f4 4e 1d 0f 9c 16 3b 46 46 c1
-RIM-COD-SHA1-31: 53 39 36 70 8d 56 de 3e 8c 96 b1 21 f5 31 c4 5b 56 01 b7 86
-RIM-COD-SHA1-30: f0 a3 54 af e3 8d 6b db 8b 48 fb 8b 2f 38 63 85 0e 3b 2c 7f
-RIM-COD-SHA1-9: 81 c2 d0 a9 1e 19 34 cd b0 f9 d2 0c c3 e8 4a d3 ae 86 3e 83
-RIM-COD-SHA1-8: eb bc e6 ce a4 c9 61 0d b6 fd d6 11 5c 76 39 57 34 b1 5c 38
-RIM-COD-SHA1-7: ca 30 8d ad ea 5c e2 4e a4 88 db 03 e7 2c 4c f5 7e e7 15 23
-RIM-COD-SHA1-6: c5 7a 68 7d cb 48 51 21 94 1b ff 21 6e 50 a8 fe 45 d6 5a 0c
-RIM-COD-SHA1-5: 89 85 78 66 e6 67 de aa ed 90 0f cd 15 dc aa 3b 04 86 3f b4
-RIM-COD-SHA1-4: e1 83 29 6b 1e d1 3b 4f 4f 87 ca a5 de 71 a8 51 c5 51 90 95
-RIM-COD-SHA1-3: d8 36 e8 b8 d2 80 d7 6f 14 19 43 fb 7e 10 b8 3f ae f0 7c 02
-RIM-COD-SHA1-2: ae 94 9a 03 ae 74 e6 ae 0a b0 d7 cc 28 8e 3b e0 92 8d e1 42
-RIM-COD-SHA1-1: b7 3f 00 23 91 86 0b 0f 9d 34 2b ea 60 80 6f 44 62 34 d0 9a
-RIM-COD-SHA1-29: d2 12 77 a5 3a 21 6e 56 43 0d c0 38 b5 53 8d 02 4d 02 4b 20
-RIM-COD-SHA1-28: d7 d6 66 a8 ad 44 d2 01 41 5b a2 85 5c 33 8e d7 29 14 27 11
-RIM-COD-SHA1-27: 23 17 1b 25 93 c2 fd f4 11 b1 ba 4e 2e e5 7b 88 17 96 b2 c0
-RIM-COD-SHA1-26: 23 1b 89 a1 3e 45 c0 c2 3e f8 7c 16 ff ff cd 06 d6 3b e2 b0
-RIM-COD-SHA1-25: 2f 1b 7e 77 da 2d d2 7f 28 54 e9 24 ec 6b c3 a8 19 04 84 2d
-RIM-COD-SHA1-24: 2c f2 03 dd c3 43 c6 16 99 f0 13 1b a2 7c 07 8d c6 ae 81 e9
-RIM-COD-SHA1-23: e9 40 a5 d0 cc 06 14 58 b2 26 0d 8c 3a 0e a5 f6 67 03 ae b1
-RIM-COD-SHA1-22: dc 2a 03 db ec 98 7b 57 1f 7e 0e c2 03 74 2d 15 71 27 29 05
-RIM-COD-SHA1-21: 49 9d 98 ac 91 a6 72 d9 ea 9b d4 ea ba 5b 29 b4 ad 97 09 fb
-RIM-COD-SHA1-20: 08 ec ec b0 65 52 fa 61 48 9c 0c 1a b6 55 47 be e5 1e 67 0a
-RIM-COD-Creation-Time: 1342696652
-RIM-COD-SHA1-19: 41 65 c5 ea 26 be b6 a5 7f 25 cc 4c 75 86 ba 7c 3e b7 9d b0
-RIM-COD-SHA1-18: d1 04 49 32 ee 6b 1c b8 07 6c 52 26 3f b6 80 52 57 22 02 f8
-RIM-COD-SHA1-17: ee d7 74 f3 3f 2a c1 fa ae df 93 96 29 87 3a 9a 21 90 72 4d
-RIM-COD-SHA1-16: 30 ac ab c4 f6 44 8c 3b ff f0 03 31 7d 4b 70 7b ca 69 70 f3
-RIM-COD-SHA1-15: 28 77 1e da ad da 9c 49 ad f1 a2 f2 0c e2 4b 03 9b 07 53 56
-RIM-COD-SHA1-14: 1b d4 7e 19 47 f3 c1 12 2c 47 a0 bd a3 60 7b fa 45 39 1d e7
-RIM-COD-SHA1-13: 07 75 1e e4 a1 b0 8b 79 95 e1 0d 18 e8 3f 5f ce 12 fe 25 39
-RIM-COD-SHA1-12: 1d f1 b8 38 e0 c0 01 d1 c9 13 b9 8f d2 f7 96 c3 3a 55 a9 2d
-RIM-COD-SHA1-11: ac 03 3d 7b 84 2a ee dc 24 a4 e0 51 9e 12 d1 e7 40 36 f3 00
-RIM-COD-SHA1-10: 98 63 00 91 ad 65 85 b6 22 85 ab be f5 55 8f ee 54 e6 20 54
+RIM-COD-SHA1-35: 80 05 e5 7f 75 9d 72 8d b6 20 6b a7 66 18 a0 d4 28 2d 5c 3f
+RIM-COD-SHA1-34: d3 89 cf a2 6c 86 91 d1 d8 02 e8 9b 6c 75 7e 17 08 d5 16 fc
+RIM-COD-SHA1-33: 31 df cc 1a 31 2d b7 3d 5d 09 cb af 5c 39 54 d9 1c 84 25 67
+RIM-COD-SHA1-32: b7 22 d7 67 c3 a4 f1 fd 0e 96 b9 c4 20 2e cc 1a 00 bb 70 73
+RIM-COD-SHA1-31: 9a 5d 1c 75 f9 c5 f4 73 2d 44 b3 d5 82 b2 21 4c d9 18 21 c0
+RIM-COD-SHA1-30: 5f 89 e7 af 9d 66 4d 85 25 4e 97 6e 18 67 1d ac 55 31 43 35
+RIM-COD-SHA1-9: 46 43 57 9e 27 e3 76 ac 15 7a 1b a6 35 6e 55 59 a2 19 f6 ad
+RIM-COD-SHA1-8: be fc f9 3f 25 a7 eb cc 81 7b 20 de b9 6b 5e 17 ee a8 b5 a1
+RIM-COD-SHA1-7: 51 6f 94 99 7a 35 e2 8b 37 22 e4 ba 52 e9 9a 69 01 d8 45 69
+RIM-COD-SHA1-6: c5 a0 c6 1a f7 fe f3 fe ce 2c 6e c9 24 f5 41 3a e3 29 b2 7c
+RIM-COD-SHA1-5: 15 7d 60 5b c8 8c c2 f7 cd 21 2b 8a d6 ed d8 6e 22 05 8c e5
+RIM-COD-SHA1-4: b2 76 d0 ab c8 62 cd 25 1a 8b 19 b3 fc eb 89 b4 56 17 1f f1
+RIM-COD-SHA1-3: f7 bc 1d 36 7c 9d 67 b3 e0 19 9b e2 2e 70 3f 14 1c 02 16 ce
+RIM-COD-SHA1-2: ac 60 19 0e 80 d4 a3 da 99 9c 76 2c 90 23 ae 8e 16 f0 08 f0
+RIM-COD-SHA1-1: 0f 47 00 1d 85 3c 4d 8d 5f d4 62 1b 32 04 26 85 58 03 58 fd
+RIM-COD-SHA1-29: 5c 6b e3 2a dd 4d 7e 7a 82 c8 41 c6 6d 49 c3 5f ef b5 5e 31
+RIM-COD-SHA1-28: dd 0b 0b 70 5c 71 83 a8 b2 8a d0 3e fc aa 15 f3 53 8a 5e 8e
+RIM-COD-SHA1-27: 88 48 1b fa 10 cf 8e 8f ae cc ae b9 0d 88 73 09 0d 3e 10 93
+RIM-COD-SHA1-26: c7 4a 60 de 15 97 32 7e 2f 8c c4 78 b9 31 b3 bb 64 e7 de 7a
+RIM-COD-SHA1-25: 03 c7 db 5e e9 cb 54 4f 1b 06 50 4a fc bc 8d 04 da 67 77 78
+RIM-COD-SHA1-24: 5b 70 fa 67 7c 72 dd c3 91 7c bd 28 09 15 27 ef 59 23 a4 fb
+RIM-COD-SHA1-23: ae d4 0c f9 e9 70 1b c2 1c cd fc 7a 1a 6d 8d 3d 70 59 fa 0f
+RIM-COD-SHA1-22: a4 eb bf e5 a9 d6 20 8b 2f 7e 79 f7 84 73 e2 6d 06 87 20 28
+RIM-COD-SHA1-21: 78 3c 97 58 a4 94 04 24 1f c9 0f 51 c2 f7 ca 86 65 9c 82 80
+RIM-COD-SHA1-20: 91 7b 14 38 5e c4 8c 2a 23 fe 71 ea 55 cc 38 0f 12 84 91 16
+RIM-COD-Creation-Time: 1343148557
+RIM-COD-SHA1-19: 59 0f 1c ab 90 75 fa 10 a6 04 37 0f 99 6c ec 3f d8 c7 2c d2
+RIM-COD-SHA1-18: 28 94 21 43 fc 2b 14 46 31 d6 0a 28 56 83 85 bc 4d 1d d3 72
+RIM-COD-SHA1-17: 3e 65 8c 27 9c 64 6a ac 0f dd bb 3d 60 92 89 57 69 e5 99 b7
+RIM-COD-SHA1-16: 30 13 4a af 0c 10 3e 3f 45 c9 17 58 cd dd 16 dc 4d 8b 33 fc
+RIM-COD-SHA1-15: 26 06 a2 58 12 65 59 dc e6 1b 3f 73 65 b2 92 46 85 6a 5d 7f
+RIM-COD-SHA1-14: 87 d1 3e 6b b1 cb 17 2e 21 13 79 dd a6 13 d3 11 8a e4 e4 4e
+RIM-COD-SHA1-13: 0b 00 78 cc fd 26 9c f7 49 fb a6 5e cd b6 58 d7 16 f1 08 5b
+RIM-COD-SHA1-12: f1 21 7d a5 91 83 05 38 6d 98 56 00 29 03 6c 2f 61 cf da d2
+RIM-COD-SHA1-11: cf 9d 72 cd 96 c6 78 e6 b9 8a 36 ce 62 a6 5f e7 68 30 c9 cb
+RIM-COD-SHA1-10: 84 d4 9d 26 6f 0e b6 32 a0 d5 b2 04 f7 2a 64 cd bc 7a 8d a1

@@ -7,9 +7,10 @@ define([
 	'collections/venues.collection',
 	'text!templates/header.tmpl.html',
 	'text!templates/venues.tmpl.html',
-	'text!templates/error.tmpl.html'
+	'text!templates/error.tmpl.html',
+	'views/locationBar.view'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenuesTmplStr, ErrorTmplStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, HeaderTmplStr, VenuesTmplStr, ErrorTmplStr, LocationBarView) {
 	// "use strict";
 
 	return Backbone.View.extend({
@@ -24,6 +25,10 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 		
 		render: function() {
 			this.$el.append(this.headerTemplate());
+			
+			locationView = new LocationBarView();
+			this.$el.append(locationView.$el);
+
 			this.bindEvents();
 			return this;
 		},
