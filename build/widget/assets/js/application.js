@@ -41,6 +41,7 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 
 	return {
 		initialize: function () {
+		
 			if (window.cordova && window.device) {
 				document.addEventListener('deviceready', function () {
 					_initialize();

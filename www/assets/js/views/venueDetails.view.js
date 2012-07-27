@@ -20,7 +20,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 		errorTemplate: _.template(ErrorTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide', 'renderMap');
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'dataFetchSuccess', 'dataFetchError', 'pagehide', 'renderMap', 'buildMailToLink', 'buildSMSLink');
 			this.render();
 		},
 		
@@ -56,10 +56,21 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 			if (window.NEARMEAPP.currentVenuesCollection !== undefined && this.options.venue_id !== undefined) {
 				this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
 				if (this.model !== undefined) {
-					this.$el.append(this.contentTemplate({ venue: this.model }));
-					this.$el.trigger('create');
+					$content = $(this.contentTemplate({ venue: this.model, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
 
+
+					$content.find("a[href^='http']").bind('click', function (e) {
+						if (blackberry.invoke !== undefined) {
+							e.preventDefault();
+							var href = $(e.currentTarget).attr('href');
+							var args = new blackberry.invoke.BrowserArguments(href);
+							blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+						}
+					});
+
+					this.$el.append($content);
 					this.renderMap();
+					this.$el.trigger('create');
 				}
 			}
 		},
@@ -107,17 +118,15 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 
 				var thisMap = $('<img src="' + url + ' " />');
 
-				thisMap.on('tap click', function () {
+				thisMap.bind('click', function () {
 					if (blackberry.invoke !== undefined) {
-						//TODO: Debug this
-						var args = blackberry.invoke.MapsArgument(loc.latitude, loc.longitude);
+						var args = new blackberry.invoke.MapsArguments(loc.latitude, loc.longitude);
 						blackberry.invoke.invoke(blackberry.invoke.APP_MAPS, args);
 					}
 				});
 
 				this.$el.append(thisMap);
 			}
-
 
 			/*
 			http://maps.googleapis.com/maps/api/staticmap?
@@ -131,6 +140,52 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 			&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284
 			&sensor=false
 			*/
+		},
+
+		buildMailToLink: function (model) {
+			var rtn = 'mailto:?subject=' + encodeURIComponent(model.get('tradingName'));
+			rtn += '&body=' + encodeURIComponent(model.get('location').fullAddress);
+
+			if (model.get('contact').phone !== null) {
+				rtn += '%0D%0A%0D%0A';
+				rtn += 'Tel. ' + encodeURIComponent(model.get('contact').phone);
+			}
+
+			var loc = model.get('location');
+			if (loc.latitude !== null && loc.longitude !== null) {
+				rtn += '%0D%0A%0D%0A';
+				rtn += 'Find it on Google Maps: ' + encodeURIComponent('http://maps.google.com/?ll=' + loc.latitude + ',' + loc.longitude + '&q=' + loc.latitude + ',' + loc.longitude);
+			}
+
+			rtn += '%0D%0A%0D%0A';
+			rtn += 'NearMe - Local Knowledge';
+			return rtn;
+		},
+
+		buildSMSLink: function (model) {
+			//TODO: Debug why this doesn't work...
+			//
+			// var rtn = 'sms:' + '?body=' + model.get('tradingName');
+			// rtn += ' ' + encodeURIComponent(model.get('location').fullAddress);
+
+			// if (model.get('contact').phone !== null) {
+			// 	rtn += '%0D%0A%0D%0A';
+			// 	rtn += 'Tel. ' + model.get('contact').phone;
+			// }
+
+			// var loc = model.get('location');
+			// if (loc.latitude !== null && loc.longitude !== null) {
+			// 	rtn += '%0D%0A%0D%0A';
+			// 	rtn += 'Find it on Google Maps: ' + encodeURIComponent('http://maps.google.com/?ll=' + loc.latitude + ',' + loc.longitude + '&q=' + loc.latitude + ',' + loc.longitude);
+			// }
+
+			// rtn = rtn.substr(0, 150);
+			// return rtn;
+			return null;
+		},
+
+		createContact: function (model) {
+			model.saveToContacts();
 		}
 	});
 });
