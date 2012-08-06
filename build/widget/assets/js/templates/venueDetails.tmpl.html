@@ -1,12 +1,18 @@
 <div id="content" data-role="content">
 	<% if (venue.get('tradingName') != undefined) { %>
       <h1><%= venue.get('tradingName') %></h1>
+      
       <p><%= venue.get('location').fullAddress %></p>
+      
       <p><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
-      <% if (venue.get('contact').phone !== null) { %><p><a href="tel:<%= venue.get('contact').phone.replace(' ', '') %>"><%= venue.get('contact').phone %></a></p><% } %>
+      
+      <% if (venue.get('contact').phone !== null) { %>
+      <p><a href="tel:<%= venue.get('contact').phone.replace(' ', '') %>"><%= venue.get('contact').phone %></a></p>
+      <% } %>
 
-      <p><a href="<%= mailToLink %>">Send via Email</a></p>
-      <p><a href="<%= smsLink %>">Send via SMS</a></p>
+      <% if (mailToLink !== null) { %><p><a href="<%= mailToLink %>">Send via Email</a></p><% } %>
+
+      <% if (smsLink !== null) { %><p><a href="<%= smsLink %>">Send via SMS</a></p><% } %>
 
       <% if (venue.get('contact').websiteUrl !== null) { %>
         <p><a href="<%= venue.get('contact').websiteUrl %>" target="_none"><%= venue.get('contact').websiteUrl %></a></p>
@@ -14,6 +20,7 @@
 
       <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" width="100%" ><% } %>
 
+      <p><a href="#" class="js_addToContacts">Add to contacts</a></p>
   <% } else { %>
     <h2>No Venue Listed</h2>
   <% } %>

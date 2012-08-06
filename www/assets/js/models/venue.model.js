@@ -52,19 +52,20 @@ function(UnderscoreLib, BackboneLib) {
 			
 		},
 		saveToContacts: function () {
-			if (navigator.contacts !== undefined) {
+
+			if (navigator.contacts !== undefined && navigator.notification !== undefined) {
 				var contact = navigator.contacts.create();
 
 				contact.displayName = this.get('tradingName');
 				contact.nickname = this.get('tradingName');
 
-				contact.name = new ContactName({
-					formatted: null,
-					givenName: null,
-					middleName: null,
-					honorificPrefix: null,
-					honorificSuffix: null
-				});
+				contact.name = new ContactName();
+				contact.name.formatted = this.get('tradingName');
+				contact.name.familyName = null;
+				contact.name.givenName = this.get('tradingName');
+				contact.name.middleName = null;
+				contact.name.honorificPrefix = null;
+				contact.name.honorificSuffix = null;
 
 				contact.phoneNumbers = [];
 				var contDetails = this.get('contact');
@@ -84,12 +85,15 @@ function(UnderscoreLib, BackboneLib) {
 				var locDetails = this.get('location');
 				contact.addresses = [];
 				if (locDetails.fullAddress !== null) {
+					
+					var streetAddress = this.formatStreetAddress(locDetails);
+
 					contact.addresses[0] = new ContactAddress(
 						true, //pref: bool
 						'work', //type: string
 						locDetails.fullAddress, //formatted: string
-						null, //streetAddress: string
-						null, //locality: string
+						streetAddress, //streetAddress: string
+						locDetails.address3, //locality: string
 						locDetails.region, //region: string
 						locDetails.postalCode, //postalCode: string
 						locDetails.countryCode //country: string
@@ -100,7 +104,51 @@ function(UnderscoreLib, BackboneLib) {
 				if (contDetails.websiteUrl !== null) {
 					contact.urls[0] = new ContactField('work', contDetails.websiteUrl, true);
 				}
+
+				var success = this.onContactSaveSuccess;
+				var error = this.onContactSaveError;
+				navigator.notification.confirm(
+					'Are you sure you want to add this to your contacts?',
+					function (buttonPressed) {
+						if (buttonPressed == 1) {
+							contact.save(success, error);
+						}
+					},
+					'Add to contacts',
+					'Add,Cancel'
+				);
 			}
+		},
+
+		saveToFavourites: function () {
+			window.NEARMEAPP.FAVOURITESCOLLECTION.addEntry(this);
+		},
+
+		deleteFromFavourites: function () {
+			window.NEARMEAPP.FAVOURITESCOLLECTION.removeEntry(this);
+		},
+
+		saveToHistory: function () {
+			window.NEARMEAPP.HISTORYCOLLECTION.addEntry(this);
+		},
+
+
+		formatStreetAddress: function (locDetails) {
+			var address = locDetails.address1;
+
+			if (locDetails.address2 !== null) {
+				address += ', ' + locDetails.address2;
+			}
+
+			return address;
+		},
+		
+		onContactSaveSuccess: function () {
+
+		},
+
+		onContactSaveError: function (error) {
+
 		}
 	});
 });

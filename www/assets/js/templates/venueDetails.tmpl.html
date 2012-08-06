@@ -20,6 +20,8 @@
 
       <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" width="100%" ><% } %>
 
+      <p><a href="#" class="js_addToContacts">Add to contacts</a></p>
+      <p><a href="#" class="js_addToFavourites">Add to favourites</a></p>
   <% } else { %>
     <h2>No Venue Listed</h2>
   <% } %>

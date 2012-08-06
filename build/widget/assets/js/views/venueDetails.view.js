@@ -58,7 +58,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 				if (this.model !== undefined) {
 					$content = $(this.contentTemplate({ venue: this.model, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
 
-
 					$content.find("a[href^='http']").bind('click', function (e) {
 						if (blackberry.invoke !== undefined) {
 							e.preventDefault();
@@ -66,6 +65,12 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 							var args = new blackberry.invoke.BrowserArguments(href);
 							blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
 						}
+					});
+
+					var model = this.model;
+					$content.find('.js_addToContacts').bind('click', function (e) {
+						e.preventDefault();
+						model.saveToContacts();
 					});
 
 					this.$el.append($content);
@@ -159,28 +164,29 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 
 			rtn += '%0D%0A%0D%0A';
 			rtn += 'NearMe - Local Knowledge';
-
 			return rtn;
 		},
 
 		buildSMSLink: function (model) {
-			var rtn = 'sms:' + '?body=' + model.get('tradingName');
-			rtn += ' ' + encodeURIComponent(model.get('location').fullAddress);
+			//TODO: Debug why this doesn't work...
+			//
+			// var rtn = 'sms:' + '?body=' + model.get('tradingName');
+			// rtn += ' ' + encodeURIComponent(model.get('location').fullAddress);
 
-			if (model.get('contact').phone !== null) {
-				rtn += '%0D%0A%0D%0A';
-				rtn += 'Tel. ' + model.get('contact').phone;
-			}
+			// if (model.get('contact').phone !== null) {
+			// 	rtn += '%0D%0A%0D%0A';
+			// 	rtn += 'Tel. ' + model.get('contact').phone;
+			// }
 
-			var loc = model.get('location');
-			if (loc.latitude !== null && loc.longitude !== null) {
-				rtn += '%0D%0A%0D%0A';
-				rtn += 'Find it on Google Maps: ' + encodeURIComponent('http://maps.google.com/?ll=' + loc.latitude + ',' + loc.longitude + '&q=' + loc.latitude + ',' + loc.longitude);
-			}
+			// var loc = model.get('location');
+			// if (loc.latitude !== null && loc.longitude !== null) {
+			// 	rtn += '%0D%0A%0D%0A';
+			// 	rtn += 'Find it on Google Maps: ' + encodeURIComponent('http://maps.google.com/?ll=' + loc.latitude + ',' + loc.longitude + '&q=' + loc.latitude + ',' + loc.longitude);
+			// }
 
-
-			rtn = rtn.substr(0, 150);
-			return rtn;
+			// rtn = rtn.substr(0, 150);
+			// return rtn;
+			return null;
 		}
 	});
 });

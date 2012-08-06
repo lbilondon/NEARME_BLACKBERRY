@@ -6,11 +6,13 @@ define([
     'backbone',
     'views/home.view',
     'views/settings.view',
+    'views/history.view',
+    'views/favourites.view',
     'views/categories.view',
     'views/venues.view',
     'views/venueDetails.view'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, CategoriesView, VenuesView, VenueDetailsView) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, HistoryView, FavouritesView, CategoriesView, VenuesView, VenueDetailsView) {
     // "use strict";
 
     var homeView = null,
@@ -58,11 +60,19 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
         },
 
         favourites: function () {
+            var favouritesView = new FavouritesView({
+                id: 'favourites'
+            });
 
+            this.changePage(favouritesView);
         },
 
         history: function () {
+            var historyView = new HistoryView({
+                id: 'history'
+            });
 
+            this.changePage(historyView);
         },
 
         brands: function ( id ) {

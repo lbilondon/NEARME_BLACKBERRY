@@ -58,7 +58,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 				if (this.model !== undefined) {
 					$content = $(this.contentTemplate({ venue: this.model, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
 
-
 					$content.find("a[href^='http']").bind('click', function (e) {
 						if (blackberry.invoke !== undefined) {
 							e.preventDefault();
@@ -68,9 +67,22 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 						}
 					});
 
+					var model = this.model;
+					$content.find('.js_addToContacts').bind('click', function (e) {
+						e.preventDefault();
+						model.saveToContacts();
+					});
+
+					$content.find('.js_addToFavourites').bind('click', function (e) {
+						e.preventDefault();
+						model.saveToFavourites();
+					});
+
 					this.$el.append($content);
 					this.renderMap();
 					this.$el.trigger('create');
+
+					this.model.saveToHistory();
 				}
 			}
 		},
@@ -182,10 +194,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 			// rtn = rtn.substr(0, 150);
 			// return rtn;
 			return null;
-		},
-
-		createContact: function (model) {
-			model.saveToContacts();
 		}
 	});
 });
