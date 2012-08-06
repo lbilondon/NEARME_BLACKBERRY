@@ -16,6 +16,7 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		listTemplate : _.template(SettingsTmplStr),
 		
 		initialize : function() {
+			_.bindAll(this, 'render', 'save', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide', 'sendToFriend', 'sendToFriendEmail', 'sendToFriendSMS');
 			this.render();
 		},
 		
@@ -23,7 +24,7 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 			window.NEARMEAPP.SETTINGSMODEL = window.NEARMEAPP.SETTINGSMODEL || new SettingsModel();
 
 			this.$el.append(this.headerTemplate());
-			this.$el.append(this.listTemplate({ settings: window.NEARMEAPP.SETTINGSMODEL }));
+			this.$el.append(this.listTemplate({ settings: window.NEARMEAPP.SETTINGSMODEL, feedbackLink: this.buildFeedbackLink() }));
 			
 			this.bindEvents();
 			return this;
@@ -40,6 +41,12 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 
 		bindEvents: function () {
 			this.$el.find('input').bind('change', this.save);
+
+			var sendToFriend = this.sendToFriend;
+			this.$el.find('.js_sendToFriend').bind('click', function (e) {
+				e.preventDefault();
+				sendToFriend();
+			});
 
 			this.$el.on('pagebeforeshow', this.pagebeforeshow);
 			this.$el.on('pagebeforehide', this.pagebeforehide);
@@ -63,11 +70,59 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		},
 
 		pageshow: function () {
-			//triggered on page show
+			
 		},
 
 		pagehide: function () {
 			//triggered on page
+		},
+
+		sendToFriend: function () {
+			navigator.notification.confirm(
+					'',
+					function (buttonPressed) {
+						if (buttonPressed == 1) {
+							this.sendToFriendEmail();
+						} else if (buttonPressed == 2) {
+							this.sendToFriendSMS();
+						}
+					},
+					'',
+					'Send via Email,Send via SMS,Cancel'
+				);
+		},
+
+		buildFeedbackLink: function () {
+			var rtn = 'mailto:support@getnearme.com?subject=Feedback%20on%20NearMe';
+			return rtn;
+		},
+
+		sendToFriendEmail: function () {
+			window.location.href = this.buildSendtoFriendEmail();
+		},
+
+		buildSendtoFriendEmail: function () {
+			var body = "The all new NearMe Blackberry application is out. Go get it!";
+			body += '%0D%0A%0D%0A';
+			body += "Click the link below to download NearMe directly from the Blackberry App Store. It's FREE";
+			//body += '%0D%0A%0D%0A' + linkToAppStore
+
+			var subject = 'NearMe - Local Knowledge';
+
+			var rtn = 'mailto:?subject=?' + subject + '&body=' + body;
+
+			return rtn;
+		},
+
+		sendToFriendSMS: function () {
+
+		},
+
+		buildSendToFriendSMS: function () {
+			var body = "Click the link below to download NearMe directly from the Blackberry App Store. It's FREE";
+			// body += "\r\n\r\n" + linkToAppStore;
+			
+			return { body: body };
 		}
 	});
 });

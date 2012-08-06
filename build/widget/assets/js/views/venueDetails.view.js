@@ -73,9 +73,16 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 						model.saveToContacts();
 					});
 
+					$content.find('.js_addToFavourites').bind('click', function (e) {
+						e.preventDefault();
+						model.saveToFavourites();
+					});
+
 					this.$el.append($content);
 					this.renderMap();
 					this.$el.trigger('create');
+
+					this.model.saveToHistory();
 				}
 			}
 		},

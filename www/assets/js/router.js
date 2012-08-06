@@ -18,7 +18,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
     var homeView = null,
         settingsView = null;
 
-
     function _handleHardwareButton () {
         if (window.blackberry) {
             blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,

@@ -5,6 +5,8 @@ define([
     'underscore',
     'backbone',
     'router',
+    'collections/history.collection',
+    'collections/favourites.collection',
     'models/config.model',
     'models/settings.model',
     'models/location.model',
@@ -13,7 +15,7 @@ define([
 	'views/settings.view',
 	'views/categories.view'
 ],
-function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigModel, SettingsModel, LocationModel, utilViewHelper, HomeView, SettingsView, CategoriesView) {
+function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, HistoryCollection, FavouritesCollection, ConfigModel, SettingsModel, LocationModel, utilViewHelper, HomeView, SettingsView, CategoriesView) {
 	// "use strict";
 
 	function _initialize () {
@@ -29,6 +31,9 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 			window.NEARMEAPP.ROUTER = new AppRouter();
 			Backbone.history.start();
 
+			window.NEARMEAPP.HISTORYCOLLECTION = new HistoryCollection();
+			window.NEARMEAPP.FAVOURITESCOLLECTION = new FavouritesCollection();
+
 			window.NEARMEAPP.CONFIGMODEL = new ConfigModel();
 			window.NEARMEAPP.SETTINGSMODEL = new SettingsModel();
 			window.NEARMEAPP.LOCATIONMODEL = new LocationModel();
@@ -41,7 +46,6 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 
 	return {
 		initialize: function () {
-		
 			if (window.cordova && window.device) {
 				document.addEventListener('deviceready', function () {
 					_initialize();
@@ -49,7 +53,6 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, ConfigMod
 			} else {
 				_initialize();
 			}
-			
 		}
 	};
 });

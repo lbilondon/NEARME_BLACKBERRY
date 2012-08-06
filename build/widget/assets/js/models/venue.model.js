@@ -120,6 +120,19 @@ function(UnderscoreLib, BackboneLib) {
 			}
 		},
 
+		saveToFavourites: function () {
+			window.NEARMEAPP.FAVOURITESCOLLECTION.addEntry(this);
+		},
+
+		deleteFromFavourites: function () {
+			window.NEARMEAPP.FAVOURITESCOLLECTION.removeEntry(this);
+		},
+
+		saveToHistory: function () {
+			window.NEARMEAPP.HISTORYCOLLECTION.addEntry(this);
+		},
+
+
 		formatStreetAddress: function (locDetails) {
 			var address = locDetails.address1;
 
