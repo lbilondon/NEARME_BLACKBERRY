@@ -16,12 +16,13 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		listTemplate : _.template(SettingsTmplStr),
 		
 		initialize : function() {
-			_.bindAll(this, 'render', 'save', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide', 'sendToFriend', 'sendToFriendEmail', 'sendToFriendSMS');
+			_.bindAll(this, 'render', 'save', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide', 'sendToFriend', 'sendToFriendSMS');
 			this.render();
 		},
 		
 		render : function() {
 			window.NEARMEAPP.SETTINGSMODEL = window.NEARMEAPP.SETTINGSMODEL || new SettingsModel();
+			this.model = window.NEARMEAPP.SETTINGSMODEL;
 
 			this.$el.append(this.headerTemplate());
 			this.$el.append(this.listTemplate({ settings: window.NEARMEAPP.SETTINGSMODEL, feedbackLink: this.buildFeedbackLink() }));
@@ -78,39 +79,24 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		},
 
 		sendToFriend: function () {
+			var sendToFriendEmail = this.model.sendTellFriendEmail;
+			var sendToFriendSMS = this.sendToFriendSMS;
 			navigator.notification.confirm(
-					'',
-					function (buttonPressed) {
-						if (buttonPressed == 1) {
-							this.sendToFriendEmail();
-						} else if (buttonPressed == 2) {
-							this.sendToFriendSMS();
-						}
-					},
-					'',
-					'Send via Email,Send via SMS,Cancel'
-				);
+				'',
+				function (buttonPressed) {
+					if (buttonPressed == 1) {
+						sendToFriendEmail();
+					} else if (buttonPressed == 2) {
+						sendToFriendSMS();
+					}
+				},
+				'',
+				'Send via Email,Send via SMS,Cancel'
+			);
 		},
 
 		buildFeedbackLink: function () {
 			var rtn = 'mailto:support@getnearme.com?subject=Feedback%20on%20NearMe';
-			return rtn;
-		},
-
-		sendToFriendEmail: function () {
-			window.location.href = this.buildSendtoFriendEmail();
-		},
-
-		buildSendtoFriendEmail: function () {
-			var body = "The all new NearMe Blackberry application is out. Go get it!";
-			body += '%0D%0A%0D%0A';
-			body += "Click the link below to download NearMe directly from the Blackberry App Store. It's FREE";
-			//body += '%0D%0A%0D%0A' + linkToAppStore
-
-			var subject = 'NearMe - Local Knowledge';
-
-			var rtn = 'mailto:?subject=?' + subject + '&body=' + body;
-
 			return rtn;
 		},
 

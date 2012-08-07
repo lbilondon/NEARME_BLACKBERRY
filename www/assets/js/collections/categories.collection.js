@@ -12,7 +12,7 @@ function(UnderscoreLib, BackboneLib, CategoryModel) {
 		model: CategoryModel,
 		url: function () {
 			if (useStub) {
-				return '/assets/js/dataStub/categories.json.js';
+				return '/assets/js/dataStub/cat_listing_0.json';
 			}
 		},
 		fetchFromId: function (id, options) {

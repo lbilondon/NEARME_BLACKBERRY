@@ -17,6 +17,20 @@ function(UnderscoreLib, BackboneLib) {
 			
 		},
 
+		sendTellFriendEmail: function () {
+			if (blackberry.invoke !== undefined) {
+				var body = "The all new NearMe Blackberry application is out. Go get it!";
+					body += "\r\n\r\n";
+					body += "Click the link below to download NearMe directly from the Blackberry App Store. It's FREE";
+					// body += "\r\n\r\n";
+					// body += linkToAppStore;
+
+				var args = new blackberry.invoke.MessageArguments('', 'NearMe - Local Knowledge', body);
+				args.view = blackberry.invoke.MessageArguments.VIEW_NEW;
+				blackberry.invoke.invoke(blackberry.invoke.APP_MESSAGES, args);
+			}
+		},
+
 		fileSystemSave: function () {
 			if (window.requestFileSystem) {
 				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, this.saveFile, this.fail);

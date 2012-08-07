@@ -68,12 +68,22 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 			collection.remove(collection.at(0));
 			collection.add(response.root);
 
+
+			var categories = [];
+			var i = 0;
+			collection.each(function(category) {
+				if (category.get('type') !== 4) {
+					tmp[i] = category;
+					i++;
+				}
+			});
+
 			var pageTitle = 'Categories';
 			if (this.options.category_id === 'brands') {
 				pageTitle = 'Brands';
+				categories = collection.where({ "type": 4 });
 			}
-			
-			this.$el.append(this.listTemplate({ categories:  collection, pageTitle: pageTitle }));
+			this.$el.append(this.listTemplate({ categories: categories, pageTitle: pageTitle }));
 			
 			locationView = new LocationBarView();
 			this.$el.find('#location').html(locationView.$el);

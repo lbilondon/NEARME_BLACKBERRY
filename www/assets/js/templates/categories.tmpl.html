@@ -5,7 +5,7 @@
   </div>
 	<% if (categories.length > 0) { %>
 	<ul data-role="listview">
-    <% categories.each(function(category) { %>
+    <% _.each(categories, function(category) { %>
 	    <% if (category.get('title') !== null) { %>
 	      <li><a href="/venues/<%= category.get('id') %>">
           <% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-thumb" /><% } %>
