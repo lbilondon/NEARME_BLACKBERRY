@@ -4,7 +4,8 @@
 		<li><a href="/brands/all">All Brands</a></li>
 		
 		<% brands.each(function(brand) { %>
-			<li><a href="/venues/<%= brand.get('id') %>"><%= brand.get('title') %></a></li>
+			<li><a href="/venues/<%= brand.get('id') %>"><% if (brand.get('iconUrl') !== null) { %><img src="<%= brand.get('iconUrl') %>" class="ui-li-icon ui-li-thumb" /><% } %>
+          <%= brand.get('title') %></a></li>
 		<% }); %>
 
 		<li data-role="list-divider"></li>
@@ -14,7 +15,8 @@
 		<li><a href="/categories/all">All Categories</a></li>
 		
 		<% categories.each(function(category) { %>
-			<li><a href="/venues/<%= category.get('id') %>"><%= category.get('title') %></a></li>
+			<li><a href="/venues/<%= category.get('id') %>"><% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-thumb" /><% } %>
+          <%= category.get('title') %></a></li>
 		<% }); %>
 		<% } %>
 	</ul>

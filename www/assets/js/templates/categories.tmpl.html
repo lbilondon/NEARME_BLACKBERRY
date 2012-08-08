@@ -1,6 +1,8 @@
 <div id="content" data-role="content">
   <div id="sectionBanner" data-role="header">
-    <h1><%= pageTitle %></h1>
+    <div class="ui-bar ui-title-a">
+      <h1><%= pageTitle %></h1>
+    </div>
     <div id="location"></div>
   </div>
 	<% if (categories.length > 0) { %>
@@ -8,7 +10,7 @@
     <% _.each(categories, function(category) { %>
 	    <% if (category.get('title') !== null) { %>
 	      <li><a href="/venues/<%= category.get('id') %>">
-          <% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-thumb" /><% } %>
+          <% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-icon-a ui-li-thumb" /><% } %>
           <%= category.get('title') %></a>
         </li>
 	    <% } %>

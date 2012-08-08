@@ -5,7 +5,7 @@
     <% venues.each(function(venue) { %>
       <% if (venue.get('tradingName') !== null) { %>
         <li>
-          <a href="/venueDetails/<%= venue.get('id') %>">
+          <a href="/venueDetails/<%= venue.get('id') %>" class="ui-li-bigIcon">
             <% if (venue.get('thumbUrl') !== null) { %><img src="<%= venue.get('thumbUrl') %>" class="ui-li-thumb"><% } %>
           		<h3 class="ui-li-heading"><%= venue.get('tradingName') %></h3>
           		<% if (venue.get('location').fullAddress !== '') { %>

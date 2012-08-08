@@ -16,7 +16,7 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		listTemplate : _.template(SettingsTmplStr),
 		
 		initialize : function() {
-			_.bindAll(this, 'render', 'save', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide', 'sendToFriend', 'sendToFriendEmail', 'sendToFriendSMS');
+			_.bindAll(this, 'render', 'save', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide', 'sendToFriend', 'sendToFriendSMS');
 			this.render();
 		},
 		
@@ -79,7 +79,7 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		},
 
 		sendToFriend: function () {
-			var sendToFriendEmail = this.sendToFriendEmail;
+			var sendToFriendEmail = this.model.sendTellFriendEmail;
 			var sendToFriendSMS = this.sendToFriendSMS;
 			navigator.notification.confirm(
 				'',
@@ -98,10 +98,6 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		buildFeedbackLink: function () {
 			var rtn = 'mailto:support@getnearme.com?subject=Feedback%20on%20NearMe';
 			return rtn;
-		},
-
-		sendToFriendEmail: function () {
-			this.model.sendTellFriendEmail();
 		},
 
 		sendToFriendSMS: function () {

@@ -73,7 +73,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, CategoriesCollecti
 			var i = 0;
 			collection.each(function(category) {
 				if (category.get('type') !== 4) {
-					tmp[i] = category;
+					categories[i] = category;
 					i++;
 				}
 			});
