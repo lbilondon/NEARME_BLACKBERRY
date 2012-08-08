@@ -52,7 +52,14 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Ven
 
 		pageshow: function () {
 			var venues = window.NEARMEAPP.HISTORYCOLLECTION;
-			
+			$clearAll = $('<span class="ui-btn">clear history</span>');
+
+			$clearAll.bind('click', function (e) {
+				e.preventDefault();
+				venues.clearHistory();
+				location.reload();
+			});
+			this.$el.append($clearAll);
 			this.$el.append(this.listTemplate({ venues: venues }));
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);

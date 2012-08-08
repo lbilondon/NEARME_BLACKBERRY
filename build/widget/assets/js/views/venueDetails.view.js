@@ -55,8 +55,20 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 		pageshow: function () {
 			if (window.NEARMEAPP.currentVenuesCollection !== undefined && this.options.venue_id !== undefined) {
 				this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
+				var cid = parseInt(this.model.cid.replace('c', ''), 10);
+				prevModel = window.NEARMEAPP.currentVenuesCollection.getByCid('c' + (cid - 1));
+				nextModel = window.NEARMEAPP.currentVenuesCollection.getByCid('c' + (cid + 1));
+
+				if (prevModel !== undefined && prevModel.get('id') === null) {
+					prevModel = undefined;
+				}
+
+				if (nextModel !== undefined && nextModel.get('id') === null) {
+					nextModel = undefined;
+				}
+
 				if (this.model !== undefined) {
-					$content = $(this.contentTemplate({ venue: this.model, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
+					$content = $(this.contentTemplate({ venue: this.model, prevVenue: prevModel, nextVenue: nextModel, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
 
 					$content.find("a[href^='http']").bind('click', function (e) {
 						if (blackberry.invoke !== undefined) {
@@ -81,7 +93,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 					this.$el.append($content);
 					this.renderMap();
 					this.$el.trigger('create');
-
+					window.NEARMEAPP.ROUTER.refreshEventBindings(this);
 					this.model.saveToHistory();
 				}
 			}
@@ -107,8 +119,11 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 					url += 'key=' + STATIC_MAPS_API_KEY;
 					url += '&sensor=false';
 					url += '&maptype=roadmap';
-					url += '&size=250x400';
-					url += '&zoom=14';
+
+					var width = parseInt($(window).width(), 10);
+
+					url += '&size=' + width + 'x300';
+					// url += '&zoom=12';
 					url += '&markers=' + loc.latitude + ',' + loc.longitude;
 
 				var venueId = this.options.venue_id,
@@ -127,6 +142,11 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 				if (lat !== null && lng !== null) {
 					url += '&markers=color:green%7C' + lat + ',' + lng;
 				}
+
+				var midLat = lat - (lat - loc.latitude);
+				var midLng = lng - (lng - loc.longitude);
+
+				url += '&center=' + midLat + ',' + midLng;
 
 				var thisMap = $('<img src="' + url + ' " />');
 
@@ -158,9 +178,11 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 			var rtn = 'mailto:?subject=' + encodeURIComponent(model.get('tradingName'));
 			rtn += '&body=' + encodeURIComponent(model.get('location').fullAddress);
 
-			if (model.get('contact').phone !== null) {
-				rtn += '%0D%0A%0D%0A';
-				rtn += 'Tel. ' + encodeURIComponent(model.get('contact').phone);
+			if (model.get('contact') !== null) {
+				if (model.get('contact').phone !== null) {
+					rtn += '%0D%0A%0D%0A';
+					rtn += 'Tel. ' + encodeURIComponent(model.get('contact').phone);
+				}
 			}
 
 			var loc = model.get('location');

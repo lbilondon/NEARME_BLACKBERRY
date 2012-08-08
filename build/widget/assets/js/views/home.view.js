@@ -52,28 +52,28 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 
 			var categories = new CategoriesCollection([
 				{
-					id: 'banks_atms',
+					id: '001',
 					title: 'Banks & ATMs'
 				}, {
-					id: 'coffee_shops',
+					id: '005',
 					title: 'Coffee Shops'
 				}, {
-					id: 'hotels',
+					id: '007',
 					title: 'Hotels'
 				}, {
-					id: 'petrol_stations',
+					id: '010',
 					title: 'Petrol Stations'
 				}, {
-					id: 'pubs_bars',
+					id: '013',
 					title: 'Pubs & Bars'
 				}, {
-					id: 'restaurants',
+					id: '014',
 					title: 'Restaurants'
 				}, {
-					id: 'supermarkets',
+					id: '016',
 					title: 'Supermarkets'
 				}, {
-					id: 'taxis',
+					id: '017',
 					title: 'Taxis'
 				}
 			]);

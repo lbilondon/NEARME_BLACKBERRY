@@ -58,11 +58,13 @@
 	display:inline-block;
 	text-align:left;
 	margin:0.3em 15px 0.4em;
+	height:40px;
 	width:auto;
 	font-size:25px;
 }
 
 .ui-location-a {
+	font-size:13px;
 	background:#133769;
 	color:#fff;
 	text-shadow: 0 /*{a-body-shadow-x}*/ 1px /*{a-body-shadow-y}*/ 0 /*{a-body-shadow-radius}*/ #000 /*{a-body-shadow-color}*/;
@@ -81,13 +83,48 @@
 	color:#c9d1dd;
 }
 
-.ui-bar-a .ui-btn-right {
+.ui-bar-a .ui-title a.ui-link {
+	text-decoration: none;
+	color:#fff;
+}
+
+.ui-bar-a .ui-header-nav {
 	display:block;
 	float:right;
 	position:relative;
 	margin:0.2em 0.5%;
-	width:50px;
+	width:42px;
+	height:42px;
+	background: url(../img/nav_sprite.24.png) left top no-repeat;
+	overflow:hidden;
+	border:0;
 }
+
+.ui-bar-a .ui-header-nav span {
+	position:absolute;
+	left:-999px;
+}
+
+.ui-bar-a .ui-nav-settings {
+	background:#cdcdcd;
+}
+
+.ui-bar-a .ui-nav-history {
+	background-position:-153px 2px;
+}
+
+.ui-bar-a .ui-nav-history.ui-btn-hover-a {
+	background-position:-153px -44px;
+}
+
+.ui-bar-a .ui-nav-favourites {
+	background-position:-103px 0;
+}
+
+.ui-bar-a .ui-nav-favourites.ui-btn-hover-a {
+	background-position:-103px -44px;
+}
+
 
 .ui-body-a,
 .ui-overlay-a {
@@ -209,6 +246,66 @@
 .ui-listview a.ui-li-bigIcon img {
 	margin-top:1em;
 	margin-left:10px;
+}
+
+.ui-venueDetails-heading {
+	height:110px;
+	font-size:15px;
+}
+
+.ui-venueDetails-heading h1 {
+	font-size:15px;
+	line-height:1.2em;
+	margin-bottom:0;
+}
+
+.ui-venue-details-heading p {
+	margin:0;
+	-webkit-margin-before:0;
+	-webkit-margin-after:0;
+}
+
+.ui-venue-photo {
+	float:left;
+	margin:0.5em 10px;
+	width:20%;
+}
+
+.ui-prevButton,
+.ui-nextButton {
+	display:block;
+	float:left;
+	background:#c8cbce;
+	height:110px;
+	width:10%;
+	margin:0;
+	overflow:hidden;
+	background: url(../img/nextPrev_sprite.24.png) center -210px no-repeat;
+}
+
+.ui-nextButton {
+	background-position:center -2px;
+}
+
+.ui-prevButton-disabled {
+	background-position:center bottom;
+}
+.ui-nextButton-disabled {
+	background-position:center -110px;
+}
+
+.ui-prevButton span,
+.ui-nextButton span {
+	position:absolute;
+	left:-999px;
+}
+
+.ui-heading-content {
+	display:block;
+	float:left;
+	width:76%;
+	padding:0 2%;
+	height:110px;
 }
 
 /* B
@@ -1054,8 +1151,9 @@ a.ui-link-inherit {
 	-webkit-box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
 	box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
 }
+
 .ui-bar-a .ui-shadow,
-.ui-bar-b .ui-shadow ,
+.ui-bar-b .ui-shadow,
 .ui-bar-c .ui-shadow  {
 	-moz-box-shadow: 0px 1px 0 				rgba(255,255,255,.3);
 	-webkit-box-shadow: 0px 1px 0 			rgba(255,255,255,.3);
@@ -1108,6 +1206,7 @@ a.ui-link-inherit {
 .ui-mobile-nosupport-boxshadow .ui-btn:focus,
 .ui-mobile-nosupport-boxshadow .ui-link-inherit:focus {
 	outline-width: 1px;
-	outline-style: auto;
+	outline-style: dotted;
+	/*outline:0;*/
 }
-			
+/* TODO: IMPORTANT, LOOK AT HOW WE ARE HANDLING THIS */
