@@ -10,9 +10,10 @@ define([
     'views/favourites.view',
     'views/categories.view',
     'views/venues.view',
-    'views/venueDetails.view'
+    'views/venueDetails.view',
+    'views/social.view'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, HistoryView, FavouritesView, CategoriesView, VenuesView, VenueDetailsView) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, SettingsView, HistoryView, FavouritesView, CategoriesView, VenuesView, VenueDetailsView, SocialView) {
     // "use strict";
 
     var homeView = null,
@@ -44,6 +45,9 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
             "categories__:id": "categories",
             "venues__:cat_id": "venues",
             "venueDetails__:venue_id" : "venueDetails",
+            "venueDetailsMap__:venue_id": "venueDetailsMap",
+            "checkin__:venue_id": "checkin",
+            "share__:venue_id": "share",
             "": "home"
         },
 
@@ -105,7 +109,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                     category_id: cat_id
                 });
                 this.changePage(venuesView);
-                //cache venues
             }
         },
 
@@ -113,9 +116,43 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
             if (venue_id !== undefined) {
                 var venueDetailsView = new VenueDetailsView({
                     id: 'venueDetails',
-                    venue_id: venue_id
+                    venue_id: venue_id,
+                    showMap: false
                 });
                 this.changePage(venueDetailsView);
+            }
+        },
+
+        venueDetailsMap: function ( venue_id ) {
+            if (venue_id !== undefined) {
+                var venueDetailsView = new VenueDetailsView({
+                    id: 'venueDetails',
+                    venue_id: venue_id,
+                    showMap: true
+                });
+                this.changePage(venueDetailsView);
+            }
+        },
+
+        checkin: function ( venue_id ) {
+            if (venue_id !== undefined) {
+                var socialView = new SocialView({
+                    id: 'checkin',
+                    venue_id: venue_id,
+                    isCheckin: true
+                });
+                this.changePage(socialView);
+            }
+        },
+
+        share: function ( venue_id ) {
+            if (venue_id !== undefined) {
+                var socialView = new SocialView({
+                    id: 'share',
+                    venue_id: venue_id,
+                    isCheckin: false
+                });
+                this.changePage(socialView);
             }
         },
 

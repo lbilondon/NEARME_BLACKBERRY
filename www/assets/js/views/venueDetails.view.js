@@ -68,30 +68,33 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 				}
 
 				if (this.model !== undefined) {
-					$content = $(this.contentTemplate({ venue: this.model, prevVenue: prevModel, nextVenue: nextModel, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model) }));
+					this.$content = $(this.contentTemplate({ venue: this.model, prevVenue: prevModel, nextVenue: nextModel, mailToLink: this.buildMailToLink(this.model), smsLink: this.buildSMSLink(this.model), showMap: this.options.showMap }));
 
-					$content.find("a[href^='http']").bind('click', function (e) {
-						if (blackberry.invoke !== undefined) {
+					if (this.options.showMap) {
+						this.renderMap();
+					} else {
+						this.$content.find("a[href^='http']").bind('click', function (e) {
+							if (blackberry.invoke !== undefined) {
+								e.preventDefault();
+								var href = $(e.currentTarget).attr('href');
+								var args = new blackberry.invoke.BrowserArguments(href);
+								blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+							}
+						});
+
+						var model = this.model;
+						this.$content.find('.js_addToContacts').bind('click', function (e) {
 							e.preventDefault();
-							var href = $(e.currentTarget).attr('href');
-							var args = new blackberry.invoke.BrowserArguments(href);
-							blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
-						}
-					});
+							model.saveToContacts();
+						});
 
-					var model = this.model;
-					$content.find('.js_addToContacts').bind('click', function (e) {
-						e.preventDefault();
-						model.saveToContacts();
-					});
+						this.$content.find('.js_addToFavourites').bind('click', function (e) {
+							e.preventDefault();
+							model.saveToFavourites();
+						});
+					}
 
-					$content.find('.js_addToFavourites').bind('click', function (e) {
-						e.preventDefault();
-						model.saveToFavourites();
-					});
-
-					this.$el.append($content);
-					this.renderMap();
+					this.$el.append(this.$content);
 					this.$el.trigger('create');
 					window.NEARMEAPP.ROUTER.refreshEventBindings(this);
 					this.model.saveToHistory();
@@ -157,7 +160,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 					}
 				});
 
-				this.$el.append(thisMap);
+				$mapView = this.$content.find('#mapView');
+				$mapView.append(thisMap);
 			}
 
 			/*

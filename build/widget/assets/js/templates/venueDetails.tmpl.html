@@ -3,7 +3,7 @@
 
     <div class="ui-venueDetails-heading">
       <% if (prevVenue !== undefined) { %>
-        <a href="/venueDetails/<%= prevVenue.get('id') %>" class="ui-prevButton"><span>Prev</span></a>
+        <a href="/venueDetails<% if (showMap) { %>Map<% } %>/<%= prevVenue.get('id') %>" class="ui-prevButton"><span>Prev</span></a>
       <% } else { %>
         <span class="ui-prevButton ui-prevButton-disabled"><span>Prev</span></span>
       <% } %>
@@ -17,11 +17,16 @@
         <p><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
       </div>
       <% if (nextVenue !== undefined) { %>
-        <a href="/venueDetails/<%= nextVenue.get('id') %>" class="ui-nextButton"><span>Next</span></a>
+        <a href="/venueDetails<% if (showMap) { %>Map<% } %>/<%= nextVenue.get('id') %>" class="ui-nextButton"><span>Next</span></a>
       <% } else { %>
         <span class="ui-nextButton ui-nextButton-disabled"><span>Next</span></span>
       <% } %>
     </div>  
+
+    <% if (!showMap) { %>
+    <div id="infoView">
+      <p><a href="/venueDetailsMap/<%= venue.get('id') %>" class="showMapView">show map</a></p>
+
       <% if (venue.get('contact') !== null) { %>
         <% if (venue.get('contact').phone !== null) { %>
         <p><a href="tel:<%= venue.get('contact').phone.replace(' ', '') %>"><strong>Phone:</strong> <%= venue.get('contact').phone %></a></p>
@@ -37,9 +42,17 @@
       <% if (smsLink !== null) { %><p><a href="<%= smsLink %>">Send via SMS</a></p><% } %>
 
 
+      <p><a href="/checkin/<%= venue.get('id') %>">Check In</a></p>
+
 
       <p><a href="#" class="js_addToContacts">Add to contacts</a></p>
       <p><a href="#" class="js_addToFavourites">Add to favourites</a></p>
+    </div>
+    <% } else { %>
+    <div id="mapView">
+      <p><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView">show info</a></p>
+    </div>
+    <% } %>
   <% } else { %>
     <h2>No Venue Listed</h2>
   <% } %>

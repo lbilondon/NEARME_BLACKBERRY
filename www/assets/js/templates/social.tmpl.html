@@ -1,0 +1,30 @@
+<div id="content" data-role="content">
+	<% if (message != undefined) { %>
+    <h1><% if (isCheckin) { %>Check in<% } else { %>Share<% } %></h1>
+
+    <form action="#" method="post">
+      <textarea id="message"><%= message %></textarea>
+      <span id="charlimit"><%= charsLeft %></span>
+
+      <fieldset id="checkinRow">
+        <h2>Select:</h2>
+        <label for="facebook">Facebook</label>
+        <input type="checkbox" id="facebook" name="facebook" />
+
+      <% if (isCheckin) { %>
+        
+        <label for="foursquare">Foursquare</label>
+        <input type="checkbox" id="foursquare" name="foursquare" />
+        
+      <% } else { %>
+        
+        <label for="twitter">Twitter</label>
+        <input type="checkbox" id="twitter" name="twitter" />
+        
+      <% } %>
+
+        <button type="submit" name="checkin" id="checkin">Check in</button>
+      </fieldset>
+    </form>
+  <% } %>
+</div>

@@ -17,7 +17,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Ven
 		errorTemplate: _.template(ErrorTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'clickCallback', 'pagehide');
 			this.render();
 		},
 		
@@ -51,18 +51,24 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Ven
 		},
 
 		pageshow: function () {
-			var venues = window.NEARMEAPP.HISTORYCOLLECTION;
+			this.collection = window.NEARMEAPP.HISTORYCOLLECTION;
 			$clearAll = $('<span class="ui-btn">clear history</span>');
 
-			$clearAll.bind('click', function (e) {
-				e.preventDefault();
-				venues.clearHistory();
-				location.reload();
-			});
+			this.$listTemplate = $(this.listTemplate({ venues: this.collection }));
+			
+			$clearAll.bind('click', this.clickCallback);
+
 			this.$el.append($clearAll);
-			this.$el.append(this.listTemplate({ venues: venues }));
+			this.$el.append(this.$listTemplate);
 			this.$el.trigger('create');
 			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
+		},
+
+		clickCallback: function (e) {
+			e.preventDefault();
+			this.collection.clearHistory();
+			this.$listTemplate.remove();
+			this.$el.append(this.listTemplate({ venues: this.collection }));
 		},
 
 		pagehide: function () {

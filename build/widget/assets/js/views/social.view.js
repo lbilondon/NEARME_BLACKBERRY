@@ -5,27 +5,52 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/header.tmpl.html',
-	'text!templates/venues.tmpl.html',
-	'text!templates/error.tmpl.html'
+	'text!templates/social.tmpl.html'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, VenuesTmplStr, ErrorTmplStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, SocialTmplStr) {
 	// "use strict";
 
 	return Backbone.View.extend({
 		headerTemplate: _.template(HeaderTmplStr),
-		listTemplate : _.template(VenuesTmplStr),
-		errorTemplate: _.template(ErrorTmplStr),
+		contentTemplate: _.template(SocialTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'clickCallback', 'pagehide');
+			_.bindAll(this, 'render', 'buildMessage','bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
 			this.render();
 		},
 		
 		render: function() {
 			this.$el.append(this.headerTemplate());
 
+			this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
+
+			var message = this.buildMessage();
+			this.charsLeft = 140 - message.length;
+
+			this.$el.append(this.contentTemplate({ message: message, isCheckin: this.options.isCheckin, charsLeft: this.charsLeft }));
+
 			this.bindEvents();
 			return this;
+		},
+
+		buildMessage: function () {
+			var rtnStr = '';
+			if (this.options.isCheckin) {
+				rtnStr = 'I am at ';
+			} else {
+				rtnStr = 'I am going to ';
+			}
+
+			var tradingName = this.model.get('tradingName');
+			if (tradingName !== null) {
+				rtnStr += tradingName;
+			}
+
+			var fullAddress = this.model.get('location').fullAddress;
+			if (fullAddress !== null) {
+				rtnStr += ', ' + fullAddress;
+			}
+			return rtnStr;
 		},
 
 		bindEvents: function () {
@@ -51,24 +76,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Ven
 		},
 
 		pageshow: function () {
-			this.collection = window.NEARMEAPP.HISTORYCOLLECTION;
-			$clearAll = $('<span class="ui-btn">clear history</span>');
-
-			this.$listTemplate = $(this.listTemplate({ venues: this.collection }));
 			
-			$clearAll.bind('click', this.clickCallback);
-
-			this.$el.append($clearAll);
-			this.$el.append(this.$listTemplate);
-			this.$el.trigger('create');
-			window.NEARMEAPP.ROUTER.refreshEventBindings(this);
-		},
-
-		clickCallback: function (e) {
-			e.preventDefault();
-			this.collection.clearHistory();
-			this.$listTemplate.remove();
-			this.$el.append(this.listTemplate({ venues: this.collection }));
 		},
 
 		pagehide: function () {
