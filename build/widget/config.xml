@@ -38,7 +38,7 @@
 
   <!-- Cordova API -->
   <feature id="blackberry.system" required="true" version="1.0.0.0" />
-  <feature id="org.apache.cordova" required="true" version="1.9.0" />
+  <feature id="org.apache.cordova" required="true" version="2.0.0" />
   <feature id="blackberry.find" required="true" version="1.0.0.0" />
   <feature id="blackberry.identity" required="true" version="1.0.0.0" />
   <feature id="blackberry.pim.Address" required="true" version="1.0.0.0" />

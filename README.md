@@ -21,9 +21,16 @@ The general structure is separated MVC AMD modules with a HTML / CSS UI, this is
 
 Important documentation for getting up and running: http://docs.phonegap.com/en/1.9.0/guide_getting-started_blackberry_index.md.html#Getting%20Started%20with%20Blackberry
 
+Get requirejs optimiser for nodejs:
+
+	1. Install node http://nodejs.org/
+	2. Install requirejs optimiser http://requirejs.org/docs/optimization.html
+		> npm install -g requirejs
+
 ##Deployment:
 
 Run these two commands from the root of the project:
 
+	> r.js -o www/assets/js/app.build.js
 	> ant blackberry build
 	> ant blackberry load-device

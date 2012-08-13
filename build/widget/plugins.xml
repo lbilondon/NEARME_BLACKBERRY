@@ -29,4 +29,5 @@
   <plugin name="Contacts"       value="org.apache.cordova.pim.Contact"/>
   <plugin name="Battery"        value="org.apache.cordova.battery.Battery"/>
   <plugin name="Media"          value="org.apache.cordova.media.Media"/>
+  <plugin name="ChildBrowser"   value="org.apache.cordova.plugins.childbrowser.ChildBrowser"/>
 </plugins>

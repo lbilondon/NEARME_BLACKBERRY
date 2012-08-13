@@ -4,10 +4,11 @@ define([
 	'jqueryMobile',
 	'underscore',
 	'backbone',
+	'models/social.model',
 	'text!templates/header.tmpl.html',
 	'text!templates/social.tmpl.html'
 ],
-function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, SocialTmplStr) {
+function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, HeaderTmplStr, SocialTmplStr) {
 	// "use strict";
 
 	return Backbone.View.extend({
@@ -16,20 +17,26 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Soc
 		
 		initialize: function() {
 			_.bindAll(this, 'render', 'buildMessage','bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+
+			this.model = new SocialModel();
+
 			this.render();
 		},
 		
 		render: function() {
-			this.$el.append(this.headerTemplate());
 
-			this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
+			this.model.fbLogin();
 
-			var message = this.buildMessage();
-			this.charsLeft = 140 - message.length;
+			// this.$el.append(this.headerTemplate());
 
-			this.$el.append(this.contentTemplate({ message: message, isCheckin: this.options.isCheckin, charsLeft: this.charsLeft }));
+			// this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
 
-			this.bindEvents();
+			// var message = this.buildMessage();
+			// this.charsLeft = 140 - message.length;
+
+			// this.$el.append(this.contentTemplate({ message: message, isCheckin: this.options.isCheckin, charsLeft: this.charsLeft }));
+
+			// this.bindEvents();
 			return this;
 		},
 
