@@ -5,7 +5,7 @@ Blackberry version for NearMe
 
 Architecture:
 
-- Apache Cordova (PhoneGap) 1.9.0:	This is the project wrapper that builds into BB WebWorks and gives access to native API's using javascript.
+- Apache Cordova (PhoneGap) 2.0.0:	This is the project wrapper that builds into BB WebWorks and gives access to native API's using javascript.
 
 - Backbone.js 0.9.2: This is to aid application structure and routing.
 - Underscore.js 1.3.3: This enables Micro-templating and utilities, it is a hard dependancy for backbone.
