@@ -18,36 +18,37 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		},
 		idAttribute: 'modelId',
 		initialize : function() {
-			
+			_.bindAll(this, 'fbLogin', 'fbLocChanged', 'create_facebook_url');
+			// ChildBrowser.install();
 		},
 
 		fbLogin: function () {
-			// if ( (FB_CLIENTID !== null) && (this.get('fb_authToken') === null) ) {
-			// 	var my_redirect_uri = "http://www.facebook.com/connect/login_success.html",
-			// 		my_type = "user_agent",
-			// 		my_display = "touch";
+			if ( (FB_CLIENTID !== null) && (this.get('fb_authToken') === null) ) {
+				var my_redirect_uri = escape("http://www.facebook.com/connect/login_success.html"),
+					my_type = "user_agent",
+					my_display = "touch";
  
-			// 	var authorize_url = "https://graph.facebook.com/oauth/authorize?";
-			// 		authorize_url += "client_id=" + FB_CLIENTID;
-			// 		authorize_url += "&redirect_uri=" + my_redirect_uri;
-			// 		authorize_url += "&display=" + my_display;
-			// 		authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
+				var authorize_url = "https://graph.facebook.com/oauth/authorize?";
+					authorize_url += "client_id=" + FB_CLIENTID;
+					authorize_url += "&redirect_uri=" + my_redirect_uri;
+					authorize_url += "&display=" + my_display;
+					authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
 
-				var authorize_url = "http://www.google.com";
 				if (window.plugins.childBrowser !== undefined) {
-					window.plugins.childBrowser.onLocationChange = function(loc){
-						// this.fbLocChanged(loc);
-					};
+					
+					window.plugins.childBrowser.onLocationChange = this.fbLocChanged;
 					window.plugins.childBrowser.showWebPage(authorize_url);
 				}
-			// }
+			}
 		},
 
 		fbLocChanged: function (loc) {
+
 			/* Here we check if the url is the login success */
-			if (loc.indexOf("http://www.facebook.com/connect/login_success.html") > -1) {
-				window.plugins.childBrowser.close();
-				var fbCode = loc.match(/code=(.*)$/)[1];
+			if (loc.indexOf("https://www.facebook.com/connect/") > -1) {
+				// window.plugins.childBrowser.close();
+				var fbCode = loc.match(/code=(.*)$/)[1],
+					setThis = this.set;
 				$.ajax({
 					url: 'https://graph.facebook.com/oauth/access_token?client_id=' + FB_CLIENTID + '&client_secret=' + FB_CLIENTSECRET + '&code=' + fbCode + '&redirect_uri=http://www.facebook.com/connect/login_success.html',
 					data: {},
@@ -55,9 +56,11 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 						var fb_authToken = data.split("=")[1];
 
 						if (fb_authToken !== undefined) {
-							this.set({ "fb_authToken" : fb_authToken });
+							setThis({ "fb_authToken" : fb_authToken });
 							window.plugins.childBrowser.close();
-							initialize_facebook();
+
+							$('body').prepend('<p>AUTH TOKEN: ' + fb_authToken + '</p>');
+							// initialize_facebook();
 						}
 					},
 					error: function(error) {
