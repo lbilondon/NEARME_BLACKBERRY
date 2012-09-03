@@ -22,24 +22,25 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		},
 
 		fbLogin: function () {
-			if ( (FB_CLIENTID !== null) && (this.get('fb_authToken') === null) ) {
-				var my_redirect_uri = "http://www.facebook.com/connect/login_success.html",
-					my_type = "user_agent",
-					my_display = "touch";
+			// if ( (FB_CLIENTID !== null) && (this.get('fb_authToken') === null) ) {
+			// 	var my_redirect_uri = "http://www.facebook.com/connect/login_success.html",
+			// 		my_type = "user_agent",
+			// 		my_display = "touch";
  
-				var authorize_url = "https://graph.facebook.com/oauth/authorize?";
-					authorize_url += "client_id=" + FB_CLIENTID;
-					authorize_url += "&redirect_uri=" + my_redirect_uri;
-					authorize_url += "&display=" + my_display;
-					authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
+			// 	var authorize_url = "https://graph.facebook.com/oauth/authorize?";
+			// 		authorize_url += "client_id=" + FB_CLIENTID;
+			// 		authorize_url += "&redirect_uri=" + my_redirect_uri;
+			// 		authorize_url += "&display=" + my_display;
+			// 		authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
 
+				var authorize_url = "http://www.google.com";
 				if (window.plugins.childBrowser !== undefined) {
 					window.plugins.childBrowser.onLocationChange = function(loc){
-						this.fbLocChanged(loc);
+						// this.fbLocChanged(loc);
 					};
 					window.plugins.childBrowser.showWebPage(authorize_url);
 				}
-			}
+			// }
 		},
 
 		fbLocChanged: function (loc) {
