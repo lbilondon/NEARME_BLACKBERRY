@@ -13,6 +13,7 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 	return Backbone.Model.extend({
 		defaults: {
 			"fb_authToken": null,
+			"fb_user": null,
 			"twitter_authKey": null,
 			"fsq_authKey": null
 		},
@@ -24,18 +25,17 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 
 		fbLogin: function () {
 			if ( (FB_CLIENTID !== null) && (this.get('fb_authToken') === null) ) {
-				var my_redirect_uri = escape("http://www.facebook.com/connect/login_success.html"),
+				var my_redirect_uri = escape("https://www.facebook.com/connect/login_success.html"),
 					my_type = "user_agent",
 					my_display = "touch";
  
-				var authorize_url = "https://graph.facebook.com/oauth/authorize?";
+				var authorize_url = "https://www.facebook.com/dialog/oauth?";
 					authorize_url += "client_id=" + FB_CLIENTID;
 					authorize_url += "&redirect_uri=" + my_redirect_uri;
 					authorize_url += "&display=" + my_display;
 					authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
 
 				if (window.plugins.childBrowser !== undefined) {
-					
 					window.plugins.childBrowser.onLocationChange = this.fbLocChanged;
 					window.plugins.childBrowser.showWebPage(authorize_url);
 				}
@@ -45,31 +45,24 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		fbLocChanged: function (loc) {
 
 			/* Here we check if the url is the login success */
-			if (loc.indexOf("https://www.facebook.com/connect/") > -1) {
-				// window.plugins.childBrowser.close();
-				var fbCode = loc.match(/code=(.*)$/)[1],
-					setThis = this.set;
-				$.ajax({
-					url: 'https://graph.facebook.com/oauth/access_token?client_id=' + FB_CLIENTID + '&client_secret=' + FB_CLIENTSECRET + '&code=' + fbCode + '&redirect_uri=http://www.facebook.com/connect/login_success.html',
-					data: {},
-					success: function(data, status) {
-						var fb_authToken = data.split("=")[1];
+			if (loc.indexOf("https://www.facebook.com/connect/login_success.html") > -1) {
 
-						if (fb_authToken !== undefined) {
-							setThis({ "fb_authToken" : fb_authToken });
-							window.plugins.childBrowser.close();
+				var fb_authToken = loc.match(/code=(.*)$/)[1];
+				if (fb_authToken !== undefined) {
+					this.set({ "fb_authToken" : fb_authToken });
 
-							//@ToDo: works up to this point, childBrowser closes but leaves a blank screen, debugging needed.
-							$('body').prepend('<p>AUTH TOKEN: ' + fb_authToken + '</p>');
-							// initialize_facebook();
-						}
-					},
-					error: function(error) {
-						window.plugins.childBrowser.close();
-					},
-					dataType: 'text',
-					type: 'POST'
-				});
+					var thisSet = this.set;
+					
+					$.ajax({
+						url: 'https://graph.facebook.com/me?access_token=' + this.get('fb_authToken'),
+						success: function (data) {
+							thisSet({ "fb_user": data });
+						},
+						dataType: "json"
+					});
+
+					window.plugins.childBrowser.close();
+				}
 			}
 		},
 
