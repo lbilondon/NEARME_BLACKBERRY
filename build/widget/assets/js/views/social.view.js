@@ -87,10 +87,12 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 
 		pageshow: function () {
 
+			this.$el.append('<p>LOC: ' + this.model.get('loc') + '</p>');
+
 			this.$el.append('<p>AUTH TOKEN: ' + this.model.get('fb_authToken') + '</p>');
-			if (this.model.get('fb_user') !== null) {
-				this.$el.append('<p>FB USER: ' + this.model.get('fb_user').id + '</p>');
-			}
+			// if (this.model.get('fb_user') !== null) {
+				this.$el.append('<p>FB USER: ' + this.model.get('fb_user') + '</p>');
+			// }
 		},
 
 		pagehide: function () {

@@ -1,0 +1,30 @@
+============================================
+GET /fb/graph/me?access_token=AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_
+  Headers:
+    * host: 172.27.64.199:3000
+    * connection: close
+    * user-agent: Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.668 Mobile Safari/534.8+
+    * accept: text/plain, */*; q=0.01
+    * accept-language: en-GB,en;q=0.5
+    * x-wap-profile: "http://www.blackberry.net/go/mobile/profiles/uaprof/9300/6.0.0.rdf"
+--------------------------------------------
+Response code: 400
+  Headers:
+    * access-control-allow-origin: *
+    * cache-control: no-store
+    * content-type: text/javascript; charset=UTF-8
+    * expires: Sat, 01 Jan 2000 00:00:00 GMT
+    * pragma: no-cache
+    * www-authenticate: OAuth "Facebook Platform" "invalid_token" "Malformed access token AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_"
+    * x-fb-rev: 621613
+    * x-fb-debug: EGaT72TCMKNhVUpETm/IohTxYYNwOH7ZjKUay/824eQ=
+    * date: Wed, 05 Sep 2012 15:21:02 GMT
+    * connection: close
+    * content-length: 315
+  Content (315 bytes): {
+   "error": {
+      "message": "Malformed access token AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_",
+      "type": "OAuthException",
+      "code": 190
+   }
+}

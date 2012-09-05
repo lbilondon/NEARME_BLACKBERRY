@@ -12,6 +12,7 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 
 	return Backbone.Model.extend({
 		defaults: {
+			"loc": null,
 			"fb_authToken": null,
 			"fb_user": null,
 			"twitter_authKey": null,
@@ -46,19 +47,21 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 
 			/* Here we check if the url is the login success */
 			if (loc.indexOf("https://www.facebook.com/connect/login_success.html") > -1) {
-
-				var fb_authToken = loc.match(/code=(.*)$/)[1];
+				this.set({ "loc": loc });
+				
+				var fb_authToken = loc.match(/access_token=(.*)$/)[1] || loc.match(/code=(.*)$/)[1];
 				if (fb_authToken !== undefined) {
 					this.set({ "fb_authToken" : fb_authToken });
 
 					var thisSet = this.set;
 					
 					$.ajax({
-						url: 'https://graph.facebook.com/me?access_token=' + this.get('fb_authToken'),
+						// url: 'https://graph.facebook.com/me?access_token=' + this.get('fb_authToken'),
+						url: 'http://172.27.64.199:3000/fb/graph/me?access_token=' + this.get('fb_authToken'),
 						success: function (data) {
 							thisSet({ "fb_user": data });
 						},
-						dataType: "json"
+						dataType: "text"
 					});
 
 					window.plugins.childBrowser.close();
