@@ -1,5 +1,5 @@
 ============================================
-GET /fb/graph/me?access_token=AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_
+GET /fb/graph/oauth/access_token?client_id=291405934206708&client_secret=449f17a422eae6676128143415e060d4&redirect_uri=https%3A//www.facebook.com/connect/login_success.html&code=AQBxTcf5A8DNhzC6ZuptNk5xfWRMlsnoQQlTKro65bvtOnsSYnYZdG4siQJ97wy6VhyBhZpeorPoBUUqoiKHfhcyJnypj-GyKXEjf85BqtG6SHouzUReRWlRH8QZtUsruzcWQ-uNVW2t1X3ePRDedhR6agVy2ZjVXVH7djPbtBZ63LveQEEaWVgkBrNUnlKjhrcXIzzR_1nZ5h_ZwkxldoMn
   Headers:
     * host: 172.27.64.199:3000
     * connection: close
@@ -8,23 +8,16 @@ GET /fb/graph/me?access_token=AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd
     * accept-language: en-GB,en;q=0.5
     * x-wap-profile: "http://www.blackberry.net/go/mobile/profiles/uaprof/9300/6.0.0.rdf"
 --------------------------------------------
-Response code: 400
+Response code: 200
   Headers:
     * access-control-allow-origin: *
-    * cache-control: no-store
-    * content-type: text/javascript; charset=UTF-8
+    * cache-control: private, no-cache, no-store, must-revalidate
+    * content-type: text/plain; charset=UTF-8
     * expires: Sat, 01 Jan 2000 00:00:00 GMT
     * pragma: no-cache
-    * www-authenticate: OAuth "Facebook Platform" "invalid_token" "Malformed access token AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_"
-    * x-fb-rev: 621613
-    * x-fb-debug: EGaT72TCMKNhVUpETm/IohTxYYNwOH7ZjKUay/824eQ=
-    * date: Wed, 05 Sep 2012 15:21:02 GMT
+    * x-fb-rev: 622514
+    * x-fb-debug: 3lqkzkL1E13Zx/T9Xdg6zZ5eRQ/CM4hcbEo6UfeYzgc=
+    * date: Thu, 06 Sep 2012 17:01:02 GMT
     * connection: close
-    * content-length: 315
-  Content (315 bytes): {
-   "error": {
-      "message": "Malformed access token AQBzKBKqgmGooPRKWOYbWMSp-A2ep-TzdiYJop6a_U3WiPMlSd_DSSHs8kcFmFKE0AVPI65Fh1tnbm-ZY8ICKoyZTQ6MuFbhiQCCFJBn4YbwrfgVcRm4WebwUCrLzERRSWVblJOzazrapL7Snfd_8ozrKZ6__HfXae0fAIsTlkOyChc-kpjeMPIwFMKdtaR3DlM#_=_",
-      "type": "OAuthException",
-      "code": 190
-   }
-}
+    * content-length: 137
+  Content (137 bytes): access_token=AAAEJCDsxnvQBAGmQft98CTOTKTGRBSvVefRlZBgyO9LJjcL4nel5ltLUbvRmkUQgscgjAsxKo68qblJuHVHlRFH3ndbj0Kjk3XBny6QZDZD&expires=5162435

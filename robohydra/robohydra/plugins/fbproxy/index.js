@@ -3,8 +3,6 @@ var heads = require('robohydra').heads,
     RoboHydraHeadWatchdog = heads.RoboHydraHeadWatchdog,
     RoboHydraHeadProxy = heads.RoboHydraHeadProxy;
 
-
-
 exports.getBodyParts = function(config) {
   var projectPath = config.rootpath || '.';
 
@@ -18,17 +16,6 @@ exports.getBodyParts = function(config) {
 
   return {
     heads: [
-      new RoboHydraHead({
-        name: "filterfbauthtoken",
-        path: '/.*',
-        handler: function (req, res, next) {
-          var access_token = req.url.match(/access_token=(.*)$/)[1];
-          req.url = req.url.replace(access_token, access_token + '#_=_');
-
-          next(req, res);
-        }
-      }),
-
       new RoboHydraHeadWatchdog({
           // Note that res.body is always uncompressed, even if
           // the original response was compressed. If you really
@@ -41,7 +28,7 @@ exports.getBodyParts = function(config) {
 
       new RoboHydraHeadProxy({
           name: 'proxy',
-          mountPath: '/fb/graph',
+          mountPath: '/fb/graph/',
           proxyTo: 'https://graph.facebook.com/',
           setHostHeader: true
         })

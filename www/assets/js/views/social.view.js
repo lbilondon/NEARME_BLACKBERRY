@@ -16,7 +16,19 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		contentTemplate: _.template(SocialTmplStr),
 		
 		initialize: function() {
-			_.bindAll(this, 'render', 'buildMessage','bindEvents', 'unbindEvents', 'pagebeforeshow', 'pagebeforehide', 'pageshow', 'pagehide');
+			_.bindAll(
+				this,
+				'render',
+				'buildMessage',
+				'bindEvents',
+				'unbindEvents',
+				'pagebeforeshow',
+				'pagebeforehide',
+				'pageshow',
+				'showAccessToken',
+				'showUserId',
+				'pagehide'
+			);
 
 			this.model = new SocialModel();
 
@@ -60,7 +72,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		},
 
 		bindEvents: function () {
-			this.model.on('change', this.pageshow);
+			this.model.on('change', this.showAccessToken);
+			this.model.on('change', this.showUserId);
 
 			this.$el.on('pagebeforeshow', this.pagebeforeshow);
 			this.$el.on('pagebeforehide', this.pagebeforehide);
@@ -69,7 +82,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		},
 
 		unbindEvents: function () {
-			this.model.off('change', this.pageshow);
+			this.model.off('change:fb_access_token', this.showAccessToken);
+			this.model.off('change:fb_user', this.showUserId);
 
 			this.$el.off('pagebeforeshow', this.pagebeforeshow);
 			this.$el.off('pagebeforehide', this.pagebeforehide);
@@ -86,13 +100,19 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		},
 
 		pageshow: function () {
+			
+		},
 
-			this.$el.append('<p>LOC: ' + this.model.get('loc') + '</p>');
+		showAccessToken: function () {
+			if (this.model.get('fb_access_token') !== null) {
+				$(body).append('<p>FB_ACCESS_TOKEN: ' + this.model.get('fb_access_token') + '</p>');
+			}
+		},
 
-			this.$el.append('<p>AUTH TOKEN: ' + this.model.get('fb_authToken') + '</p>');
-			// if (this.model.get('fb_user') !== null) {
-				this.$el.append('<p>FB USER: ' + this.model.get('fb_user') + '</p>');
-			// }
+		showUserId: function () {
+			if (this.model.get('fb_user') !== null) {
+				$(body).append('<p>FB_USER_ID:' + this.model.get('fb_user').id + '</p>');
+			}
 		},
 
 		pagehide: function () {
