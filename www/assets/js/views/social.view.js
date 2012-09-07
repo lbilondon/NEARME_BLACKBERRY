@@ -37,7 +37,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		
 		render: function() {
 
-			this.model.fbLogin();
+			this.model.twLogin();
 
 
 			// this.model = window.NEARMEAPP.currentVenuesCollection.get(this.options.venue_id);
@@ -82,8 +82,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 		},
 
 		unbindEvents: function () {
-			this.model.off('change:fb_access_token', this.showAccessToken);
-			this.model.off('change:fb_user', this.showUserId);
+			this.model.off('change', this.showAccessToken);
+			this.model.off('change', this.showUserId);
 
 			this.$el.off('pagebeforeshow', this.pagebeforeshow);
 			this.$el.off('pagebeforehide', this.pagebeforehide);
@@ -105,13 +105,13 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, SocialModel, Heade
 
 		showAccessToken: function () {
 			if (this.model.get('fb_access_token') !== null) {
-				$(body).append('<p>FB_ACCESS_TOKEN: ' + this.model.get('fb_access_token') + '</p>');
+				this.$el.prepend('<p>FB_ACCESS_TOKEN: ' + this.model.get('fb_access_token') + '</p>');
 			}
 		},
 
 		showUserId: function () {
 			if (this.model.get('fb_user') !== null) {
-				$(body).append('<p>FB_USER_ID:' + this.model.get('fb_user').id + '</p>');
+				this.$el.prepend('<p>FB_USER_ID:' + this.model.get('fb_user').id + '</p>');
 			}
 		},
 

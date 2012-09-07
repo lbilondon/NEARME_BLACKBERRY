@@ -1,5 +1,5 @@
 ============================================
-GET /fb/graph/oauth/access_token?client_id=291405934206708&client_secret=449f17a422eae6676128143415e060d4&redirect_uri=https%3A//www.facebook.com/connect/login_success.html&code=AQBxTcf5A8DNhzC6ZuptNk5xfWRMlsnoQQlTKro65bvtOnsSYnYZdG4siQJ97wy6VhyBhZpeorPoBUUqoiKHfhcyJnypj-GyKXEjf85BqtG6SHouzUReRWlRH8QZtUsruzcWQ-uNVW2t1X3ePRDedhR6agVy2ZjVXVH7djPbtBZ63LveQEEaWVgkBrNUnlKjhrcXIzzR_1nZ5h_ZwkxldoMn
+GET /twitter/api/oauth/request_token
   Headers:
     * host: 172.27.64.199:3000
     * connection: close
@@ -8,16 +8,78 @@ GET /fb/graph/oauth/access_token?client_id=291405934206708&client_secret=449f17a
     * accept-language: en-GB,en;q=0.5
     * x-wap-profile: "http://www.blackberry.net/go/mobile/profiles/uaprof/9300/6.0.0.rdf"
 --------------------------------------------
-Response code: 200
+Response code: 401
   Headers:
-    * access-control-allow-origin: *
-    * cache-control: private, no-cache, no-store, must-revalidate
-    * content-type: text/plain; charset=UTF-8
-    * expires: Sat, 01 Jan 2000 00:00:00 GMT
+    * date: Fri, 07 Sep 2012 13:27:22 GMT
+    * status: 401 Unauthorized
+    * content-length: 44
     * pragma: no-cache
-    * x-fb-rev: 622514
-    * x-fb-debug: 3lqkzkL1E13Zx/T9Xdg6zZ5eRQ/CM4hcbEo6UfeYzgc=
-    * date: Thu, 06 Sep 2012 17:01:02 GMT
+    * x-runtime: 0.01848
+    * expires: Tue, 31 Mar 1981 05:00:00 GMT
+    * x-mid: 090b60539c712585d53c813969d9e6956e82fb51
+    * content-type: text/html; charset=utf-8
+    * last-modified: Fri, 07 Sep 2012 13:27:22 GMT
+    * x-frame-options: SAMEORIGIN
+    * cache-control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+    * x-transaction: cf135a28607a63fe
+    * set-cookie: k=10.36.60.138.1347024442352684; path=/; expires=Fri, 14-Sep-12 13:27:22 GMT; domain=.twitter.com,guest_id=v1%3A134702444236445798; domain=.twitter.com; path=/; expires=Mon, 08-Sep-2014 01:27:22 GMT,_twitter_sess=BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCP3T6aA5AToHaWQiJTYw%250AZWViZTU2OGZiM2E1YWUwNTRjNTM2ZGVkMjg0OGU0--49aaaeb76bf68223cf1029ddb12914ae4f88e21b; domain=.twitter.com; path=/; HttpOnly
+    * vary: Accept-Encoding
+    * server: tfe
+  Content (44 bytes): Failed to validate oauth signature and token
+============================================
+GET /twitter/api/oauth/request_token
+  Headers:
+    * host: 172.27.64.199:3000
     * connection: close
-    * content-length: 137
-  Content (137 bytes): access_token=AAAEJCDsxnvQBAGmQft98CTOTKTGRBSvVefRlZBgyO9LJjcL4nel5ltLUbvRmkUQgscgjAsxKo68qblJuHVHlRFH3ndbj0Kjk3XBny6QZDZD&expires=5162435
+    * user-agent: Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.668 Mobile Safari/534.8+
+    * accept: text/plain, */*; q=0.01
+    * accept-language: en-GB,en;q=0.5
+    * x-wap-profile: "http://www.blackberry.net/go/mobile/profiles/uaprof/9300/6.0.0.rdf"
+--------------------------------------------
+Response code: 401
+  Headers:
+    * date: Fri, 07 Sep 2012 13:28:03 GMT
+    * status: 401 Unauthorized
+    * pragma: no-cache
+    * last-modified: Fri, 07 Sep 2012 13:28:03 GMT
+    * x-frame-options: SAMEORIGIN
+    * x-transaction: 269e7a1106b2d875
+    * x-runtime: 0.01382
+    * expires: Tue, 31 Mar 1981 05:00:00 GMT
+    * x-mid: 0aeef8bfa0072b75e074218afaebed8a7d317d9b
+    * content-type: text/html; charset=utf-8
+    * content-length: 44
+    * cache-control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+    * set-cookie: k=10.36.31.117.1347024483602754; path=/; expires=Fri, 14-Sep-12 13:28:03 GMT; domain=.twitter.com,guest_id=v1%3A134702448361580707; domain=.twitter.com; path=/; expires=Mon, 08-Sep-2014 01:28:03 GMT,_twitter_sess=BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCCB16qA5AToHaWQiJWNk%250AY2JhYmU4ZjcyMjc5Y2FmMTRiNWQ1N2YxNzVkZGRl--601f597e276a86071e1fc738e682eac57b454cec; domain=.twitter.com; path=/; HttpOnly
+    * vary: Accept-Encoding
+    * server: tfe
+  Content (44 bytes): Failed to validate oauth signature and token
+============================================
+GET /twitter/api/oauth/request_token
+  Headers:
+    * host: 172.27.64.199:3000
+    * connection: close
+    * user-agent: Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.668 Mobile Safari/534.8+
+    * accept: text/plain, */*; q=0.01
+    * accept-language: en-GB,en;q=0.5
+    * x-wap-profile: "http://www.blackberry.net/go/mobile/profiles/uaprof/9300/6.0.0.rdf"
+    * authorization: Basic YW5keWphbWVzZGF2aWVzOmRhdjEzc19zY3IzM2No
+--------------------------------------------
+Response code: 401
+  Headers:
+    * date: Fri, 07 Sep 2012 13:28:27 GMT
+    * status: 401 Unauthorized
+    * x-mid: e60526b9aa05fa7db9e550adcaecd74e43489179
+    * content-type: text/html; charset=utf-8
+    * content-length: 44
+    * x-transaction: 31d52b777b9850a9
+    * pragma: no-cache
+    * x-runtime: 0.01554
+    * last-modified: Fri, 07 Sep 2012 13:28:27 GMT
+    * expires: Tue, 31 Mar 1981 05:00:00 GMT
+    * x-frame-options: SAMEORIGIN
+    * cache-control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+    * set-cookie: k=10.35.23.123.1347024507771896; path=/; expires=Fri, 14-Sep-12 13:28:27 GMT; domain=.twitter.com,guest_id=v1%3A134702450778149016; domain=.twitter.com; path=/; expires=Mon, 08-Sep-2014 01:28:27 GMT,_twitter_sess=BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCIbT6qA5AToHaWQiJTRk%250AZjZlZTU3NjQwZDZlZTc4Y2E2MWM0NzEzYTFlYmQ4--f54f4b25d0ad774ce4fbd5dcfd2843d35c3bc5ae; domain=.twitter.com; path=/; HttpOnly
+    * vary: Accept-Encoding
+    * server: tfe
+  Content (44 bytes): Failed to validate oauth signature and token

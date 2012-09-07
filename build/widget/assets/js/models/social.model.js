@@ -7,8 +7,43 @@ define([
 function(UnderscoreLib, BackboneLib, JqueryLib) {
 	// "use strict";
 
+	var DEBUG = true;
+
 	var FB_CLIENTID = '291405934206708';
 	var FB_CLIENTSECRET = '449f17a422eae6676128143415e060d4';
+
+	var FB_URLS = {
+		redirect_uri: "https://www.facebook.com/connect/login_success.html",
+		authorize: "https://www.facebook.com/dialog/oauth",
+		access_token: "https://graph.facebook.com/oauth/access_token",
+		me: "https://graph.facebook.com/me",
+		feed_post: "https://graph.facebook.com/me/feed",
+		checkins: "https://graph.facebook.com/me/checkins"
+	};
+
+	var TWITTER_CLIENDID = '4d4bZKM2gIKk0S3wWQnvuQ';
+	var TWITTER_CLIENTSECRET = 'cntPGH2QKSSsBvJKt0eMKN5MHiq1Fwy3K2hJMFCf70';
+
+	var TWITTER_URLS = {
+		request_token: "https://api.twitter.com/oauth/request_token",
+		authenticate: "https://api.twitter.com/oauth/authenticate",
+		access_token: "https://api.twitter.com/oauth/access_token",
+		status_update: "https://api.twitter.com/statuses/update"
+	};
+
+	if (DEBUG) {
+		for (var i in FB_URLS) {
+			if (FB_URLS.hasOwnProperty(i)) {
+				FB_URLS[i] = FB_URLS[i].replace('https://graph.facebook.com/', 'http://172.27.64.199:3000/fb/graph/');
+			}
+		}
+
+		for (var x in TWITTER_URLS) {
+			if (TWITTER_URLS.hasOwnProperty(x)) {
+				TWITTER_URLS[x] = TWITTER_URLS[x].replace('https://api.twitter.com/', 'http://172.27.64.199:3000/twitter/api/');
+			}
+		}
+	}
 
 	return Backbone.Model.extend({
 		defaults: {
@@ -16,34 +51,76 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 			"fb_access_token": null,
 			"fb_expires": null,
 			"fb_user": null,
-			"twitter_authKey": null,
+			"tw_oauth_token": null,
+			"tw_oauth_token_secret": null,
+			"tw_access_token": null,
+
 			"fsq_authKey": null
 		},
 		idAttribute: 'modelId',
 		initialize : function() {
 			_.bindAll(
 				this,
+				'twLogin',
+				'tw_authenticate',
 				'fbLogin',
 				'fbLocChanged',
 				'get_fbaccess_token',
 				'set_fbaccess_token',
 				'get_fb_user',
 				'set_fb_user',
+				'post_fb_message',
+				'post_fb_checkin',
 				'create_facebook_url'
 			);
+		},
 
+		twLogin: function () {
+			if (this.get('tw_access_token') === null) {
+				$.ajax({
+					url: TWITTER_URLS['request_token'],
+					type: "GET",
+					dataType: "text",
+					success: this.tw_authenticate
+				});
+			}
+		},
+
+		tw_authenticate: function (data, status) {
+			// if ( data !== undefined ) {
+				var dataArr = data.split('&');
+				var tmpArr = [];
+				var tmp = {};
+				if (dataArr.length > 0) {
+					for(var i = 0; i < dataArr.length; i++) {
+						tmpArr = dataArr[i].split('=');
+						if (tmpArr.length > 0) {
+							var key = 'tw_' + tmpArr[0];
+							tmp[key] = tmpArr[1];
+						}
+					}
+					this.set(tmp);
+				}
+
+				if (this.get('tw_oauth_token') !== null) {
+					var authorize_url = TWITTER_URLS['authenticate'] = "?";
+						authorize_url = "oauth_token=" + this.get('tw_oauth_token');
+
+					if (window.plugins.childBrowser !== undefined) {
+						window.plugins.childBrowser.onLocationChange = this.twLocChanged;
+						window.plugins.childBrowser.showWebPage(authorize_url);
+					}
+				}
+			// }
 		},
 
 		fbLogin: function () {
 			if ( (FB_CLIENTID !== null) && (this.get('fb_access_token') === null) ) {
-				var my_redirect_uri = escape("https://www.facebook.com/connect/login_success.html"),
-					my_type = "user_agent",
-					my_display = "touch";
  
-				var authorize_url = "https://www.facebook.com/dialog/oauth?";
+				var authorize_url = FB_URLS['authorize'] + "?";
 					authorize_url += "client_id=" + FB_CLIENTID;
-					authorize_url += "&redirect_uri=" + my_redirect_uri;
-					authorize_url += "&display=" + my_display;
+					authorize_url += "&redirect_uri=" + escape( FB_URLS['redirect_uri'] );
+					authorize_url += "&display=touch";
 					authorize_url += "&scope=read_stream,publish_stream,offline_access,publish_checkins";
 
 				if (window.plugins.childBrowser !== undefined) {
@@ -56,11 +133,9 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		fbLocChanged: function (loc) {
 			/* Here we check if the url is the login success */
 			if (loc.match(/code=(.*)$/) !== null) {
-
 				var fb_code = loc.match(/code=(.*)$/)[1];
 
 				if (fb_code !== undefined) {
-
 					this.get_fbaccess_token(fb_code);
 					window.plugins.childBrowser.close();
 				}
@@ -68,11 +143,10 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		},
 
 		get_fbaccess_token: function (fb_code) {
-			// var access_url = "https://graph.facebook.com/oauth/access_token?";
-			var access_url = "http://172.27.64.199:3000/fb/graph/oauth/access_token?";
+			var access_url = FB_URLS['access_token'] + "?";
 				access_url += "client_id=" + FB_CLIENTID;
 				access_url += "&client_secret=" + FB_CLIENTSECRET;
-				access_url += "&redirect_uri=" + escape("https://www.facebook.com/connect/login_success.html");
+				access_url += "&redirect_uri=" + escape( FB_URLS['redirect_uri'] );
 				access_url += "&code=" + fb_code;
 
 			$.ajax({
@@ -101,19 +175,33 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		},
 
 		get_fb_user: function () {
-			var thisSet = this.set;
 			$.ajax({
-				url: "http://172.27.64.199:3000/fb/graph/me?access_token=" + this.get('fb_access_token'),
-				// url: 'https://graph.facebook.com/me?access_token=' + this.get('fb_access_token'),
+				url: this.create_facebook_url( FB_URLS['me'] ),
 				success: this.set_fb_user,
 				dataType: "json"
 			});
 		},
 
 		set_fb_user: function (data, status) {
-			if (data.length > 0) {
-				this.set({ "fb_user": data });
-			}
+			this.set({ "fb_user": data });
+		},
+
+		post_fb_message: function (message) {
+			var url = this.create_facebook_url( FB_URLS['feed_post'] );
+				url += '&message=' + escape( message );
+
+			$.ajax({
+				url: url,
+				type: 'POST',
+				dataType: 'text'
+			});
+		},
+
+		post_fb_checkin: function (location) {
+			var url = this.create_facebook_url( FB_URLS['checkins'] );
+				// url += '&coordinates='
+				// url += '&place='
+				// url += '&message='
 		},
 
 		create_facebook_url: function (base) {

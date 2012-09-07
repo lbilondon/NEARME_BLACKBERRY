@@ -1,0 +1,10 @@
+{
+  "name": "OAuth Webservice",
+  "description": "Quick example webservice for working with twitter oauth",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.x",
+    "oauth": "0.9.x"
+  }
+}

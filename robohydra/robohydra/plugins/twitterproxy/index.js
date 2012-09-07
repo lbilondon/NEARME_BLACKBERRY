@@ -28,8 +28,8 @@ exports.getBodyParts = function(config) {
 
       new RoboHydraHeadProxy({
           name: 'proxy',
-          mountPath: '/fb/graph/',
-          proxyTo: 'https://graph.facebook.com/',
+          mountPath: '/twitter/api/',
+          proxyTo: 'https://api.twitter.com/',
           setHostHeader: true
       })
     ]
