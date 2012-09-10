@@ -112,6 +112,14 @@ function(UnderscoreLib, BackboneLib) {
 					function (buttonPressed) {
 						if (buttonPressed == 1) {
 							contact.save(success, error);
+							if (navigator.notification) {
+								navigator.notification.alert(
+									'Venue has been saved to your contact list', // message
+									null, // callback
+									'Contact saved', // title
+									'OK' // buttonName
+								);
+							}
 						}
 					},
 					'Add to contacts',

@@ -83,14 +83,33 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 						});
 
 						var model = this.model;
-						this.$content.find('.js_addToContacts').bind('click', function (e) {
+						var $addToContacts = this.$content.find('.js_addToContacts');
+						$addToContacts.unbind('click tap');
+						$addToContacts.bind('click tap', function (e) {
 							e.preventDefault();
 							model.saveToContacts();
 						});
 
-						this.$content.find('.js_addToFavourites').bind('click', function (e) {
+						var $addToFavourites = this.$content.find('.js_addToFavourites');
+						$addToFavourites.unbind('click tap');
+						$addToFavourites.bind('click tap', function (e) {
 							e.preventDefault();
 							model.saveToFavourites();
+							if (navigator.notification) {
+								navigator.notification.alert(
+									'Venue has been saved to your favourites list', // message
+									null, // callback
+									'Venue saved', // title
+									'OK' // buttonName
+								);
+							}
+						});
+
+						var $checkIn = this.$content.find('.js_checkIn');
+						$checkIn.unbind('click tap');
+						$checkIn.bind('click tap', function (e) {
+							e.preventDefault();
+							window.NEARMEAPP.UTILVIEWHELPER.toDoDialogue();
 						});
 					}
 

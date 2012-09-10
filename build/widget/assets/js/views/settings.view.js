@@ -44,9 +44,19 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 			this.$el.find('input').bind('change', this.save);
 
 			var sendToFriend = this.sendToFriend;
-			this.$el.find('.js_sendToFriend').bind('click', function (e) {
+
+			var $sendToFriend = this.$el.find('.js_sendToFriend');
+			$sendToFriend.unbind('click tap');
+			$sendToFriend.bind('click tap', function (e) {
 				e.preventDefault();
 				sendToFriend();
+			});
+
+			var $rateOnAppStore = this.$el.find('.js_rateOnAppStore');
+			$rateOnAppStore.unbind('click tap');
+			$rateOnAppStore.bind('click tap', function (e) {
+				e.preventDefault();
+				window.NEARMEAPP.UTILVIEWHELPER.toDoDialogue();
 			});
 
 			this.$el.on('pagebeforeshow', this.pagebeforeshow);
@@ -101,7 +111,7 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, SettingsModel, Header
 		},
 
 		sendToFriendSMS: function () {
-
+			window.NEARMEAPP.UTILVIEWHELPER.toDoDialogue();
 		},
 
 		buildSendToFriendSMS: function () {
