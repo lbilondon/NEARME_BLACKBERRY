@@ -21,14 +21,8 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 		checkins: "https://graph.facebook.com/me/checkins"
 	};
 
-	var TWITTER_CLIENDID = '4d4bZKM2gIKk0S3wWQnvuQ';
-	var TWITTER_CLIENTSECRET = 'cntPGH2QKSSsBvJKt0eMKN5MHiq1Fwy3K2hJMFCf70';
-
 	var TWITTER_URLS = {
-		request_token: "https://api.twitter.com/oauth/request_token",
-		authenticate: "https://api.twitter.com/oauth/authenticate",
-		access_token: "https://api.twitter.com/oauth/access_token",
-		status_update: "https://api.twitter.com/statuses/update"
+		connect: "https://172.27.64.199:3000/tw"
 	};
 
 	if (DEBUG) {
@@ -38,11 +32,6 @@ function(UnderscoreLib, BackboneLib, JqueryLib) {
 			}
 		}
 
-		for (var x in TWITTER_URLS) {
-			if (TWITTER_URLS.hasOwnProperty(x)) {
-				TWITTER_URLS[x] = TWITTER_URLS[x].replace('https://api.twitter.com/', 'http://172.27.64.199:3000/twitter/api/');
-			}
-		}
 	}
 
 	return Backbone.Model.extend({

@@ -43,38 +43,48 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 			var brands = new CategoriesCollection([
 				{
 					id: '313',
-					title: 'Pizza Hut'
+					title: 'Pizza Hut',
+					iconUrl: 'http://www.getnearme.com/data/categories/2012/05/313/Pizza-Hut.png'
 				}, {
 					id: '304',
-					title: 'Tesco'
+					title: 'Tesco',
+					iconUrl: 'http://www.getnearme.com/data/categories/2012/05/304/Tesco.png'
 				}
 			]);
 
 			var categories = new CategoriesCollection([
 				{
 					id: '001',
-					title: 'Banks & ATMs'
+					title: 'Banks & ATMs',
+					iconUrl: '/assets/img/icons/Categories/Bank.png'
 				}, {
 					id: '005',
-					title: 'Coffee Shops'
+					title: 'Coffee Shops',
+					iconUrl: '/assets/img/icons/Categories/Coffee-Shop.png'
 				}, {
 					id: '007',
-					title: 'Hotels'
+					title: 'Hotels',
+					iconUrl: '/assets/img/icons/Categories/Hotel.png'
 				}, {
 					id: '010',
-					title: 'Petrol Stations'
+					title: 'Petrol Stations',
+					iconUrl: '/assets/img/icons/Categories/Petrol-Station.png'
 				}, {
 					id: '013',
-					title: 'Pubs & Bars'
+					title: 'Pubs & Bars',
+					iconUrl: '/assets/img/icons/Categories/Pub.png'
 				}, {
 					id: '014',
-					title: 'Restaurants'
+					title: 'Restaurants',
+					iconUrl: '/assets/img/icons/Categories/Restaurant.png'
 				}, {
 					id: '016',
-					title: 'Supermarkets'
+					title: 'Supermarkets',
+					iconUrl: '/assets/img/icons/Categories/Supermarket.png'
 				}, {
 					id: '017',
-					title: 'Taxis'
+					title: 'Taxis',
+					iconUrl: '/assets/img/icons/Categories/Taxi.png'
 				}
 			]);
 

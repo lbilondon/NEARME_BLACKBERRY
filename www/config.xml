@@ -64,11 +64,11 @@
   <!-- Expose access to all URIs, including the file and http protocols -->
   <access subdomains="true" uri="*" />
 
-  <icon rim:hover="false" src="assets/img/icon.png" />
-  <icon rim:hover="true" src="assets/img/icon.png" />
+  <icon rim:hover="false" src="assets/img/startup_icons/Icon.png" />
+  <icon rim:hover="true" src="assets/img/startup_icons/Icon.png" />
 
   <rim:loadingScreen backgroundColor="#CFCFCF"
-                     foregroundImage="assets/img/loading_foreground.png"
+                     foregroundImage="assets/img/startup_icons/Default.png"
 		     onFirstLaunch="true">
     <rim:transitionEffect type="fadeOut" />
   </rim:loadingScreen>
