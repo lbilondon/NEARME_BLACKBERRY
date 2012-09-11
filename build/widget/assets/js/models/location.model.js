@@ -25,8 +25,10 @@ function(UnderscoreLib, BackboneLib) {
 			this.refreshCurrentPosition();
 		},
 		refreshCurrentPosition: function () {
-			if (navigator.geolocation !== undefined) {
+			if (navigator.geolocation !== undefined && this.get('latitude') === null) {
 				navigator.geolocation.getCurrentPosition(this.setCurrentPosition, this.onError);
+			} else {
+				window.NEARMEAPP.EVENTS.trigger('location_set');
 			}
 		},
 		setCurrentPosition: function (position) {

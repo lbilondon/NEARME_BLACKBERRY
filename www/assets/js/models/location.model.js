@@ -22,7 +22,11 @@ function(UnderscoreLib, BackboneLib) {
 		},
 		initialize : function() {
 			_.bindAll(this, 'refreshCurrentPosition', 'setCurrentPosition', 'onError');
-			this.refreshCurrentPosition();
+			if (this.get('latitude') === null || this.get('longitude') === null) {
+				this.refreshCurrentPosition();
+			} else {
+				window.NEARMEAPP.EVENTS.trigger('location_set');
+			}
 		},
 		refreshCurrentPosition: function () {
 			if (navigator.geolocation !== undefined) {

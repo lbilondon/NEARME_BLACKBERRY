@@ -9,12 +9,12 @@
       <% } %>
       
       <div class="ui-heading-content">
-        <% if (venue.get('photoUrl') !== null) { %><img src="<%= venue.get('photoUrl') %>" width="150px" class="ui-venue-photo" ><% } %>
+        <% if (venue.get('photoUrl') !== null) { %><span class="ui-venue-photo-container"><img src="<%= venue.get('photoUrl') %>" width="150px" class="ui-venue-photo" ></span><% } %>
         <h1><%= venue.get('tradingName') %></h1>
         
         <p><%= venue.get('location').fullAddress %></p>
       
-        <p><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
+        <p class="distance"><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
       </div>
       <% if (nextVenue !== undefined) { %>
         <a href="/venueDetails<% if (showMap) { %>Map<% } %>/<%= nextVenue.get('id') %>" class="ui-nextButton"><span>Next</span></a>
@@ -24,33 +24,33 @@
     </div>  
 
     <% if (!showMap) { %>
-    <div id="infoView">
-      <p><a href="/venueDetailsMap/<%= venue.get('id') %>" class="showMapView">show map</a></p>
+    <div id="infoView" class="infoView">
+      <p class="button btn_map"><a href="/venueDetailsMap/<%= venue.get('id') %>" class="showMapView"><img src="/assets/img/btn_map.png" alt="show map" /></a></p>
 
       <% if (venue.get('contact') !== null) { %>
         <% if (venue.get('contact').phone !== null) { %>
-        <p><a href="tel:<%= venue.get('contact').phone.replace(' ', '') %>"><strong>Phone:</strong> <%= venue.get('contact').phone %></a></p>
+        <p class="btn_phone"><a href="tel:<%= venue.get('contact').phone.replace(' ', '') %>"><strong>Phone:</strong> <%= venue.get('contact').phone %></a></p>
         <% } %>
 
 
         <% if (venue.get('contact').websiteUrl !== null) { %>
-          <p><a href="<%= venue.get('contact').websiteUrl %>" target="_none"><strong>Web:</strong> <%= venue.get('contact').websiteUrl %></a></p>
+          <p class="btn_website"><a href="<%= venue.get('contact').websiteUrl %>" target="_none"><strong>Web:</strong> <%= venue.get('contact').websiteUrl %></a></p>
         <% } %>
       <% } %>
-      <% if (mailToLink !== null) { %><p><a href="<%= mailToLink %>">Send via Email</a></p><% } %>
+      <% if (mailToLink !== null) { %><p class="btn_mailToLink"><a href="<%= mailToLink %>">Send via Email</a></p><% } %>
 
-      <% if (smsLink !== null) { %><p><a href="<%= smsLink %>">Send via SMS</a></p><% } %>
-
-
-      <p><a href="/checkin/<%= venue.get('id') %>" class="js_checkIn">Check In</a></p>
+      <% if (smsLink !== null) { %><p class="btn_smsLink"><a href="<%= smsLink %>">Send via SMS</a></p><% } %>
 
 
-      <p><a href="#" class="js_addToContacts">Add to contacts</a></p>
-      <p><a href="#" class="js_addToFavourites">Add to favourites</a></p>
+      <p class="btn_checkin"><a href="/checkin/<%= venue.get('id') %>" class="js_checkIn">Check In</a></p>
+
+
+      <p class="btn_addToContacts"><a href="#" class="js_addToContacts">Add to contacts</a></p>
+      <p class="btn_addToFavourites"><a href="#" class="js_addToFavourites">Add to favourites</a></p>
     </div>
     <% } else { %>
-    <div id="mapView">
-      <p><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView">show info</a></p>
+    <div id="mapView" class="mapView">
+      <p><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView"><img src="/assets/img/btn_info.png" alt="show info" /></a></p>
     </div>
     <% } %>
   <% } else { %>
