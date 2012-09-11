@@ -22,13 +22,15 @@ function(UnderscoreLib, BackboneLib) {
 		},
 		initialize : function() {
 			_.bindAll(this, 'refreshCurrentPosition', 'setCurrentPosition', 'onError');
-			this.refreshCurrentPosition();
-		},
-		refreshCurrentPosition: function () {
-			if (navigator.geolocation !== undefined && this.get('latitude') === null) {
-				navigator.geolocation.getCurrentPosition(this.setCurrentPosition, this.onError);
+			if (this.get('latitude') === null || this.get('longitude') === null) {
+				this.refreshCurrentPosition();
 			} else {
 				window.NEARMEAPP.EVENTS.trigger('location_set');
+			}
+		},
+		refreshCurrentPosition: function () {
+			if (navigator.geolocation !== undefined) {
+				navigator.geolocation.getCurrentPosition(this.setCurrentPosition, this.onError);
 			}
 		},
 		setCurrentPosition: function (position) {

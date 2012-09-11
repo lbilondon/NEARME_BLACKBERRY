@@ -37,6 +37,7 @@
   </license>
 
   <!-- <rim:navigation mode="focus" /> -->
+  <rim:cache disableAllCache="true" />
 
   <!-- Cordova API -->
   <feature id="blackberry.system" required="true" version="1.0.0.0" />

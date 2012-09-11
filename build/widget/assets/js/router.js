@@ -170,8 +170,9 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                 $('body').append(page.$el);
 
                 page.$el.on('pagehide', function (event, ui) {
-                    $(event.currentTarget).find("a[href^='#'], a[href^='/']").off('tap');
-                    $(event.currentTarget).remove();
+                    $(event.currentTarget).find("a[href^='#'], a[href^='/'], [data-rel='back']").off('tap');
+                    var tmp = $(event.currentTarget).remove();
+                    delete tmp;
                 });
                 this.bindEvents(page);
                 
