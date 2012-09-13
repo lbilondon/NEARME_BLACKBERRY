@@ -9,12 +9,15 @@
       <% } %>
       
       <div class="ui-heading-content">
-        <% if (venue.get('photoUrl') !== null) { %><span class="ui-venue-photo-container"><img src="<%= venue.get('photoUrl') %>" width="150px" class="ui-venue-photo" ></span><% } %>
-        <h1><%= venue.get('tradingName') %></h1>
+        <% if (venue.get('thumbUrl') !== null) { %><span class="ui-venue-photo-container"><img src="<%= venue.get('thumbUrl') %>" width="150px" class="ui-venue-photo" ></span><% } %>
+
+        <div class="contentInfo">
+          <h1><%= venue.get('tradingName') %></h1>
         
-        <p><%= venue.get('location').fullAddress %></p>
+          <p><%= venue.get('location').fullAddress %></p>
       
-        <p class="distance"><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
+          <p class="distance"><%= window.NEARMEAPP.UTILVIEWHELPER.calculateDistance(venue.get('distance')) %></p>
+        </div>
       </div>
       <% if (nextVenue !== undefined) { %>
         <a href="/venueDetails<% if (showMap) { %>Map<% } %>/<%= nextVenue.get('id') %>" class="ui-nextButton"><span>Next</span></a>
@@ -42,15 +45,15 @@
       <% if (smsLink !== null) { %><p class="btn_smsLink"><a href="<%= smsLink %>">Send via SMS</a></p><% } %>
 
 
-      <p class="btn_checkin"><a href="/checkin/<%= venue.get('id') %>" class="js_checkIn">Check In</a></p>
+      <!--<p class="btn_checkin"><a href="/checkin/<%= venue.get('id') %>" class="js_checkIn">Check In</a></p>-->
+      <p class="btn_checkin"><span class="js_checkIn">Check In</a></span>
 
-
-      <p class="btn_addToContacts"><a href="#" class="js_addToContacts">Add to contacts</a></p>
-      <p class="btn_addToFavourites"><a href="#" class="js_addToFavourites">Add to favourites</a></p>
+      <p class="btn_addToContacts"><span class="js_addToContacts">Add to contacts</span></p>
+      <p class="btn_addToFavourites"><span class="js_addToFavourites">Add to favourites</span></p>
     </div>
     <% } else { %>
     <div id="mapView" class="mapView">
-      <p><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView"><img src="/assets/img/btn_info.png" alt="show info" /></a></p>
+      <p class="button btn_info"><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView"><img src="/assets/img/btn_info.png" alt="show info" /></a></p>
     </div>
     <% } %>
   <% } else { %>

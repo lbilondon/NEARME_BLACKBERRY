@@ -50,18 +50,20 @@ function(UnderscoreLib, BackboneLib) {
 		setAddress: function (latitude, longitude) {
 			//Reverse Geocoding with Google Maps API V3
 			//https://developers.google.com/maps/documentation/javascript/geocoding#ReverseGeocoding
-			var geocoder = new google.maps.Geocoder();
-			var latlng = new google.maps.LatLng(latitude, longitude);
-			var that = this;
-			geocoder.geocode({ 'latLng': latlng}, function (results, status) {
-				if (results[0] !== undefined) {
-					that.set('formatted_address', results[0].formatted_address);
-					that.set('address_components', results[0].address_components);
-					that.set('geometry', results[0].geometry);
-					
-					window.NEARMEAPP.EVENTS.trigger('location_set');
-				}
-			});
+			if (google !== undefined) {
+				var geocoder = new google.maps.Geocoder();
+				var latlng = new google.maps.LatLng(latitude, longitude);
+				var that = this;
+				geocoder.geocode({ 'latLng': latlng}, function (results, status) {
+					if (results[0] !== undefined) {
+						that.set('formatted_address', results[0].formatted_address);
+						that.set('address_components', results[0].address_components);
+						that.set('geometry', results[0].geometry);
+						
+						window.NEARMEAPP.EVENTS.trigger('location_set');
+					}
+				});
+			}
 		},
 		onError: function (error) {
 			//handle error

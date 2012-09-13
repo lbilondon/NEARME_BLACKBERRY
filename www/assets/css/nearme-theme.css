@@ -249,7 +249,7 @@
 }
 
 .ui-venueDetails-heading {
-	height:100px;
+	min-height:100px;
 	font-size:15px;
 }
 
@@ -269,7 +269,7 @@
 	position:relative;
 	display:block;
 	float:left;
-	margin:0 10px;
+	margin:0 1%;
 	width:20%;
 	height:100%;
 }
@@ -277,6 +277,8 @@
 .ui-venue-photo {
 	position:relative;
 	width:100%;
+	max-height:95px;
+	max-width:95px;
 	margin:0.5em auto;
 }
 
@@ -314,7 +316,12 @@
 	float:left;
 	width:76%;
 	padding:0 2%;
-	height:100px;
+	min-height:100px;
+}
+
+.ui-heading-content .contentInfo {
+	margin-left:28%;
+	width:72%;
 }
 
 .ui-heading-content p {
@@ -1241,12 +1248,16 @@ a.ui-link-inherit {
 	background-position: 10px center;
 }
 
-.infoView p a {
+.infoView p a,
+.infoView p span {
 	position:relative;
 	display:block;
 	width:78%;
 	padding:14px 2% 14px 45px;
 	height:100%;
+	font-weight:bold;
+	color:#000;
+	cursor:pointer;
 }
 
 .infoView .button {
@@ -1270,11 +1281,14 @@ a.ui-link-inherit {
 	margin:9px 4% 9px 0;
 }
 
-.infoView .btn_phone {
+.infoView p:nth-child(2) {
 	clear:none;
 	float:left;
 	width:75%;
 	margin-right:0;
+}
+
+.infoView .btn_phone {
 	background-image: url('/assets/img/icons/List/call_list.png');
 }
 
@@ -1302,4 +1316,9 @@ a.ui-link-inherit {
 	background-image: url('/assets/img/icons/List/favoriteadd_list.png');
 }
 
+.mapView .btn_info {
+	position:absolute;
+	margin:9px auto 9px auto;
+	right:4%;
+}
 /* END NEARME SPECIFIC */

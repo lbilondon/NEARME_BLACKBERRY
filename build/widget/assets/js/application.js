@@ -41,7 +41,26 @@ function (Jquery, JqueryMobile, UnderscoreLib, BackboneLib, AppRouter, HistoryCo
 
 			window.NEARMEAPP.currentCategoriesCollection = null;
 			window.NEARMEAPP.currentVenuesCollection = null;
+
+			_setupContextMenu();
 		});
+	}
+
+	function _setupContextMenu () {
+
+		function customMenuItemClick() {
+			window.NEARMEAPP.ROUTER.navigate( 'settings', { trigger: true, replace: false });
+		}
+		
+		if (blackberry !== undefined) {
+
+			if (blackberry.ui.menu.getMenuItems().length > 0) {
+				blackberry.ui.menu.clearMenuItems();
+			}
+
+			var item = new blackberry.ui.menu.MenuItem(false, 1, "Settings", customMenuItemClick);
+			blackberry.ui.menu.addMenuItem(item);
+		}
 	}
 
 	return {

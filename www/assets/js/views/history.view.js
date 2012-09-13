@@ -56,7 +56,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HeaderTmplStr, Ven
 
 			this.$listTemplate = $(this.listTemplate({ venues: this.collection }));
 			
-			$clearAll.bind('click', this.clickCallback);
+			$clearAll.bind('tap', this.clickCallback);
 
 			this.$el.append($clearAll);
 			this.$el.append(this.$listTemplate);

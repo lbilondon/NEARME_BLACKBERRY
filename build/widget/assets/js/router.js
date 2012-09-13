@@ -169,8 +169,9 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
                 page.$el.attr({ 'data-role': 'page' });
                 $('body').append(page.$el);
 
+                var that = this;
                 page.$el.on('pagehide', function (event, ui) {
-                    $(event.currentTarget).find("a[href^='#'], a[href^='/'], [data-rel='back']").off('tap');
+                    that.unbindEvents(page);
                     var tmp = $(event.currentTarget).remove();
                     delete tmp;
                 });

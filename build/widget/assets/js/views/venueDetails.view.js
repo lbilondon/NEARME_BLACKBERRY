@@ -84,15 +84,15 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 
 						var model = this.model;
 						var $addToContacts = this.$content.find('.js_addToContacts');
-						$addToContacts.unbind('click tap');
-						$addToContacts.bind('click tap', function (e) {
+						$addToContacts.unbind();
+						$addToContacts.bind('click', function (e) {
 							e.preventDefault();
 							model.saveToContacts();
 						});
 
 						var $addToFavourites = this.$content.find('.js_addToFavourites');
-						$addToFavourites.unbind('click tap');
-						$addToFavourites.bind('click tap', function (e) {
+						$addToFavourites.unbind();
+						$addToFavourites.bind('click', function (e) {
 							e.preventDefault();
 							model.saveToFavourites();
 							if (navigator.notification) {
@@ -106,8 +106,8 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 						});
 
 						var $checkIn = this.$content.find('.js_checkIn');
-						$checkIn.unbind('click tap');
-						$checkIn.bind('click tap', function (e) {
+						$checkIn.unbind();
+						$checkIn.bind('click', function (e) {
 							e.preventDefault();
 							window.NEARMEAPP.UTILVIEWHELPER.toDoDialogue();
 						});
@@ -172,7 +172,7 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, VenuesCollection, 
 
 				var thisMap = $('<img src="' + url + ' " />');
 
-				thisMap.bind('click', function () {
+				thisMap.bind('tap', function () {
 					if (blackberry.invoke !== undefined) {
 						var args = new blackberry.invoke.MapsArguments(loc.latitude, loc.longitude);
 						blackberry.invoke.invoke(blackberry.invoke.APP_MAPS, args);

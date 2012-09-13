@@ -29,8 +29,9 @@ Get requirejs optimiser for nodejs:
 
 ##Deployment:
 
+When deploying to a phone you will need signing keys for the application, more information about those steps can be found at: https://developer.blackberry.com/html5/documentation/signing_setup_smartphone_apps_1920010_11.html
+
 Run these two commands from the root of the project:
 
 	> r.js -o www/assets/js/app.build.js
-	> ant blackberry build
 	> ant blackberry load-device

@@ -37,7 +37,7 @@
   </license>
 
   <!-- <rim:navigation mode="focus" /> -->
-  <rim:cache disableAllCache="true" />
+  <!-- <rim:cache disableAllCache="true" /> -->
 
   <!-- Cordova API -->
   <feature id="blackberry.system" required="true" version="1.0.0.0" />
@@ -59,6 +59,7 @@
   <feature id="blackberry.invoke.BrowserArguments" required="true" version="1.0.0.0"/> 
   <feature id="blackberry.pim.Address" required="true" version="1.0.0.0" /> 
   <feature id="blackberry.ui.dialog" required="true" version="1.0.0.0" />
+  <feature id="blackberry.ui.menu" required="true" version="1.0.0.0" />
   
   <!-- Cordova API -->
   <access subdomains="true" uri="file:///store/home" />
