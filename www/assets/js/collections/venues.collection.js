@@ -12,12 +12,12 @@ function(UnderscoreLib, BackboneLib, VenueModel) {
 		model: VenueModel,
 		url: function () {
 			if (useStub) {
-				return '/assets/js/dataStub/venues.json.js';
+				return './assets/js/dataStub/venues.json.js';
 			}
 		},
 		fetchFromId: function (id, options) {
 			if (id !== undefined) {
-				this.url = '/assets/js/dataStub/venue_search.' + id.toString() + '.json';
+				this.url = './assets/js/dataStub/venue_search.' + id.toString() + '.json';
 			}
 
 			return this.fetch(options);

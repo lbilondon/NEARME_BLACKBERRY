@@ -171,7 +171,6 @@ function(Jquery, JqueryMobileLib, UnderscoreLib, BackboneLib, HomeView, Settings
 
                 var that = this;
                 page.$el.on('pagehide', function (event, ui) {
-                    that.unbindEvents(page);
                     var tmp = $(event.currentTarget).remove();
                     delete tmp;
                 });

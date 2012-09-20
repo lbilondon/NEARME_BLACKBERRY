@@ -28,7 +28,7 @@
 
     <% if (!showMap) { %>
     <div id="infoView" class="infoView">
-      <p class="button btn_map"><a href="/venueDetailsMap/<%= venue.get('id') %>" class="showMapView"><img src="/assets/img/btn_map.png" alt="show map" /></a></p>
+      <p class="button btn_map"><a href="/venueDetailsMap/<%= venue.get('id') %>" class="showMapView"><img src="./assets/img/btn_map.png" alt="show map" /></a></p>
 
       <% if (venue.get('contact') !== null) { %>
         <% if (venue.get('contact').phone !== null) { %>
@@ -53,7 +53,7 @@
     </div>
     <% } else { %>
     <div id="mapView" class="mapView">
-      <p class="button btn_info"><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView"><img src="/assets/img/btn_info.png" alt="show info" /></a></p>
+      <p class="button btn_info"><a href="/venueDetails/<%= venue.get('id') %>" class="showInfoView"><img src="./assets/img/btn_info.png" alt="show info" /></a></p>
     </div>
     <% } %>
   <% } else { %>

@@ -1246,6 +1246,10 @@ a.ui-link-inherit {
 	background:#fff;
 	background-repeat: no-repeat;
 	background-position: 10px center;
+	-webkit-background-size: 32px 32px;
+	-moz-background-size: 32px 32px;
+	-o-background-size: 32px 32px;
+	background-size: 32px 32px;
 }
 
 .infoView p a,

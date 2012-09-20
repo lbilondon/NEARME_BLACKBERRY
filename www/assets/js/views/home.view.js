@@ -56,35 +56,35 @@ function(Jquery, JqueryMobile, UnderscoreLib, BackboneLib, CategoriesCollection,
 				{
 					id: '001',
 					title: 'Banks & ATMs',
-					iconUrl: '/assets/img/icons/Categories/Bank.png'
+					iconUrl: './assets/img/icons/Categories/Bank.png'
 				}, {
 					id: '005',
 					title: 'Coffee Shops',
-					iconUrl: '/assets/img/icons/Categories/Coffee-Shop.png'
+					iconUrl: './assets/img/icons/Categories/Coffee-Shop.png'
 				}, {
 					id: '007',
 					title: 'Hotels',
-					iconUrl: '/assets/img/icons/Categories/Hotel.png'
+					iconUrl: './assets/img/icons/Categories/Hotel.png'
 				}, {
 					id: '010',
 					title: 'Petrol Stations',
-					iconUrl: '/assets/img/icons/Categories/Petrol-Station.png'
+					iconUrl: './assets/img/icons/Categories/Petrol-Station.png'
 				}, {
 					id: '013',
 					title: 'Pubs & Bars',
-					iconUrl: '/assets/img/icons/Categories/Pub.png'
+					iconUrl: './assets/img/icons/Categories/Pub.png'
 				}, {
 					id: '014',
 					title: 'Restaurants',
-					iconUrl: '/assets/img/icons/Categories/Restaurant.png'
+					iconUrl: './assets/img/icons/Categories/Restaurant.png'
 				}, {
 					id: '016',
 					title: 'Supermarkets',
-					iconUrl: '/assets/img/icons/Categories/Supermarket.png'
+					iconUrl: './assets/img/icons/Categories/Supermarket.png'
 				}, {
 					id: '017',
 					title: 'Taxis',
-					iconUrl: '/assets/img/icons/Categories/Taxi.png'
+					iconUrl: './assets/img/icons/Categories/Taxi.png'
 				}
 			]);
 

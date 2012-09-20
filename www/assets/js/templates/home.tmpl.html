@@ -2,10 +2,10 @@
 	<ul class="listView" data-role="listview">
 		<% if (brands !== null) { %>
 		<li>
-			<a href="/brands/all"><img src="/assets/img/icons/Categories/All-Brands.png" class="ui-li-icon ui-li-icon-a ui-li-thumb"> All Brands</a></li>
+			<a href="/brands/all"><img src="./assets/img/icons/Categories/All-Brands.png" class="ui-li-icon ui-li-icon-a ui-li-thumb" height="32px" width="32px" /> All Brands</a></li>
 		
 		<% brands.each(function(brand) { %>
-			<li><a href="/venues/<%= brand.get('id') %>"><% if (brand.get('iconUrl') !== null) { %><img src="<%= brand.get('iconUrl') %>" class="ui-li-icon ui-li-icon-a ui-li-thumb" /><% } %>
+			<li><a href="/venues/<%= brand.get('id') %>"><% if (brand.get('iconUrl') !== null) { %><img src="<%= brand.get('iconUrl') %>" class="ui-li-icon ui-li-icon-a ui-li-thumb" height="32px" width="32px" /><% } %>
           <%= brand.get('title') %></a></li>
 		<% }); %>
 
@@ -13,10 +13,10 @@
 		<% } %>
 
 		<% if (categories !== null) { %>
-		<li><a href="/categories/all"><img src="/assets/img/icons/Categories/All-Categories.png" class="ui-li-icon ui-li-icon-a ui-li-thumb"> All Categories</a></li>
+		<li><a href="/categories/all"><img src="./assets/img/icons/Categories/All-Categories.png" class="ui-li-icon ui-li-icon-a ui-li-thumb" height="32px" width="32px" /> All Categories</a></li>
 		
 		<% categories.each(function(category) { %>
-			<li><a href="/venues/<%= category.get('id') %>"><% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-icon-a ui-li-thumb"><% } %>
+			<li><a href="/venues/<%= category.get('id') %>"><% if (category.get('iconUrl') !== null) { %><img src="<%= category.get('iconUrl') %>" class="ui-li-icon ui-li-icon-a ui-li-thumb" height="32px" width="32px" /><% } %>
           <%= category.get('title') %></a></li>
 		<% }); %>
 		<% } %>

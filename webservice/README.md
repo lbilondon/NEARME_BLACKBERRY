@@ -1,5 +1,8 @@
 #Webservice for showing Twitter OAuth
 
+__PLEASE NOTE:__ This is for demonstration / quick development purposes only, you will need to setup a more robust webservice for production enviroments.
+
+
 ##Running the server:
 
 1. To run the server run the following command in this folder:
